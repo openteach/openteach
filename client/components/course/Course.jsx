@@ -14,20 +14,25 @@ export default class Course extends React.Component {
         let lid = this.props.lectureId;
         var lecture;
         if(lid){
-            lecture = course.lectures[lid].content
+            lecture = course.lectures[lid]
         }
         else {
-            lecture = course.index.content
+            lecture = course.index
         }
 
         // Parse the markdown part to HTML
         let md = new Remarkable();
         md.use(Meta);
-        let html = md.render(lecture);
+        let html = md.render(lecture.content);
 
         // Generate the content
         return (
-            <div dangerouslySetInnerHTML={ {__html: html} } />
+            <div>
+                <div>{lecture.meta.title}</div>
+                <div>{lecture.meta.tags}</div>
+                <div>{lecture.meta.difficulty}</div>
+                <div dangerouslySetInnerHTML={ {__html: html} } />
+            </div>
         )
     }
 
