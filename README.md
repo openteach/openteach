@@ -2,7 +2,7 @@
 Platform for online courses. we emphasize:
 
 * __Data Control:__ All data is in the hand of the instructor. We
-  do take any data as prisoner, and changing platform should be
+  do not take any data as prisoner, and changing platform should be
   easy.
 
 ## Setup
