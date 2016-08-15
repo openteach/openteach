@@ -32,9 +32,9 @@ Four easy steps to get started from the terminal:
 }
 ```
 4. Edit the new `settings.json` file.
-  * Go to your GitHub *settings* in top right corner.
-  * In the left menu click *Personal access tokens*.
-  * In top right corner choose *Generate new token*.
+  * Go to your GitHub **settings** in top right corner.
+  * In the left menu click **Personal access tokens**.
+  * In top right corner choose **Generate new token**.
   * Copy and paste the generated token and replace the '```[GitHub oAuth Token]```' in settings.json file with the new token.
 
 ## Running Locally
