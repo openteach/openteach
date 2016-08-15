@@ -11,14 +11,14 @@ we emphasize:
 
 ## Setup
 
-Four easy steps to get started:
+Four easy steps to get started from the terminal:
 
 1. Clone this repository:
     - `git clone git@github.com:openteach/openTeach.git`
-    - `cd openTeach`
-2. make a settings file
+    - Go into the openTeach folder with `cd openTeach`
+2. make a settings file in the root folder
     - `touch settings.json`
-3. Copy the following below template into you new `settings.json` file
+3. Copy and paste the following below template into you new settings.json file
 
 ```
 {
@@ -31,11 +31,11 @@ Four easy steps to get started:
     }
 }
 ```
-4. Edit the `settings.json`.
-  * Go to your GitHub settings
-  * In the left menu click 'Personal access tokens'.
-  * In top right corner choose 'Generate new token'.
-  * Copy paste the generated token and replace the ```[GitHub oAuth Token]``` with the new token.
+4. Edit the new `settings.json` file.
+  * Go to your GitHub *settings* in top right corner.
+  * In the left menu click *Personal access tokens*.
+  * In top right corner choose *Generate new token*.
+  * Copy and paste the generated token and replace the '```[GitHub oAuth Token]```' in settings.json file with the new token.
 
 ## Running Locally
 This projects can be run in two modes: As the normal app and for testing.
