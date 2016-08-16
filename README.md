@@ -25,19 +25,19 @@ Four easy steps to get started from the terminal:
 3. Copy and paste the template below into the settings.json file
 4. Edit the new `settings.json` file.
 
-  ```
-  {
-      "githubApi" : {
-          "access_token" : "GitHub person access token"
-      },
-      "instructor" : {
-          "ghUser" : "openteach",
-          "ghRepo" : "test-instructor"
-      }
+```
+{
+  "githubApi" : {
+      "access_token" : "GitHub person access token"
+  },
+  "instructor" : {
+      "ghUser" : "openteach",
+      "ghRepo" : "test-instructor"
   }
-  ```
+}
+```
 
-  __GitHub person access token:__
+__GitHub person access token:__
 
 1. Go to your GitHub __settings__ in top right corner.
 2. In the left menu click __Personal access tokens__.
