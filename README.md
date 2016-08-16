@@ -44,6 +44,7 @@ __GitHub person access token:__
 3. In top right corner choose __Generate new token__.
 4. Copy and paste the generated token and replace the
   __`GitHub personal access token`__ in settings.json file with the new token.
+5. run `meteor npm install` to install dependencies.
 
 ## Running Locally
 This projects can be run in two modes: As the normal app and for testing.
