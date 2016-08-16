@@ -37,7 +37,7 @@ Four easy steps to get started from the terminal:
 }
 ```
 
-__GitHub person access token:__
+__GitHub personal access token:__
 
 1. Go to your GitHub __settings__ in top right corner.
 2. In the left menu click __Personal access tokens__.
