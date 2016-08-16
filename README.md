@@ -1,7 +1,11 @@
 # Open Teach
 Platform for online teaching.
 
-OpenTeach is an online open source platform for educators. With OpenTeach, educators will be able to hold their own private lessons, courses and lectures online. Everyone can in this way be a teacher and share their knowledge of one or more subjects they have a great interest and knowledge about. OpenTeach is the bridge that creates the way from teacher to student.
+OpenTeach is an online open source platform for educators. With OpenTeach,
+educators will be able to hold their own private lessons, courses and lectures
+online. Everyone can in this way be a teacher and share their knowledge of one
+or more subjects they have a great interest and knowledge about. OpenTeach is
+the bridge that creates the way from teacher to student.
 
 we emphasize:
 
@@ -18,24 +22,28 @@ Four easy steps to get started from the terminal:
     - Go into the openTeach folder with `cd openTeach`
 2. make a settings file in the root folder
     - `touch settings.json`
-3. Copy and paste the following below template into you new settings.json file
-
-```
-{
-    "githubApi" : {
-        "access_token" : "[GitHub oAuth Token]"
-    },
-    "instructor" : {
-        "ghUser" : "openteach",
-        "ghRepo" : "test-instructor"
-    }
-}
-```
+3. Copy and paste the template below into the settings.json file
 4. Edit the new `settings.json` file.
-  * Go to your GitHub **settings** in top right corner.
-  * In the left menu click **Personal access tokens**.
-  * In top right corner choose **Generate new token**.
-  * Copy and paste the generated token and replace the **```[GitHub oAuth Token]```** in settings.json file with the new token.
+
+  ```
+  {
+      "githubApi" : {
+          "access_token" : "GitHub person access token"
+      },
+      "instructor" : {
+          "ghUser" : "openteach",
+          "ghRepo" : "test-instructor"
+      }
+  }
+  ```
+
+  __GitHub person access token:__
+
+1. Go to your GitHub __settings__ in top right corner.
+2. In the left menu click __Personal access tokens__.
+3. In top right corner choose __Generate new token__.
+4. Copy and paste the generated token and replace the
+  __`GitHub person access token`__ in settings.json file with the new token.
 
 ## Running Locally
 This projects can be run in two modes: As the normal app and for testing.
