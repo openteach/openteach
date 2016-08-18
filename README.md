@@ -23,7 +23,6 @@ Four easy steps to get started from the terminal:
 2. make a settings file in the root folder
     - `touch settings.json`
 3. Copy and paste the template below into the settings.json file
-4. Edit the new `settings.json` file.
 
 ```
 {
@@ -37,13 +36,16 @@ Four easy steps to get started from the terminal:
 }
 ```
 
+4. Edit the new `settings.json` file your personal access token.
+
 __GitHub personal access token:__
 
-1. Go to your GitHub __settings__ in top right corner.
-2. In the left menu click __Personal access tokens__.
-3. In top right corner choose __Generate new token__.
-4. Copy and paste the generated token and replace the
+* Go to your GitHub __settings__ in top right corner.
+* In the left menu click __Personal access tokens__.
+* In top right corner choose __Generate new token__.
+* Copy and paste the generated token and replace the
   __`GitHub personal access token`__ in settings.json file with the new token.
+
 5. run `meteor npm install` to install dependencies.
 
 ## Running Locally
