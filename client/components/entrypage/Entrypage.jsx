@@ -5,17 +5,17 @@ import MainContent from './MainContent.jsx';
 import Footer from './Footer.jsx';
 
 export default class Entrypage extends React.Component {
-	render() {
-		return(
-				<div className="App__component">
+    render() {
+        return(
+            <div className="App__component">
 
-					<Navigation />
+                <Navigation />
 
-					<MainContent />
+                <MainContent />
 
-					<Footer />
-
-				</div>
-		)
-	}
+                <Footer />
+                
+            </div>
+        )
+    }
 }
