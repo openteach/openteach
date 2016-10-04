@@ -60,7 +60,7 @@ export default class Course extends React.Component {
 
     render() {
         return(
-            <div className="expanded">
+            <div className="expanded" className="DashboardBackground">
                 <div id="lecture-selector">
 
                     <div className="lectureList small-2 columns">
