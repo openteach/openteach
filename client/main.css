@@ -11,12 +11,6 @@ openTeach CSS style sheet
 GLOBAL STYLES
 *************************************************/
 
-    .DashboardBackground {
-        background-color: white;
-        background-size: cover;
-        height: 100vh;
-    }
-
 	body {
 		font-family: 'Quicksand', sans-serif;
 		font-weight: 100;
@@ -26,6 +20,12 @@ GLOBAL STYLES
         background: url("../assets/images/stardust.png");
         background-size: cover;
 	}
+
+    .DashboardBackground {
+        background-color: white;
+        background-size: cover;
+        height: 100vh;
+    }
 
 /*************************************************
 TYPOGRAPHY
