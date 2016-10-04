@@ -11,11 +11,20 @@ openTeach CSS style sheet
 GLOBAL STYLES
 *************************************************/
 
+    .DashboardBackground {
+        background-color: white;
+        background-size: cover;
+        height: 100vh;
+    }
+
 	body {
 		font-family: 'Quicksand', sans-serif;
 		font-weight: 100;
 		margin: 0;
 		padding: 0;
+        height: 100vh;
+        background: url("../assets/images/stardust.png");
+        background-size: cover;
 	}
 
 /*************************************************
@@ -49,13 +58,6 @@ APP COMPONENT
 
 .App__component {
 	font-family: 'Quicksand', sans-serif;
-	font-weight: 100;
-    background: url("../assets/images/stardust.png");
-    position: relative;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
 }
 
 /*************************************************

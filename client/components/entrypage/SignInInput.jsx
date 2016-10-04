@@ -59,7 +59,8 @@ export default class SignInInput extends React.Component {
                                     <label
                                         className="signIn__input__text signIn__input">
                                         Email
-                                        <input type="email"
+                                        <input
+                                            type="email"
                                             ref="user"
                                             placeholder="Email"
                                             />
@@ -67,9 +68,11 @@ export default class SignInInput extends React.Component {
                                     <label
                                         className="signIn__input__text signIn__input">
                                         Password
-                                        <input type="password"
+                                        <input
+                                            type="password"
                                             ref="password"
                                             placeholder="Password"
+                                            name="password"
                                             />
                                     </label>
                                 </div>

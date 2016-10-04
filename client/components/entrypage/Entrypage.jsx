@@ -14,7 +14,7 @@ export default class Entrypage extends React.Component {
                 <MainContent />
 
                 <Footer />
-                
+
             </div>
         )
     }

@@ -9,7 +9,7 @@ export default class Dashboard extends React.Component {
 
 	render() {
 		return(
-			<div>
+			<div className="DashboardBackground">
 				<ChooseDashboard selected={this.getSelected()} />
 			</div>
 		)
