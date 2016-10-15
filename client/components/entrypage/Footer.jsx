@@ -5,7 +5,7 @@ export default class Footer extends React.Component {
 		return(
 				<div className="footer">
 					<p>
-						Powered byyyy <strong>NextAdept</strong> 2016
+						Powered by <strong>NextAdept</strong> 2016
 					</p>
 				</div>
 		)
