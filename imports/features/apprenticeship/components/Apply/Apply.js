@@ -69,4 +69,6 @@ const styles = {
 
 Apply.propTypes = {};
 
+Apply.defaultProps = {};
+
 export default Radium(Apply)
