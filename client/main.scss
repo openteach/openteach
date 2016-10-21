@@ -1,0 +1,578 @@
+/****************************************
+openTeach CSS style sheet
+****************************************/
+
+/*---- Quicksand google font ----*/
+	@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);
+/*---- Crafty girls google font ----*/
+	@import url(https://fonts.googleapis.com/css?family=Crafty+Girls);
+
+/*************************************************
+GLOBAL STYLES
+*************************************************/
+
+	body {
+		font-family: 'Quicksand', sans-serif;
+		font-weight: 100;
+		margin: 0;
+		padding: 0;
+        height: 100vh;
+        background: url("../assets/images/stardust.png");
+        background-size: cover;
+	}
+
+    .DashboardBackground {
+        background-color: white;
+        background-size: cover;
+        height: 100vh;
+    }
+
+/*************************************************
+TYPOGRAPHY
+*************************************************/
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		font-family: 'Quicksand', sans-serif;
+		font-weight: 300;
+		margin: 0;
+		padding: 0;
+	}
+
+	p {
+		font-family: 'Quicksand', sans-serif;
+		font-weight: 400;
+	}
+
+/*************************************************
+							---== ENTRY PAGE ==---
+*************************************************/
+
+
+/*************************************************
+APP COMPONENT
+*************************************************/
+
+.App__component {
+	font-family: 'Quicksand', sans-serif;
+}
+
+/*************************************************
+NAVIGATION COMPONENT
+*************************************************/
+
+	.navigation {
+		height: auto;
+		display: flex;
+	}
+
+	.navigation ul {
+		list-style: none;
+		padding: 20px 30px 0 0;
+		margin: 0;
+	}
+
+	.navigation li {
+		list-style: none;
+	}
+
+	.navigation a {
+		color: #2980b9;
+		text-decoration: none;
+		font-weight: 400;
+		font-size: 12px;
+	}
+
+	.navigation a:hover {
+		color: #3498db;
+		text-decoration: none;
+	}
+	.navigation a:visited {
+		text-decoration: none;
+	}
+
+	.navigation__logo {
+		font-family: 'Quicksand', sans-serif;
+		font-weight: 400;
+		padding: 20px 30px 0 30px;
+		font-size: 20px;
+		flex-grow: 1;
+		color: #3498db;
+	}
+
+/*************************************************
+MAIN CONTENT COMPONENT
+*************************************************/
+
+	.mainContent {
+		text-align: center;
+	}
+
+	.mainHeading {
+		font-size: 26px;
+		font-weight: 400;
+		padding-top: 90px;
+		margin-bottom: 20px;
+		color: #3498db;
+	}
+
+	.mainContent__subtext {
+		color: #3498db;
+		font-size: 13px;
+		font-weight: 400;
+		margin-bottom: 60px;
+	}
+
+/*************************************************
+SIGN UP COMPONENT
+*************************************************/
+
+/*---- SIGN UP FORM ----*/
+
+	.signUpForm {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.signUpForm input[type=text] {
+		font-size: 16px;
+		font-weight: 100;
+		width: 400px;
+		margin: 20px auto;
+		border: none;
+    	outline: none;
+    	background: none;
+    	box-shadow: none;
+    	border-bottom: 1px solid #7f8c8d;
+		border-color: #2980b9;
+	}
+
+/*---- Placeholder text ----*/
+
+        /* WebKit, Blink, Edge */
+		.signUpForm input[type=text]::-webkit-input-placeholder {
+		    color: #2980b9;
+		}
+
+        /* Mozilla Firefox 4 to 18 */
+		.signUpForm input[type=text]:-moz-placeholder {
+		   color: #2980b9;
+		}
+
+        /* Mozilla Firefox 19+ */
+		.signUpForm input[type=text]::-moz-placeholder {
+		   color: #2980b9;
+		}
+
+        /* Internet Explorer 10-11 */
+		.signUpForm input[type=text]:-ms-input-placeholder {
+		   color: #2980b9;
+		}
+
+/*---- Input text ----*/
+
+		.signUpForm input[type=text], input {
+			font-size: 16px;
+			font-weight: 100;
+			letter-spacing: 2px;
+			color: #2980b9;
+		}
+
+/*---- Sign up button ----*/
+
+	.signUpForm input[type=submit] {
+		margin: 0 auto;
+		margin-top: 40px;
+		margin-bottom: 16px;
+	    border-radius: 3px;
+	    width: 200px;
+	    height: 35px;
+	    border: none;
+	    outline: none;
+	    background-color: #2ecc71;
+	    font-size: 16px;
+	    font-weight: 100;
+	    color: #fff;
+	    transition: background-color .28s ease-in-out;
+	    letter-spacing: 3px;
+	    /*Shadow for sign up button*/
+		-moz-box-shadow: 0 3px 0 #27ae60;
+    -webkit-box-shadow: 0 3px 0 #27ae60;
+    box-shadow: 0 3px 0 #27ae60;
+	}
+
+	.signUpForm input[type=submit]:hover {
+		background-color: #27ae60;
+	}
+
+/*************************************************
+SIGN IN COMPONENT
+*************************************************/
+
+/*---- Sign in button in form of a link ----*/
+
+	.orTagline {
+		font-size: 12px;
+		font-weight: 400;
+		color: #3498db;
+		margin-top: 14px;
+		letter-spacing: 2px;
+	}
+
+	.signInBtn a {
+		font-size: 14px;
+		font-weight: 400;
+		color: #3498db;
+		text-decoration: none;
+		letter-spacing: 2px;
+		text-decoration: underline;
+	}
+
+	.signInBtn a:hover {
+		text-decoration: none;
+		color: rgb(27, 188, 155);
+		font-size: 16px;
+		letter-spacing: 2px;
+		text-decoration: underline;
+	}
+
+    .signIn__heading {
+        font-size: 26px;
+        font-weight: 100;
+        padding-top: 20px;
+        margin-bottom: 10px;
+        color: #3498db;
+    }
+
+    .signIn__subtext {
+        color: #3498db;
+        font-size: 13px;
+        font-weight: 400;
+        margin-bottom: 30px;
+    }
+
+    /* General styles for sign in input fields */
+
+    .signIn__input {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    /* Input label text */
+
+    .signIn__input__text {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .signIn__input__text:last-child {
+        margin-bottom: 40px;
+    }
+
+    /* Btn - Sign in */
+    .signIn__btn {
+        margin: 0 auto;
+        padding: 10px 30px;
+        border-radius: 3px;
+        border: none;
+        outline: none;
+        background-color: #2ecc71;
+        font-size: 16px;
+        font-weight: 100;
+        color: #fff;
+        transition: background-color .28s ease-in-out;
+        letter-spacing: 3px;
+        /*Shadow for sign up button*/
+        -moz-box-shadow: 0 3px 0 #27ae60;
+        -webkit-box-shadow: 0 3px 0 #27ae60;
+        box-shadow: 0 3px 0 #27ae60;
+    }
+
+    .SignIn__btn:hover {
+        color: #fff;
+        background-color: #27ae60;
+    }
+
+    /* Or sub-text */
+
+    .signIn__orSubText {
+        font-size: 12px;
+        margin-top: 30px;
+        color: grey;
+        font-weight: 100;
+    }
+
+    /* General style for social btns */
+
+    .signIn__social__btn {
+        margin-top: 30px;
+    }
+
+    /* Social sign in btn */
+        /* Facebook sign in btn */
+
+        .signIn__facebook__btn {
+            margin: 0 auto;
+            margin-right: 10px;
+            padding: 5px 10px;
+            border: none;
+            outline: none;
+            background-color: rgb(46, 77, 167);
+            font-size: 14px;
+            font-weight: 100;
+            color: #fff;
+            transition: background-color .28s ease-in-out;
+            letter-spacing: 2px;
+        }
+
+        .signIn__facebook__btn:hover {
+            color: #fff;
+            background-color: rgb(8, 37, 103);
+        }
+
+    /* The sign in close window link-btn */
+
+    .SignIn__close__btn {
+        margin-top: 30px;
+        font-size: 14px;
+    }
+
+/*************************************************
+FOOTER COMPONENT
+*************************************************/
+
+	.footer {
+		text-align: center;
+	}
+
+	.footer p {
+		font-size: 12px;
+		color: #3498db;
+        margin: 0;
+        padding-bottom: 20px;
+	}
+
+/**************************************************
+						---== DASHBOARD PAGE ==---
+**************************************************/
+
+/*---=== Dashboard Component ===---*/
+
+.dashboard {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	font-family: 'Quicksand', sans-serif;
+}
+
+/*--== Styles for 'Apprenticeship' ==--*/
+
+/* General styles for apprenticeship */
+.apprenticeship {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	font-family: 'Quicksand', sans-serif;
+    margin-top: 30px;
+}
+
+/* This headline styles is applied to both headlines */
+.apprenticeship--headline {
+    margin-bottom: 30px;
+    font-weight: 100;
+}
+
+/* General styles for the apprenticeship information section */
+.apprenticeship--information {
+    margin-top: 60px;
+}
+
+.apprenticeship--informationtext {
+    text-align: justify;
+    padding-right: 50px;
+    font-weight: 100;
+    line-height: 32px;
+}
+
+/* General styles for the apprenticeship motivation section */
+.apprenticeship--motivation {
+    margin-top: 60px;
+}
+
+.apprenticeship--motivation textarea {
+    border: 1px solid lightgrey;
+    resize: none;
+    height: 300px;
+}
+
+/* Btn - Apply for apprenticeship */
+.apply__btn {
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 3px;
+    height: 35px;
+    border: none;
+    outline: none;
+    background-color: #2ecc71;
+    font-size: 16px;
+    font-weight: 100;
+    color: #fff;
+    transition: background-color .28s ease-in-out;
+    letter-spacing: 3px;
+    /*Shadow for sign up button*/
+    -moz-box-shadow: 0 3px 0 #27ae60;
+    -webkit-box-shadow: 0 3px 0 #27ae60;
+    box-shadow: 0 3px 0 #27ae60;
+}
+
+.apply__btn:hover {
+    background-color: #27ae60;
+}
+
+/*--== Styles for 'Courses' page ==--*/
+
+/* Styling for the Courses tab */
+
+.listOfCourses__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+	margin: 50px 0 0 0;
+	list-style: none;
+}
+
+.listOfCourses__list li {
+    width: 300px;
+    height: 100px;
+    margin: 80px 10px 0px 10px;
+    background-color: rgb(248, 248, 248);
+    border-left: 4px solid lightgrey;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 36px;
+}
+
+.listOfCourses__list li a {
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.listOfCourses__list li a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for the Courses page */
+
+.list__logo {
+    content:url("/assets/images/openTeach-owl-logo.gif");
+    background-repeat: no-repeat;
+    width: 180px;
+}
+
+.list__logo__text {
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    color: #3498db;
+}
+
+.lectureList {
+    background-color: rgb(248, 248, 248);
+    border-right: 1px solid lightgrey;
+    height: 100vh;
+    position: fixed;
+}
+
+.lectureList__ul {
+    list-style: none;
+    color: #fff;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.lectureList__ul li {
+    padding-top: 15px;
+}
+
+.lectureList__ul li:hover {
+    text-decoration: underline;
+}
+
+/* Courses list 'landingpage' content */
+
+/* Course content general styles */
+
+#lecture-content {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+/* Course Headline 'h1' */
+
+#lecture-content h1 {
+    margin-top: 80px;
+}
+
+/* Course content headline colors */
+
+#lecture-content
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: rgb(11, 104, 159);
+}
+
+/*--== Styles for 'lectures' page
+    PAGE NOT ACTIVE YET...
+==--*/
+
+.lectures {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	font-family: 'Quicksand', sans-serif;
+}
+
+/* Coming soon headline in the lectures tab */
+.coming-soon__headline {
+	font-size: 34px;
+    font-weight: 100;
+	margin-top: 200px;
+	display: flex;
+	justify-content: center;
+	color: #3498db;
+}
+
+.lecture__btn--apply {
+    text-align: center;
+    margin: 60px;
+}
+
+/*************************************************
+*************************************************
+					---== RESPONSIVE DESIGN ==---
+*************************************************
+*************************************************/
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
