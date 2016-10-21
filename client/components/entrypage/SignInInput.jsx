@@ -4,9 +4,22 @@ import { Meteor } from 'meteor/meteor';
 
 export default class SignInInput extends React.Component {
 
-    onSubmit(e){
-        Meteor.loginWithPassword(this.refs.user, this.refs.password, function(e){
-            if(typeof e === 'undefined'){
+    constructor(props) {
+        super(props);
+        this.state = {
+            visible : false,
+            user : "",
+            pass : ""
+        }
+
+        this.updateUser = this.updateUser.bind(this);
+        this.updatePass = this.updatePass.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onSubmit(event){
+        Meteor.loginWithPassword(this.state.user, this.state.pass, function(err){
+            if(typeof err === 'undefined'){
                 FlowRouter.go("dashboardRoute", {show : "1"});
             } else {
                 // error
@@ -16,23 +29,20 @@ export default class SignInInput extends React.Component {
         })
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible : false
-        }
-    }
-
     openModal() {
-        this.setState({
-            visible : true
-        });
+        this.setState({visible : true});
     }
 
     closeModal() {
-        this.setState({
-            visible : false
-        });
+        this.setState({visible : false});
+    }
+
+    updateUser(event){
+        this.setState({user: event.target.value});
+    }
+
+    updatePass(event){
+        this.setState({pass: event.target.value});
     }
 
     render () {
@@ -60,19 +70,19 @@ export default class SignInInput extends React.Component {
                                         className="signIn__input__text signIn__input">
                                         Email
                                         <input
-                                            type="email"
-                                            ref="user"
                                             placeholder="Email"
+                                            value={this.state.user}
+                                            onChange={this.updateUser}
                                             />
                                     </label>
                                     <label
                                         className="signIn__input__text signIn__input">
                                         Password
                                         <input
-                                            type="password"
-                                            ref="password"
                                             placeholder="Password"
                                             name="password"
+                                            value={this.state.pass}
+                                            onChange={this.updatePass}
                                             />
                                     </label>
                                 </div>
@@ -81,18 +91,9 @@ export default class SignInInput extends React.Component {
                                 <a
                                     className="signIn__btn"
                                     href="#"
-                                    >
+                                    onClick={this.onSubmit}>
                                     Sign in
                                 </a>
-                            </div>
-                            <div>
-                                <p
-                                    className="signIn__orSubText">
-                                    or sign in with
-                                </p>
-                            </div>
-                            <div className="signIn__social__btn">
-                                <a href="#" className="signIn__facebook__btn">Facebook</a>
                             </div>
                             <div className="SignIn__close__btn">
                                 <a
