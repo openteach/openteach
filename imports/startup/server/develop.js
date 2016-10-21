@@ -63,7 +63,6 @@ function debug(){
     };
 
     Courses.schema.validate(demoCourse);
-
     Courses.upsert({title : demoCourse.title}, {$set : demoCourse});
 }
 

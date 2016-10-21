@@ -68,6 +68,12 @@ meteor test --driver-package practicalmeteor:mocha --port 3100
 __Note:__ Tests are served on port `3100`. This is so that both an app and tests
 may be run at the same time.
 
+### Endpoints
+For importing stuff from github, invoke following API endpoint:
+
+```
+http://localhost:3000/api/v1/import/github
+```
 
 ## Quick Start Guide
 For more info, see the setup guide in the handbook folder.
