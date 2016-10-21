@@ -1,4 +1,9 @@
-import './synchronize.js'
+import { importRepoData } from '../../api/repositories/methods.js';
 
-// Debuggin here?
-// import '../imports/debug/debug.js'
+// We do development
+if(Meteor.isDevelopment){
+    import './develop.js'
+} else {
+    // explicitly import data
+    importRepoData();
+}

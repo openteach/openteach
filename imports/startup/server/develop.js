@@ -4,16 +4,23 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Courses } from '../../collections/courses.js'
 
+
+
 /**
  * This function is made when the server is started in debug mode
  * It sets up:
  */
 function debug(){
-    Accounts.createUser({
-        username : "test",
-        email : "test@example.com",
-        password : "test"
-    });
+    try {
+        Accounts.createUser({
+            username : "test",
+            email : "test@example.com",
+            password : "test"
+        });
+    } catch (e) {
+        // User was already set up
+    }
+
 
     // Setup instructor
     // The instructor object resides in a file in a github repository.
@@ -62,5 +69,5 @@ function debug(){
 
 // If debug flag is set, run function
 Meteor.startup(() => {
-  debug();
+    debug();
 });
