@@ -10,7 +10,7 @@ export default class Course extends React.Component {
 
     render() {
         return(
-            <Material />
+            <Material courseId={this.props.courseId} lectureId={this.props.lectureId}  />
         )
     }
 }
