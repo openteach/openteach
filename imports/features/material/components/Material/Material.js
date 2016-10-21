@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Courses } from '../../../../collections/courses.js';
+import Remarkable from 'remarkable';
+import Meta from 'remarkable-meta';
 import Radium from 'radium';
 
 class Material extends Component {
