@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import { Courses } from '../../../../imports/collections/courses';
+import { Courses } from '../../../imports/collections/courses';
 
 class ListCourses extends React.Component {
     renderCourses() {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Lectures from '../../../../imports/features/lectures/components/Lectures/';
+import Lectures from '../../../imports/features/lectures/components/Lectures/';
 
 export default class LecturesTab extends React.Component {
     componentDidMount() {

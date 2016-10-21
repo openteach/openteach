@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Apply from '../../../../imports/features/apprenticeship/components/Apply/';
+import Apply from '../../../imports/features/apprenticeship/components/Apply/';
 
 export default class ApprenticeshipTab extends React.Component {
     componentDidMount() {
