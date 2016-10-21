@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Instructor } from '../collections/instructor';
+import { Instructor } from '../../collections/instructor';
 
 // We expect a file names instructor.json in the root of a github repo
 export default fetchInstructor = function(ghUser, ghRepo){

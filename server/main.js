@@ -1,2 +1,1 @@
-import '../imports/server/'
-import '../imports/debug/debug.js'
+import '../imports/startup/server/'

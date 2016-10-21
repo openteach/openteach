@@ -1,12 +1,11 @@
-/*
-  Contains everything needed for keeping the site updated with GitHub
-*/
+// Contains everything needed for keeping the site updated with GitHub
 
-import { Instructor } from '../collections/instructor';
+import { Meteor } from 'meteor/meteor';
+
+import { Instructor } from '../../collections/instructor.js';
+import { Courses } from '../../collections/courses.js';
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
-import { Courses } from '../collections/courses.js';
-import { Meteor } from 'meteor/meteor';
 
 import fetchCourse from './fetch_course.js';
 import fetchInstructor from './fetch_instructor.js';
