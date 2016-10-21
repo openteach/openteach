@@ -4,7 +4,7 @@ import {mount} from 'react-mounter';
 import {MainLayout} from './layouts/MainLayout.jsx';
 import Entrypage from './components/entrypage/Entrypage.jsx';
 import Dashboard from './components/dashboard/Dashboard.jsx';
-import Course from './components/course/Course.jsx';
+import Book from '../imports/features/book/components/Book/';
 
 /**
  * Setting up groups
@@ -24,8 +24,11 @@ var userGroup = FlowRouter.group({
     prefix: '/u',
     name: 'users',
     triggersEnter: [function(context, redirect) {
-        console.log('running group triggers for user group');
         // Test that the user is logged in
+        if(!Meteor.user()){
+            console.log("You at not logged in.");
+            FlowRouter.go("indexRoute");
+        }
     }]
 });
 
@@ -52,7 +55,7 @@ userGroup.route('/course/:courseId/:lectureId?', {
     name: "courseRoute",
     action(params, queryParams) {
         mount(MainLayout, {
-            content: (<Course courseId={params.courseId} lectureId={params.lectureId} />)
+            content: <Book courseId={params.courseId} lectureId={params.lectureId}  />
         })
     }
 });
