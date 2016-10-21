@@ -4,7 +4,7 @@ import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import MaterialList from '../../../imports/features/book/components/Book/';
+import Book from '../../../imports/features/book/components/Book/';
 
 export default class Course extends React.Component {
 
