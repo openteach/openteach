@@ -4,7 +4,7 @@ import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
 import Radium from 'radium';
 
-class Material extends Component {
+class Book extends Component {
     renderLectureContent(){
         // Find course
         let cid = this.props.courseId;
@@ -98,8 +98,8 @@ const styles = {
   },
 };
 
-Material.propTypes = {};
+Book.propTypes = {};
 
-Material.defaultProps = {};
+Book.defaultProps = {};
 
-export default Radium(Material)
+export default Radium(Book)
