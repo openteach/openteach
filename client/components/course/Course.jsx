@@ -4,13 +4,13 @@ import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import Material from '../../../imports/features/material/components/Material/';
+import MaterialList from '../../../imports/features/book/components/Book/';
 
 export default class Course extends React.Component {
 
     render() {
         return(
-            <Material courseId={this.props.courseId} lectureId={this.props.lectureId}  />
+            <Book courseId={this.props.courseId} lectureId={this.props.lectureId}  />
         )
     }
 }
