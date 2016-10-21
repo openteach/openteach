@@ -33,6 +33,9 @@ Four easy steps to get started from the terminal:
   "instructor" : {
       "ghUser" : "openteach",
       "ghRepo" : "test-instructor"
+  },
+  "public": {
+    "isProduction": true
   }
 }
 ```
