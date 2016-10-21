@@ -1,2 +1,2 @@
-import '../api/courses.js';
+import '../collections/courses.js';
 import './syncronize'

@@ -1,4 +1,4 @@
-import { Courses } from '../api/courses.js'
+import { Courses } from '../collections/courses.js'
 
 
 /**

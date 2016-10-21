@@ -1,7 +1,7 @@
-import { Instructor } from '../api/instructor';
+import { Instructor } from '../collections/instructor';
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
-import { Courses } from '../api/courses.js';
+import { Courses } from '../collections/courses.js';
 import { Meteor } from 'meteor/meteor';
 
 export default fetchCourse = function(ghUser, ghRepo, base){

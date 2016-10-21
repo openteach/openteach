@@ -2,10 +2,10 @@
   Contains everything needed for keeping the site updated with GitHub
 */
 
-import { Instructor } from '../api/instructor';
+import { Instructor } from '../collections/instructor';
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
-import { Courses } from '../api/courses.js';
+import { Courses } from '../collections/courses.js';
 import { Meteor } from 'meteor/meteor';
 
 import fetchCourse from './fetch_course.js';

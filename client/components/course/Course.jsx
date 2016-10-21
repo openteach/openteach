@@ -1,5 +1,5 @@
 import React from 'react';
-import { Courses } from '../../../imports/api/courses.js';
+import { Courses } from '../../../imports/collections/courses.js';
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
 import { createContainer } from 'meteor/react-meteor-data';
