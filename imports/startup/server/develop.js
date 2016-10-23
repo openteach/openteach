@@ -2,7 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import { Courses } from '../../collections/courses.js'
+import { Books } from '../../collections/books.js';
 
 
 
@@ -46,7 +46,7 @@ function debug(){
             },
             content : "# This is the frontpage text of the course."
         },
-        lectures : [
+        chapters : [
             {
                 meta : {
                     title : "Test lecture 1"
@@ -62,8 +62,8 @@ function debug(){
         ]
     };
 
-    Courses.schema.validate(demoCourse);
-    Courses.upsert({title : demoCourse.title}, {$set : demoCourse});
+    Books.schema.validate(demoCourse);
+    Books.upsert({title : demoCourse.title}, {$set : demoCourse});
 }
 
 // If debug flag is set, run function

@@ -1,7 +1,7 @@
 import { resetDatabase } from 'meteor/xolvio:cleaner';
 import { assert } from 'meteor/practicalmeteor:chai';
 
-describe('Courses Collection', function () {
+describe('Books Collection', function () {
     beforeEach(function (done) {
         // Setup test data
         done();
@@ -14,7 +14,7 @@ describe('Courses Collection', function () {
 });
 
 if(Meteor.isServer){
-    describe('Courses Collection Server Tests', function () {
+    describe('Books Collection Server Tests', function () {
         beforeEach(function (done) {
             // Setup test data
             done();

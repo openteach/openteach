@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Courses } from '../../../../collections/courses.js';
+import { Books } from '../../../../collections/books.js';
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
 import Radium from 'radium';
@@ -8,13 +8,13 @@ class Book extends Component {
     renderLectureContent(){
         // Find course
         let cid = this.props.courseId;
-        let course = Courses.findOne({_id : cid});
+        let course = Books.findOne({_id : cid});
 
         // Find lecture
         let lid = this.props.lectureId;
         var lecture;
         if(lid){
-            lecture = course.lectures[lid]
+            lecture = course.chapters[lid]
         }
         else {
             lecture = course.index
@@ -39,9 +39,9 @@ class Book extends Component {
     renderLectureList() {
         let cid = this.props.courseId;
         let lid = this.props.lectureId ? this.props.lectureId : 0;
-        let course = Courses.findOne({_id : cid});
+        let course = Books.findOne({_id : cid});
 
-        return course.lectures.map((lecture, i) => {
+        return course.chapters.map((lecture, i) => {
             let href = FlowRouter.path("courseRoute", {
                 courseId : course._id,
                 lectureId : i + ""

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 
-import { Courses } from '../../../imports/collections/courses';
+import { Books } from '../../../imports/collections/books.js';
 
 class ListCourses extends React.Component {
     renderCourses() {
@@ -28,5 +28,5 @@ class ListCourses extends React.Component {
 
 export default createContainer(
     () => {
-        return { courses: Courses.find({}).fetch()}
+        return { courses: Books.find({}).fetch()}
     }, ListCourses);
