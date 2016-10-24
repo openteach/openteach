@@ -98,7 +98,10 @@ const styles = {
   },
 };
 
-Book.propTypes = {};
+Book.propTypes = {
+    lectureId : React.PropTypes.string,
+    courseId: React.PropTypes.string
+};
 
 Book.defaultProps = {};
 
