@@ -37,32 +37,33 @@ function debug(){
         ]
     }
 
-    // Setup demo content
-    let demoBook = new Book({
-        title : "Test Course",
-        index : {
-            meta : {
-                title : "Welcome"
-            },
-            content : "# This is the frontpage text of the course."
-        },
-        chapters : [
-            {
+    // Setup Demo book
+    if(!Book.findOne({title : "Test Course"})){
+        let demoBook = new Book({
+            title : "Test Course",
+            index : {
                 meta : {
-                    title : "Test lecture 1"
+                    title : "Welcome"
                 },
-                content : "# Welcome to the First Lecture \nMore text here"
+                content : "# This is the frontpage text of the course."
             },
-            {
-                meta : {
-                    title : "Test lecture 2"
+            chapters : [
+                {
+                    meta : {
+                        title : "Test lecture 1"
+                    },
+                    content : "# Welcome to the First Lecture \nMore text here"
                 },
-                content : "# Welcome to the Second! Lecture \nAlright"
-            }
-        ]
-    });
-
-    demoBook.save();
+                {
+                    meta : {
+                        title : "Test lecture 2"
+                    },
+                    content : "# Welcome to the Second! Lecture \nAlright"
+                }
+            ]
+        });
+        demoBook.save();
+    }
 }
 
 // If debug flag is set, run function
