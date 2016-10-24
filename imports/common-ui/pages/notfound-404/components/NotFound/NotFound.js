@@ -11,7 +11,7 @@ export default class NotFound extends React.Component {
 }
 
 NotFound.propTypes = {
-    headline: React.propTypes.string.isRequired
+    headline: React.PropTypes.string.isRequired
 }
 
 NotFound.defaultProps = {
