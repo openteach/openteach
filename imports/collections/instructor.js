@@ -1,7 +1,7 @@
 /*
 The is the course collection.
 */
-import { Mongo } from 'meteor/mongo';
+/*import { Mongo } from 'meteor/mongo';
 
 export const Instructor = new Mongo.Collection('instructors');
 
@@ -16,3 +16,4 @@ Instructor.schema = new SimpleSchema({
     name : {type: String},
     courses: {type : [courseDescriptorSchema]},
 });
+*/

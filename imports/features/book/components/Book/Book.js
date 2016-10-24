@@ -1,56 +1,56 @@
 import React, { Component } from 'react';
-import { Books } from '../../../../collections/books.js';
+import { Book as BookClass } from '../../../../collections/books.js';
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
 import Radium from 'radium';
 
 class Book extends Component {
-    renderLectureContent(){
+    renderChapterContent(){
         // Find course
-        let cid = this.props.courseId;
-        let course = Books.findOne({_id : cid});
+        let bId = this.props.courseId;
+        let book = BookClass.findOne({_id : bId});
 
         // Find lecture
-        let lid = this.props.lectureId;
-        var lecture;
-        if(lid){
-            lecture = course.chapters[lid]
+        let chapterId = this.props.lectureId;
+        var chapter;
+        if(chapterId){
+            chapter = book.chapters[chapterId]
         }
         else {
-            lecture = course.index
+            chapter = book.index
         }
 
         // Parse the markdown part to HTML
         let md = new Remarkable();
         md.use(Meta);
-        let html = md.render(lecture.content);
+        let html = md.render(chapter.content);
 
         // Generate the content
         return (
             <div>
-                <div>{lecture.meta.title}</div>
-                <div>{lecture.meta.tags}</div>
-                <div>{lecture.meta.difficulty}</div>
+                <div>{chapter.meta.title}</div>
+                <div>{chapter.meta.tags}</div>
+                <div>{chapter.meta.difficulty}</div>
                 <div dangerouslySetInnerHTML={ {__html: html} } />
             </div>
         )
     }
 
-    renderLectureList() {
-        let cid = this.props.courseId;
-        let lid = this.props.lectureId ? this.props.lectureId : 0;
-        let course = Books.findOne({_id : cid});
+    renderChapterList() {
+        let bookId = this.props.courseId;
+        let chapterId = this.props.lectureId ? this.props.lectureId : 0;
+        let book = BookClass.findOne({_id : bookId});
 
-        return course.chapters.map((lecture, i) => {
+        return book.chapters.map((chapter, i) => {
             let href = FlowRouter.path("courseRoute", {
-                courseId : course._id,
+                courseId : book._id,
                 lectureId : i + ""
             });
             return (
                 <li key={i}>
 
                     <a href={href}>
-                        {lecture.meta.title}
+                        {chapter.meta.title}
                     </a>
 
                 </li>
@@ -71,7 +71,7 @@ class Book extends Component {
                                 <div className="list__logo">
                                 </div>
 
-                                {this.renderLectureList()}
+                                {this.renderChapterList()}
                             </ul>
 
                         </div>
@@ -79,7 +79,7 @@ class Book extends Component {
                         <div
                             id="lecture-content"
                             className="small-10 columns">
-                            {this.renderLectureContent()}
+                            {this.renderChapterContent()}
                         </div>
 
                     </div>

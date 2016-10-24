@@ -2,7 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import { Books } from '../../collections/books.js';
+import { Book, Books } from '../../collections/books.js';
 
 
 
@@ -25,7 +25,7 @@ function debug(){
     // Setup instructor
     // The instructor object resides in a file in a github repository.
     let demoInstructor = {
-        courses : [
+        books : [
             {
                 url : "git@github.com:openteach/test-course.git",
                 base: "/course"
@@ -38,7 +38,7 @@ function debug(){
     }
 
     // Setup demo content
-    let demoCourse = {
+    let demoBook = new Book({
         title : "Test Course",
         index : {
             meta : {
@@ -60,10 +60,9 @@ function debug(){
                 content : "# Welcome to the Second! Lecture \nAlright"
             }
         ]
-    };
+    });
 
-    Books.schema.validate(demoCourse);
-    Books.upsert({title : demoCourse.title}, {$set : demoCourse});
+    demoBook.save();
 }
 
 // If debug flag is set, run function
