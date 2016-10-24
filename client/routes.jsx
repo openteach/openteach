@@ -5,8 +5,8 @@ import {MainLayout} from './layouts/MainLayout.jsx';
 import Entrypage from './components/entrypage/Entrypage.jsx';
 import Dashboard from './components/dashboard/Dashboard.jsx';
 import Book from '../imports/features/book/components/Book/';
+import NotFound from '../imports/common-ui/pages/notfound-404/components/NotFound/NotFound.js';
 
-/*
 FlowRouter.notFound = {
     action: function() {
         mount(MainLayout, {
@@ -14,7 +14,6 @@ FlowRouter.notFound = {
         });
     }
 };
-*/
 
 /**
  * Setting up groups
