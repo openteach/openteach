@@ -6,6 +6,16 @@ import Entrypage from './components/entrypage/Entrypage.jsx';
 import Dashboard from './components/dashboard/Dashboard.jsx';
 import Book from '../imports/features/book/components/Book/';
 
+/*
+FlowRouter.notFound = {
+    action: function() {
+        mount(MainLayout, {
+            content: <NotFound /> // remember to import!!!
+        });
+    }
+};
+*/
+
 /**
  * Setting up groups
  * TODO: Factor this to own file
@@ -56,7 +66,7 @@ userGroup.route('/course/:courseId/:lectureId?', {
     action(params, queryParams) {
         mount(MainLayout, {
             content: <Book courseId={params.courseId} lectureId={params.lectureId}  />
-        })
+        });
     }
 });
 
