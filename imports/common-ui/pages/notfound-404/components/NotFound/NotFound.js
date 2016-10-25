@@ -15,5 +15,5 @@ NotFound.propTypes = {
 }
 
 NotFound.defaultProps = {
-    headline: 'Ohh... 404 = not found'
+    headline: 'Ohh no... 404 = not found'
 }
