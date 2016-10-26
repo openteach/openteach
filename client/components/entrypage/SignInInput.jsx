@@ -62,7 +62,7 @@ export default class SignInInput extends React.Component {
                             </h1>
                             <p
                                 className="signIn__subtext">
-                                Please, choose your way of signing in
+                                Welcome - Sign in and start learning today!
                             </p>
                             <form>
                                 <div className="row">
