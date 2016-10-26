@@ -25,7 +25,7 @@ export default class Dashboard extends React.Component {
                             children: () => (
                                 <CourseTab />
                             ),
-                            displayName: 'Courses'
+                            displayName: 'Books'
                         }, {
                             children: () => (
                                 <LecturesTab />
