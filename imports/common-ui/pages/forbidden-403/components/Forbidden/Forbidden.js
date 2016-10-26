@@ -21,5 +21,5 @@ Forbidden.propTypes = {
 Forbidden.defaultProps = {
     text: 'Ohh no... You are the forbidden place',
     headline: '403',
-    tagline 'Go back and learn something usefull :-)'
+    tagline 'Hmmm... You are actually not susposed to be here?'
 }
