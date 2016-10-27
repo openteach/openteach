@@ -68,8 +68,8 @@ class Book extends Component {
                                     OpenTeach
                                 </p>
 
-                                <div className="list__logo">
-                                </div>
+                                <span className="list__logo">
+                                </span>
 
                                 {this.renderChapterList()}
                             </ul>
