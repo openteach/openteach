@@ -24,7 +24,6 @@ export default class SignInInput extends React.Component {
             } else {
                 // error
                 console.log("Error logging in");
-                console.log(e);
             }
         })
     }
@@ -79,6 +78,7 @@ export default class SignInInput extends React.Component {
                                         className="signIn__input__text signIn__input">
                                         Password
                                         <input
+                                            id="js-signIn__input"
                                             placeholder="Password"
                                             name="password"
                                             value={this.state.pass}
