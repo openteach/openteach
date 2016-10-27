@@ -29,16 +29,3 @@ export const Book = Class.create({
 });
 
 globalizeData({ Books }, { Book });
-
-/*
-export const Books = new Mongo.Collection('books');
-
-
-
-// Schema
-Books.schema = new SimpleSchema({
-    title: {type: String},
-    index : {type: ChapterSchema}, // Md file for index lecture
-    chapters: {type: [ChapterSchema]},
-});
-*/
