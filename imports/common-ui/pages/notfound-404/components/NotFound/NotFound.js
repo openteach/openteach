@@ -4,16 +4,22 @@ export default class NotFound extends React.Component {
     render() {
         return (
             <div className="notFound">
+                <p className="notFound__text">{this.props.text}</p>
                 <h1 className="notFound__headline">{this.props.headline}</h1>
+                <p className="notFound__tagline">{this.props.tagline}</p>
             </div>
         )
     }
 }
 
 NotFound.propTypes = {
-    headline: React.PropTypes.string.isRequired
+    text: React.PropTypes.string.isRequired,
+    headline: React.PropTypes.string.isRequired,
+    tagline: React.PropTypes.string.isRequired
 }
 
 NotFound.defaultProps = {
-    headline: 'Ohh... 404 = not found'
+    text: 'Ohh no... Not found',
+    headline: '404',
+    tagline: 'Go back and learn something usefull :-)'
 }
