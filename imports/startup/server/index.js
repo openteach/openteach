@@ -1,4 +1,5 @@
-import './routes.js'
+import './publications.js';
+import './routes.js';
 
 // We do development
 if(Meteor.isDevelopment){

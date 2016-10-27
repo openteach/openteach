@@ -66,6 +66,9 @@ userGroup.route('/course/:courseId/:lectureId?', {
         mount(MainLayout, {
             content: <Book courseId={params.courseId} lectureId={params.lectureId}  />
         });
+    },
+    subscriptions: function(params, queryParams) {
+        this.register('books', Meteor.subscribe('books'));
     }
 });
 
@@ -76,6 +79,9 @@ userGroup.route('/dashboard/:show?', {
         mount(MainLayout, {
             content: (<Dashboard selected={params.show} />)
         })
+    },
+    subscriptions: function(params, queryParams) {
+        this.register('books', Meteor.subscribe('books'));
     }
 });
 
