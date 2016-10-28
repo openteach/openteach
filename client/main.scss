@@ -518,8 +518,8 @@ FOOTER COMPONENT
 
 #lecture-content {
     display: flex;
-    justify-content: center;
-    background-color: white;
+    justify-content: flex-start;
+    background-color: #fff;
 }
 
 /* Course Headline 'h1' */
@@ -558,7 +558,6 @@ h6 {
 	margin-top: 200px;
 	display: flex;
 	justify-content: center;
-	color: #3498db;
 }
 
 .lecture__btn--apply {
