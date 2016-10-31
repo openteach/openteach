@@ -115,7 +115,7 @@ MAIN CONTENT COMPONENT
 		font-size: 26px;
 		font-weight: 400;
 		padding-top: 90px;
-		margin-bottom: 20px;
+		margin: 0 0 20px 0;
 		color: #3498db;
 	}
 
@@ -490,25 +490,25 @@ FOOTER COMPONENT
     color: #3498db;
 }
 
-.lectureList {
+.chapterList {
     background-color: rgb(248, 248, 248);
     border-right: 1px solid lightgrey;
     height: 100vh;
     position: fixed;
 }
 
-.lectureList__ul {
+.chapterList__ul {
     list-style: none;
     color: #fff;
     margin-top: 30px;
     text-align: center;
 }
 
-.lectureList__ul li {
+.chapterList__ul li {
     padding-top: 15px;
 }
 
-.lectureList__ul li:hover {
+.chapterList__ul li:hover {
     text-decoration: underline;
 }
 
@@ -516,21 +516,30 @@ FOOTER COMPONENT
 
 /* Course content general styles */
 
-#lecture-content {
+#chapter-content {
     display: flex;
     justify-content: flex-start;
     background-color: #fff;
+    padding-left: 40px;
+}
+
+#chapterSection {
+    width: 700px;
 }
 
 /* Course Headline 'h1' */
 
-#lecture-content h1 {
-    margin-top: 80px;
+#chapter-content h1, h2, h3, h4, h5, h6 {
+    margin: 40px 0 20px 0;
+}
+
+#chapter-content p {
+    font-size: 18px;
 }
 
 /* Course content headline colors */
 
-#lecture-content
+#chapter-content
 h1,
 h2,
 h3,
@@ -540,11 +549,19 @@ h6 {
     color: rgb(11, 104, 159);
 }
 
+#chapterTitle {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: rgb(11, 104, 159);
+    padding-top: 100px;
+}
+
 /*--== Styles for 'lectures' page
     PAGE NOT ACTIVE YET...
 ==--*/
 
-.lectures {
+.chapters {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -562,7 +579,7 @@ h6 {
 
 .lecture__btn--apply {
     text-align: center;
-    margin: 60px;
+    margin-top: 60px;
 }
 
 /*************************************************
