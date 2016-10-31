@@ -1,5 +1,5 @@
 import React from 'react';
-import ListCourses from './ListCourses.jsx';
+import ListBooks from '../../../imports/features/book/components/ListBooks';
 
 export default class CourseTab extends React.Component {
     componentDidMount() {
@@ -9,7 +9,7 @@ export default class CourseTab extends React.Component {
         return (
             <div className="dashboard">
 
-                <ListCourses/>
+                <ListBooks/>
 
             </div>
         )
