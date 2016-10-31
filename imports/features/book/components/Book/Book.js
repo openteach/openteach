@@ -28,11 +28,12 @@ class Book extends Component {
         // Generate the content
         return (
             <div>
-                <div>{chapter.meta.title}</div>
-                <div>{chapter.meta.tags}</div>
-                <div>{chapter.meta.difficulty}</div>
-                <div dangerouslySetInnerHTML={ {__html: html} } />
-            </div>
+                <div id="chapterTitle">{chapter.meta.title}</div>
+                <div id="chapterSection">
+                    <div>{chapter.meta.tags}</div>
+                    <div>{chapter.meta.difficulty}</div>
+                    <div dangerouslySetInnerHTML={ {__html: html} } /></div>
+                </div>
         )
     }
 
@@ -59,10 +60,10 @@ class Book extends Component {
     }
   render() {
     return  <div className="expanded" className="DashboardBackground">
-                <div id="lecture-selector">
-                    <div className="lectureList small-2 columns">
+                <div id="chapter-selector">
+                    <div className="chapterList small-2 columns">
 
-                            <ul className="lectureList__ul">
+                            <ul className="chapterList__ul">
 
                                 <p className="list__logo__text">
                                     OpenTeach
@@ -77,7 +78,7 @@ class Book extends Component {
                         </div>
 
                         <div
-                            id="lecture-content"
+                            id="chapter-content"
                             className="small-10 columns">
                             {this.renderChapterContent()}
                         </div>
