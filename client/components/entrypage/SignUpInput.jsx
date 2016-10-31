@@ -13,11 +13,10 @@ export default class SignUpInput extends React.Component {
             password : e.target.upass.value
         }, function(e){
             if(typeof e === 'undefined'){
-                FlowRouter.go("dashboardRoute", {show : "1"});
+                FlowRouter.go("dashboardApprenticeship");
             }else{
                 //login error
                 console.log("Error signing up");
-                console.log(e);
             }
         });
 
@@ -28,7 +27,7 @@ export default class SignUpInput extends React.Component {
       return (
         <div>
           <form className="signUpForm" onSubmit={this.onSubmit}>
-            <input name="uname" type="text" placeholder="Name" ref={(f) => {console.log(f); this._uname = f}} />
+            <input name="uname" type="text" placeholder="Name" ref={(f) => {this._uname = f}} />
             <input name="umail" type="text" placeholder="Email" ref={(f) => this._umail = f} />
             <input name="upass" type="text" placeholder="Password" ref={(f) => this._upass = f} />
             <input type="submit" value="Sign up" />

@@ -4,6 +4,7 @@ import Tabs from 'react-tabs-navigation';
 import ApprenticeshipTab from './ApprenticeshipTab.jsx';
 import CourseTab from './CourseTab.jsx';
 import LecturesTab from './LecturesTab.jsx';
+import ListBooks from '../../../imports/features/book/components/ListBooks';
 
 export default class Dashboard extends React.Component {
 	getSelected(){
@@ -23,7 +24,7 @@ export default class Dashboard extends React.Component {
                             displayName: 'Apprenticeship'
                         }, {
                             children: () => (
-                                <CourseTab />
+                                <CourseTab>{this.props.children ? this.props.children : <ListBooks /> }</CourseTab>
                             ),
                             displayName: 'Books'
                         }, {

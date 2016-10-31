@@ -4,13 +4,15 @@ import {mount} from 'react-mounter';
 import {MainLayout} from './layouts/MainLayout.jsx';
 import Entrypage from './components/entrypage/Entrypage.jsx';
 import Dashboard from './components/dashboard/Dashboard.jsx';
+import ListBooks from '../imports/features/book/components/ListBooks';
 import Book from '../imports/features/book/components/Book/';
 import NotFound from '../imports/common-ui/pages/notfound-404/components/NotFound/NotFound.js';
+
 
 FlowRouter.notFound = {
     action: function() {
         mount(MainLayout, {
-            content: <NotFound /> // remember to import!!!
+            content: <NotFound />
         });
     }
 };
@@ -36,7 +38,7 @@ var userGroup = FlowRouter.group({
         // Test that the user is logged in
         if(!Meteor.user()){
             console.log("You at not logged in.");
-            FlowRouter.go("indexRoute");
+            redirect("indexRoute");
         }
     }]
 });
@@ -64,7 +66,10 @@ userGroup.route('/course/:courseId/:lectureId?', {
     name: "courseRoute",
     action(params, queryParams) {
         mount(MainLayout, {
-            content: <Book courseId={params.courseId} lectureId={params.lectureId}  />
+            content: (
+                <Dashboard selected={1}>
+                    <Book courseId={params.courseId} lectureId={params.lectureId} />
+                </Dashboard>)
         });
     },
     subscriptions: function(params, queryParams) {
@@ -72,12 +77,38 @@ userGroup.route('/course/:courseId/:lectureId?', {
     }
 });
 
-userGroup.route('/dashboard/:show?', {
-    name: "dashboardRoute",
+userGroup.route('/dashboard/apprenticeship', {
+    name: "dashboardApprenticeship",
     action(params, queryParams) {
-        console.log(params.show);
         mount(MainLayout, {
-            content: (<Dashboard selected={params.show} />)
+            content: (<Dashboard selected={0} />)
+        })
+    },
+    subscriptions: function(params, queryParams) {
+        this.register('books', Meteor.subscribe('books'));
+    }
+});
+
+userGroup.route('/dashboard/books', {
+    name: "dashboardBooks",
+    action(params, queryParams) {
+        mount(MainLayout, {
+            content: (
+                <Dashboard selected={1}>
+                    <ListBooks />
+                </Dashboard>)
+        })
+    },
+    subscriptions: function(params, queryParams) {
+        this.register('books', Meteor.subscribe('books'));
+    }
+});
+
+userGroup.route('/dashboard/lectures', {
+    name: "dashboardLectures",
+    action(params, queryParams) {
+        mount(MainLayout, {
+            content: (<Dashboard selected={2} />)
         })
     },
     subscriptions: function(params, queryParams) {
