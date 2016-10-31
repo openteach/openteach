@@ -6,9 +6,9 @@ import {fetchInstructor, fetchCourse} from './integrations/github.js';
 export const importRepoData = function() {
     let instructor = fetchInstructor(Meteor.settings.instructor.ghUser, Meteor.settings.instructor.ghRepo);
 
-    for(var i=0 ; i<instructor.courses.length ; i++){
-        fetchCourse(instructor.courses[i].ghUser,
-            instructor.courses[i].ghRepo,
-            instructor.courses[i].base);
+    for(var i=0 ; i<instructor.books.length ; i++){
+        fetchCourse(instructor.books[i].ghUser,
+            instructor.books[i].ghRepo,
+            instructor.books[i].base);
     }
 };
