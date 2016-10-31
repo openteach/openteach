@@ -4,7 +4,9 @@ import Apply from '../../../imports/features/apprenticeship/components/Apply/';
 
 export default class ApprenticeshipTab extends React.Component {
     componentDidMount() {
-        //FlowRouter.go("dashboardRoute", {show : "0"});
+        FlowRouter.withReplaceState(function() {
+            FlowRouter.go("dashboardApprenticeship");
+        });
     }
     render() {
         return (
