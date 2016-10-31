@@ -78,7 +78,7 @@ let fetchCourse = function(ghUser, ghRepo, base){
         },
         chapters : chapterObjects
     }
-    Books.schema.validate(bookColObj);
+    // Books.schema.validate(bookColObj);
 
     // create or update course to db
     Books.upsert({title : book.title}, {$set : bookColObj});
@@ -97,7 +97,7 @@ let fetchInstructor = function(ghUser, ghRepo){
     console.log(iObj);
 
     // Assemble and validate object for the database
-    Instructor.schema.validate(iObj);
+    // Instructor.schema.validate(iObj);
 
     // Upload instructor to db
     //Instructor.upsert({title : course.title}, {$set : course});
