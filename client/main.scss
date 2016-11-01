@@ -449,8 +449,10 @@ FOOTER COMPONENT
 
 .listOfCourses__list {
     display: flex;
-    flex-direction: column;
-	margin: 50px 0 0 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+	margin-top: 50px;
 	list-style: none;
 }
 
@@ -522,7 +524,7 @@ FOOTER COMPONENT
 /* Course content general styles */
 
 #chapter-content {
-    height: 100%;
+    height: 100vh;
     justify-content: flex-start;
     background-color: #fff;
     padding-left: 40px;
