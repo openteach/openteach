@@ -9,11 +9,11 @@ export default class mainContent extends React.Component {
 				<div className="mainContent">
 
 					<h4 className="mainHeading">
-						Learn with [teachername],
+						Learn with openTeach
 					</h4>
 
 					<p className="mainContent__subtext">
-						who are providing the conditions for you to learn
+						Providing the conditions for you to learn
 					</p>
 
 					<SignUpInput />
