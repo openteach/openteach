@@ -1,15 +1,19 @@
+import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-// import { someMethod as _someMethod } from '../../methods';
-
+import { Books as BookCol } from '../../../../collections/books.js';
 import Book from './Book.js';
-export default createContainer(() => {
-//   // Maybe write a higher-order function for this later
-//   const someMethod = (args, callback) => {
-//     _someMethod.call(args, callback);
-//   };
 
-  return {
-    meteorData: 'goes here'
-    // someMethod,
-  }
+export default createContainer((params) => {
+
+    const { id, chapterId } = params;
+    const booksHandle = Meteor.subscribe('books');
+
+    const loading = !booksHandle.ready();
+    const book = BookCol.findOne({ _id : id});
+
+    return {
+        book: book,
+        chapters : book.chapters,
+        chapterIdx : parseInt(chapterId)
+    }
 }, Book)

@@ -1,8 +1,7 @@
-import { createContainer } from 'meteor/react-meteor-data';
-import ListBooks from './ListBooks.js';
 import { Meteor } from 'meteor/meteor';
-
+import { createContainer } from 'meteor/react-meteor-data';
 import { Books } from '../../../../collections/books.js';
+import ListBooks from './ListBooks.js';
 
 export default createContainer((params) => {
     const { id } = params;

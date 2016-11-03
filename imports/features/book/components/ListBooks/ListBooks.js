@@ -7,7 +7,7 @@ class ListBooks extends React.Component {
         let books = this.props.bookList; //Books.find({}).fetch();
 
         return books.map((book) => {
-            let href = FlowRouter.path("courseRoute", {"courseId" : book._id});
+            let href = FlowRouter.path("bookRoute", {"id" : book._id});
             return (
             <li key={book._id}><a href={href}>{book.title}</a></li>
             );

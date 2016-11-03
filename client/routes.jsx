@@ -62,18 +62,15 @@ publicGroup.route('/', {
  */
 
 // /u/course/:courseId...
-userGroup.route('/course/:courseId/:lectureId?', {
-    name: "courseRoute",
+userGroup.route('/course/:id/:chapterId?', {
+    name: "bookRoute",
     action(params, queryParams) {
         mount(MainLayout, {
             content: (
                 <Dashboard selected={1}>
-                    <Book courseId={params.courseId} lectureId={params.lectureId} />
+                    <Book id={params.id} chapterId={params.chapterId} />
                 </Dashboard>)
         });
-    },
-    subscriptions: function(params, queryParams) {
-        this.register('books', Meteor.subscribe('books'));
     }
 });
 
@@ -83,9 +80,6 @@ userGroup.route('/dashboard/apprenticeship', {
         mount(MainLayout, {
             content: (<Dashboard selected={0} />)
         })
-    },
-    subscriptions: function(params, queryParams) {
-        this.register('books', Meteor.subscribe('books'));
     }
 });
 
@@ -107,9 +101,6 @@ userGroup.route('/dashboard/lectures', {
         mount(MainLayout, {
             content: (<Dashboard selected={2} />)
         })
-    },
-    subscriptions: function(params, queryParams) {
-        this.register('books', Meteor.subscribe('books'));
     }
 });
 

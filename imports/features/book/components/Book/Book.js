@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import { Book as BookClass } from '../../../../collections/books.js';
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
 import Radium from 'radium';
 
 class Book extends Component {
     renderChapterContent(){
-        // Find course
-        let bId = this.props.courseId;
-        let book = BookClass.findOne({_id : bId});
+        let book = this.props.book;
 
         // Find lecture
-        let chapterId = this.props.lectureId;
+        let chapterId = this.props.chapterIdx;
         var chapter;
         if(chapterId){
-            chapter = book.chapters[chapterId]
+            chapter = this.props.chapters[chapterId]
         }
         else {
             chapter = book.index
@@ -38,14 +35,13 @@ class Book extends Component {
     }
 
     renderChapterList() {
-        let bookId = this.props.courseId;
-        let chapterId = this.props.lectureId ? this.props.lectureId : 0;
-        let book = BookClass.findOne({_id : bookId});
+        let chapterId = this.props.chapterIdx;
+        let book = this.props.book;
 
-        return book.chapters.map((chapter, i) => {
-            let href = FlowRouter.path("courseRoute", {
-                courseId : book._id,
-                lectureId : i + ""
+        return this.props.chapters.map((chapter, i) => {
+            let href = FlowRouter.path("bookRoute", {
+                id : book._id,
+                chapterId : i + ""
             });
             return (
                 <li key={i}>
@@ -100,8 +96,9 @@ const styles = {
 };
 
 Book.propTypes = {
-    lectureId : React.PropTypes.string,
-    courseId: React.PropTypes.string
+    book : React.PropTypes.object,
+    chapters: React.PropTypes.array,
+    chapterIdx : React.PropTypes.number
 };
 
 Book.defaultProps = {};
