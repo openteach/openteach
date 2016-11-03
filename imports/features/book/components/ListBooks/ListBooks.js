@@ -2,11 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import Radium from 'radium';
 
-import { Books } from '../../../../collections/books.js';
-
 class ListBooks extends React.Component {
     renderBooks() {
-        let books = Books.find({}).fetch();
+        let books = this.props.bookList; //Books.find({}).fetch();
 
         return books.map((book) => {
             let href = FlowRouter.path("courseRoute", {"courseId" : book._id});
@@ -27,5 +25,9 @@ class ListBooks extends React.Component {
     }
 }
 
+ListBooks.propTypes = {
+    bookList: React.PropTypes.array,
+    loading: React.PropTypes.bool,
+};
 
 export default Radium(ListBooks)
