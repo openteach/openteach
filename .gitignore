@@ -1,6 +1,6 @@
 node_modules/
 npm-debug.log
 settings.json
-.deploy/
+deploy.sh
+docker-compose.yml
 Dockerfile
-
