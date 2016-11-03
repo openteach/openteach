@@ -17,14 +17,17 @@ GLOBAL STYLES
 		margin: 0;
 		padding: 0;
         height: 100vh;
-        background: url("../assets/images/learn.png");
-        background-size: cover;
+        background-color: #3498db;
 	}
 
     .DashboardBackground {
         background-color: #fafafa;
         background-size: cover;
         height: 100vh;
+    }
+
+    .modalForm {
+        background-color: #3498db;
     }
 
 /*************************************************
@@ -45,6 +48,7 @@ TYPOGRAPHY
 	p {
 		font-family: 'Quicksand', sans-serif;
 		font-weight: 400;
+        text-align: justify;
 	}
 
 /*************************************************
@@ -80,14 +84,14 @@ NAVIGATION COMPONENT
 	}
 
 	.navigation a {
-		color: #2980b9;
+		color: lightgrey;
 		text-decoration: none;
 		font-weight: 400;
 		font-size: 12px;
 	}
 
 	.navigation a:hover {
-		color: #3498db;
+		color: #fff;
 		text-decoration: none;
 	}
 	.navigation a:visited {
@@ -100,7 +104,7 @@ NAVIGATION COMPONENT
 		padding: 20px 30px 0 30px;
 		font-size: 20px;
 		flex-grow: 1;
-		color: #3498db;
+		color: #fff;
         margin: 0;
 	}
 
@@ -113,15 +117,17 @@ MAIN CONTENT COMPONENT
 	}
 
 	.mainHeading {
-		font-size: 26px;
-		font-weight: 400;
+		font-size: 40px;
+		font-weight: 300;
 		padding-top: 80px;
 		margin: 0 0 20px 0;
-		color: #3498db;
+		color: #fff;
 	}
 
 	.mainContent__subtext {
-		color: #3498db;
+        display: flex;
+        justify-content: center;
+		color: #fff;
 		font-size: 13px;
 		font-weight: 400;
 		margin-bottom: 60px;
@@ -147,30 +153,29 @@ SIGN UP COMPONENT
     	outline: none;
     	background: none;
     	box-shadow: none;
-    	border-bottom: 1px solid #7f8c8d;
-		border-color: #2980b9;
+    	border-bottom: 1px solid #fff;
 	}
 
 /*---- Placeholder text ----*/
 
         /* WebKit, Blink, Edge */
 		.signUpForm input[type=text]::-webkit-input-placeholder {
-		    color: #2980b9;
+		    color: lightgrey;
 		}
 
         /* Mozilla Firefox 4 to 18 */
 		.signUpForm input[type=text]:-moz-placeholder {
-		   color: #2980b9;
+		   color: #fff;
 		}
 
         /* Mozilla Firefox 19+ */
 		.signUpForm input[type=text]::-moz-placeholder {
-		   color: #2980b9;
+		   color: #fff;
 		}
 
         /* Internet Explorer 10-11 */
 		.signUpForm input[type=text]:-ms-input-placeholder {
-		   color: #2980b9;
+		   color: #fff;
 		}
 
 /*---- Input text ----*/
@@ -179,7 +184,7 @@ SIGN UP COMPONENT
 			font-size: 16px;
 			font-weight: 100;
 			letter-spacing: 2px;
-			color: #2980b9;
+			color: #fff;
 		}
 
 /*---- Sign up button ----*/
@@ -201,12 +206,13 @@ SIGN UP COMPONENT
 	    letter-spacing: 3px;
 	    /*Shadow for sign up button*/
 		-moz-box-shadow: 0 3px 0 #27ae60;
-    -webkit-box-shadow: 0 3px 0 #27ae60;
-    box-shadow: 0 3px 0 #27ae60;
+        -webkit-box-shadow: 0 3px 0 #27ae60;
+        box-shadow: 0 3px 0 #27ae60;
 	}
 
 	.signUpForm input[type=submit]:hover {
 		background-color: #27ae60;
+        color: #fff;
 	}
 
 /*************************************************
@@ -216,43 +222,46 @@ SIGN IN COMPONENT
 /*---- Sign in button in form of a link ----*/
 
 	.orTagline {
+        display: flex;
+        justify-content: center;
 		font-size: 12px;
 		font-weight: 400;
-		color: #3498db;
+		color: #fff;
 		margin-top: 14px;
 		letter-spacing: 2px;
 	}
 
 	.signInBtn a {
+        display: flex;
+        justify-content: center;
 		font-size: 14px;
 		font-weight: 400;
-		color: #3498db;
+		color: #fff;
 		text-decoration: none;
 		letter-spacing: 2px;
-		text-decoration: underline;
 	}
 
 	.signInBtn a:hover {
 		text-decoration: none;
-		color: rgb(27, 188, 155);
-		font-size: 16px;
+		color: lightgrey;
 		letter-spacing: 2px;
-		text-decoration: underline;
 	}
 
     .signIn__heading {
         font-size: 26px;
         font-weight: 100;
-        padding-top: 20px;
+        padding-top: 50px;
         margin-bottom: 10px;
         color: #3498db;
     }
 
     .signIn__subtext {
+        display: flex;
+        justify-content: center;
         color: #3498db;
         font-size: 13px;
         font-weight: 400;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
     }
 
     /* General styles for sign in input fields */
@@ -297,6 +306,10 @@ SIGN IN COMPONENT
         background-color: #27ae60;
     }
 
+    .SignIn__close__btn {
+        padding-top: 30px;
+    }
+
     /* Or sub-text */
 
     .signIn__orSubText {
@@ -312,46 +325,18 @@ SIGN IN COMPONENT
         margin-top: 30px;
     }
 
-    /* Social sign in btn */
-        /* Facebook sign in btn */
-
-        .signIn__facebook__btn {
-            margin: 0 auto;
-            margin-right: 10px;
-            padding: 5px 10px;
-            border: none;
-            outline: none;
-            background-color: rgb(46, 77, 167);
-            font-size: 14px;
-            font-weight: 100;
-            color: #fff;
-            transition: background-color .28s ease-in-out;
-            letter-spacing: 2px;
-        }
-
-        .signIn__facebook__btn:hover {
-            color: #fff;
-            background-color: rgb(8, 37, 103);
-        }
-
-    /* The sign in close window link-btn */
-
-    .SignIn__close__btn {
-        margin-top: 30px;
-        font-size: 14px;
-    }
-
 /*************************************************
 FOOTER COMPONENT
 *************************************************/
 
 	.footer {
-		text-align: center;
+        display: flex;
+        justify-content: center;
 	}
 
 	.footer p {
 		font-size: 12px;
-		color: #3498db;
+		color: #fff;
         margin: 0;
         padding-bottom: 20px;
 	}
@@ -472,13 +457,11 @@ FOOTER COMPONENT
 }
 
 .listOfCourses__list li a {
-    font-weight: 100;
-    font-size: 16px;
+    font-weight: 300;
+    font-size: 30px;
 }
 
-.listOfCourses__list li a:hover {
-    text-decoration: underline;
-}
+.listOfCourses__list li a:hover { /* Add hover effect here if wanted*/ }
 
 /* Styling for the Courses page */
 
@@ -524,24 +507,22 @@ FOOTER COMPONENT
 /* Course content general styles */
 
 #chapter-content {
-    height: 100vh;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: center;
     background-color: #fff;
-    padding-left: 40px;
+    height: 100%;
 }
 
 #chapterSection {
     width: 700px;
 }
 
-/* Course Headline 'h1' */
-
-#chapter-content h1, h2, h3, h4, h5, h6 {
-    margin: 40px 0 20px 0;
-}
+/* Course content */
 
 #chapter-content p {
-    font-size: 18px;
+    color: rgba(0,0,0,.8);
+    font-size: 20px;
+    line-height: 2;
 }
 
 /* Course content headline colors */
@@ -553,15 +534,19 @@ h3,
 h4,
 h5,
 h6 {
-    color: rgb(11, 104, 159);
+    color: rgba(0,0,0,.8);
+    margin: 40px 0 20px 0;
+    font-weight: 400;
 }
 
 #chapterTitle {
     display: flex;
     justify-content: center;
     font-size: 42px;
-    color: rgb(11, 104, 159);
+    color: rgba(0, 0, 0, .8);
     padding-top: 100px;
+    letter-spacing: 3px;
+    font-weight: 400;
 }
 
 /*--== Styles for 'lectures' page
