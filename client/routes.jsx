@@ -98,9 +98,6 @@ userGroup.route('/dashboard/books', {
                     <ListBooks />
                 </Dashboard>)
         })
-    },
-    subscriptions: function(params, queryParams) {
-        this.register('books', Meteor.subscribe('books'));
     }
 });
 
