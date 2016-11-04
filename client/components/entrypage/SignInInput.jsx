@@ -20,7 +20,7 @@ export default class SignInInput extends React.Component {
     onSubmit(event){
         Meteor.loginWithPassword(this.state.user, this.state.pass, function(err){
             if(typeof err === 'undefined'){
-                FlowRouter.go("dashboardApprenticeship");
+                FlowRouter.go("dashboardBooks");
             } else {
                 // error
                 console.log("Error logging in");
