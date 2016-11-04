@@ -7,7 +7,7 @@ class Lectures extends Component {
     return <div className="lectures">
             <div className="expanded row">
                 <h5 className="coming-soon__headline">
-                    Coming later
+                    The lecture section is coming later
                 </h5>
             </div>
             <div className="expanded row lecture__btn--apply">
