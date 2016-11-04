@@ -1,5 +1,5 @@
 import React from 'react';
-import ListBooks from '../../../imports/features/book/components/ListBooks';
+import ListBooks from '../../../features/book/components/ListBooks';
 
 export default class CourseTab extends React.Component {
     componentDidMount() {

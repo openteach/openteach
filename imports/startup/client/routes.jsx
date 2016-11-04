@@ -1,12 +1,13 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import {MainLayout} from './layouts/MainLayout.jsx';
-import Entrypage from './components/entrypage/Entrypage.jsx';
-import Dashboard from './components/dashboard/Dashboard.jsx';
-import ListBooks from '../imports/features/book/components/ListBooks';
-import Book from '../imports/features/book/components/Book/';
-import NotFound from '../imports/common-ui/pages/notfound-404/components/NotFound/NotFound.js';
+import MainLayout from '../../common-ui/layouts/MainLayout.jsx';
+
+import Entrypage from '../../common-ui/pages/entrypage/Entrypage.jsx';
+import Dashboard from '../../common-ui/pages/dashboard/Dashboard.jsx';
+import ListBooks from '../../features/book/components/ListBooks';
+import Book from '../../features/book/components/Book/';
+import NotFound from '../../common-ui/pages/notfound-404/components/NotFound/NotFound.js';
 
 
 FlowRouter.notFound = {
