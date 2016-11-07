@@ -10,7 +10,7 @@ class Book extends Component {
         // Find lecture
         let chapterId = this.props.chapterIdx;
         var chapter;
-        if(chapterId){
+        if(typeof chapterId !== 'undefined'){
             chapter = this.props.chapters[chapterId]
         }
         else {
@@ -40,7 +40,7 @@ class Book extends Component {
 
         return this.props.chapters.map((chapter, i) => {
             let href = FlowRouter.path("bookRoute", {
-                id : book._id,
+                id : book.urlTitle,
                 chapterId : i + ""
             });
             return (

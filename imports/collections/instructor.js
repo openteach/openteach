@@ -1,19 +1,16 @@
-/*
-The is the course collection.
-*/
-/*import { Mongo } from 'meteor/mongo';
+import { Mongo } from 'meteor/mongo';
+import { Class } from 'meteor/jagi:astronomy';
 
-export const Instructor = new Mongo.Collection('instructors');
+import { globalizeData } from '../helpers';
 
-courseDescriptorSchema = new SimpleSchema({
-    ghRepo : {type : String},
-    ghUser : {type : String},
-    base : {type : String},
+export const Instructors = new Mongo.Collection('instructors');
+
+export const Instructor = Class.create({
+    name: 'Instructor',
+    collection: Instructors,
+    fields: {
+        name: String
+    },
 });
 
-// instructor Schema
-Instructor.schema = new SimpleSchema({
-    name : {type: String},
-    courses: {type : [courseDescriptorSchema]},
-});
-*/
+globalizeData({ Instructors }, { Instructor });

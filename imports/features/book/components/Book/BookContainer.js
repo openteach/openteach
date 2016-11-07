@@ -9,11 +9,14 @@ export default createContainer((params) => {
     const booksHandle = Meteor.subscribe('books');
 
     const loading = !booksHandle.ready();
-    const book = BookCol.findOne({ _id : id});
+    const book = BookCol.findOne({ urlTitle : id});
+
+    console.log(chapterId);
+    console.log(book.chapters);
 
     return {
         book: book,
         chapters : book.chapters,
-        chapterIdx : parseInt(chapterId)
+        chapterIdx : (typeof chapterId) === 'undefined' ? undefined : parseInt(chapterId)
     }
 }, Book)

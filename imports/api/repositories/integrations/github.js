@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 import { Instructor } from '../../../collections/instructor.js';
-import { Books } from '../../../collections/books.js';
+import { Books, Book, convertToUrlStr } from '../../../collections/books.js';
 
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
@@ -80,8 +80,19 @@ let fetchCourse = function(ghUser, ghRepo, base){
     }
     // Books.schema.validate(bookColObj);
 
-    // create or update course to db
-    Books.upsert({title : book.title}, {$set : bookColObj});
+    // Find old
+    let oldBook = Books.findOne({ urlTitle : convertToUrlStr(book.title) })
+
+    if(!oldBook){
+        // Create
+        oldBook = new Book(bookColObj);
+    }
+    else {
+        // Update
+        oldBook.set(bookColObj)
+    }
+
+    oldBook.save();
 }
 
 // We expect a file names instructor.json in the root of a github repo
