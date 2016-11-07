@@ -30,7 +30,7 @@ Four easy steps to get started from the terminal:
   "githubApi" : {
       "access_token" : "GitHub personal access token"
   },
-  "instructor" : {<
+  "instructor" : {
       "ghUser" : "openteach",
       "ghRepo" : "test-instructor",
       "email"  : "example@example.com"
