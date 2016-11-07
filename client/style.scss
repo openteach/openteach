@@ -1,0 +1,445 @@
+/*--------------------------------------------
+openTeach style document
+
+style.scss contains the styles for the different
+elements on the page.
+---------------------------------------------*/
+
+/*---- Quicksand google font ----*/
+	@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 100;
+    background-color: #3498db;
+}
+
+.DashboardBackground {
+    background-color: #fafafa;
+    background-size: cover;
+}
+
+.modalForm {
+    background-color: #3498db;
+}
+
+/*************************************************
+TYPOGRAPHY
+*************************************************/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    text-align: justify;
+}
+
+/*************************************************
+		        ---== ENTRY PAGE ==---
+*************************************************/
+
+/*************************************************
+NAVIGATION COMPONENT
+*************************************************/
+
+.navigation ul {
+    list-style: none;
+}
+
+.navigation li {
+    list-style: none;
+}
+
+.navigation a {
+    color: lightgrey;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.navigation a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navigation a:visited {
+    text-decoration: none;
+}
+
+.navigation__logo {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+}
+
+/*************************************************
+MAIN CONTENT COMPONENT
+*************************************************/
+
+.mainHeading {
+    font-size: 40px;
+    font-weight: 300;
+    color: #fff;
+}
+
+.mainContent__subtext {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/*************************************************
+SIGN UP COMPONENT
+*************************************************/
+
+/*---- SIGN UP FORM ----*/
+
+.signUpForm input[type=text] {
+	font-size: 16px;
+	font-weight: 100;
+	width: 400px;
+	border: none;
+	outline: none;
+	background: none;
+	box-shadow: none;
+	border-bottom: 1px solid #fff;
+}
+
+/*---- Placeholder text ----*/
+
+/* WebKit, Blink, Edge */
+.signUpForm input[type=text]::-webkit-input-placeholder {
+    color: lightgrey;
+}
+
+/* Mozilla Firefox 4 to 18 */
+.signUpForm input[type=text]:-moz-placeholder {
+    color: #fff;
+}
+
+/* Mozilla Firefox 19+ */
+.signUpForm input[type=text]::-moz-placeholder {
+    color: #fff;
+}
+
+/* Internet Explorer 10-11 */
+.signUpForm input[type=text]:-ms-input-placeholder {
+    color: #fff;
+}
+
+/*---- Input text ----*/
+
+.signUpForm input[type=text], input {
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+/*---- Sign up button ----*/
+
+.signUpForm input[type=submit] {
+	border-radius: 3px;
+	width: 200px;
+	height: 35px;
+	border: none;
+	outline: none;
+	background-color: #2ecc71;
+	font-size: 16px;
+	font-weight: 100;
+	color: #fff;
+	transition: background-color .28s ease-in-out;
+	letter-spacing: 3px;
+	/*Shadow for sign up button*/
+	-moz-box-shadow: 0 3px 0 #27ae60;
+    -webkit-box-shadow: 0 3px 0 #27ae60;
+    box-shadow: 0 3px 0 #27ae60;
+}
+
+.signUpForm input[type=submit]:hover {
+	background-color: #27ae60;
+    color: #fff;
+}
+
+/*************************************************
+SIGN IN COMPONENT
+*************************************************/
+
+/*---- Sign in button in form of a link ----*/
+
+.orTagline {
+	font-size: 12px;
+	font-weight: 400;
+	color: #fff;
+	letter-spacing: 2px;
+}
+
+.signInBtn a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.signInBtn a:hover {
+    text-decoration: none;
+    color: lightgrey;
+    letter-spacing: 2px;
+}
+
+.signIn__heading {
+    font-size: 26px;
+    font-weight: 100;
+    color: #3498db;
+}
+
+.signIn__subtext {
+    color: #3498db;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* Btn - Sign in */
+.signIn__btn {
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    background-color: #2ecc71;
+    font-size: 16px;
+    font-weight: 100;
+    color: #fff;
+    transition: background-color .28s ease-in-out;
+    letter-spacing: 3px;
+    /*Shadow for sign up button*/
+    -moz-box-shadow: 0 3px 0 #27ae60;
+    -webkit-box-shadow: 0 3px 0 #27ae60;
+    box-shadow: 0 3px 0 #27ae60;
+}
+
+.SignIn__btn:hover {
+    color: #fff;
+    background-color: #27ae60;
+}
+
+/* Or sub-text */
+
+.signIn__orSubText {
+    font-size: 12px;
+    color: grey;
+    font-weight: 100;
+}
+
+/*************************************************
+FOOTER COMPONENT
+*************************************************/
+
+.footer p {
+	font-size: 12px;
+	color: #fff;
+}
+
+/**************************************************
+            ---== DASHBOARD PAGE ==---
+**************************************************/
+
+/*---=== Dashboard Component ===---*/
+
+.dashboard {
+	font-family: 'Quicksand', sans-serif;
+}
+
+/*--== Styles for 'Apprenticeship' ==--*/
+
+/* General styles for apprenticeship */
+.apprenticeship {
+	font-family: 'Quicksand', sans-serif;
+}
+
+/* This headline styles is applied to both headlines */
+.apprenticeship--headline {
+    font-weight: 100;
+}
+
+.apprenticeship--informationtext {
+    text-align: justify;
+    font-weight: 100;
+    line-height: 32px;
+}
+
+/* General styles for the apprenticeship motivation section */
+
+.apprenticeship--motivation textarea {
+    border: 1px solid lightgrey;
+    resize: none;
+    height: 300px;
+}
+
+/* Btn - Apply for apprenticeship */
+.apply__btn {
+    border-radius: 3px;
+    height: 35px;
+    border: none;
+    outline: none;
+    background-color: #2ecc71;
+    font-size: 16px;
+    font-weight: 100;
+    color: #fff;
+    transition: background-color .28s ease-in-out;
+    letter-spacing: 3px;
+    /*Shadow for sign up button*/
+    -moz-box-shadow: 0 3px 0 #27ae60;
+    -webkit-box-shadow: 0 3px 0 #27ae60;
+    box-shadow: 0 3px 0 #27ae60;
+}
+
+.apply__btn:hover {
+    background-color: #27ae60;
+}
+
+/*--== Styles for 'Courses' page ==--*/
+
+/* Styling for the Courses tab */
+
+//TODO: Rename classes from lectures to books
+/* remember lectures are books */
+
+.listOfCourses {
+    background-color: #fafafa;
+}
+
+.listOfCourses__list {
+	list-style: none;
+}
+
+.listOfCourses__list li {
+    width: 600px;
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+.listOfCourses__list li a {
+    font-weight: 300;
+    font-size: 30px;
+}
+
+.listOfCourses__list li a:hover { /* Add hover effect here if wanted*/ }
+
+/* Styling for the Courses page */
+
+.list__logo {
+    content:url("/assets/images/openTeach-owl-logo.gif");
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 60px;
+}
+
+.list__logo__text {
+    color: #3498db;
+}
+
+.chapterList {
+    background-color: rgb(248, 248, 248);
+    border-right: 1px solid lightgrey;
+    height: 100vh;
+}
+
+.chapterList__ul {
+    list-style: none;
+    color: #fff;
+}
+
+.chapterList__ul li:hover {
+    text-decoration: underline;
+}
+
+/* Courses list 'landingpage' content */
+
+/* Course content general styles */
+
+#chapter-content {
+    background-color: #fff;
+}
+
+/* Course content */
+
+#chapter-content p {
+    color: rgba(0,0,0,.8);
+    font-size: 20px;
+    line-height: 2;
+}
+
+/* Course content headline colors */
+
+#chapter-content
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: rgba(0,0,0,.8);
+    font-weight: 400;
+}
+
+#chapterTitle {
+    font-size: 42px;
+    color: rgba(0, 0, 0, .8);
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+/*--== Styles for 'lectures' page
+    PAGE NOT ACTIVE YET...
+==--*/
+
+.chapters {
+	font-family: 'Quicksand', sans-serif;
+}
+
+/* Coming soon headline in the lectures tab */
+.coming-soon__headline {
+	font-size: 34px;
+    font-weight: 100;
+}
+
+/*************************************************
+NOT FOUND 404 COMPONENT
+*************************************************/
+
+/*----  ----*/
+
+.notFound {
+    background: url("../assets/images/404PageImg.png");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+
+        &__text {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        &__headline {
+            font-size: 80px;
+            font-weight: 100;
+            color: #fff;
+            letter-spacing: 2px;
+    }
+
+        &__tagline {
+            font-size: 24px;
+            color: #fff;
+        }
+}
