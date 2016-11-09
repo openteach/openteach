@@ -13,8 +13,12 @@ we emphasize:
   do not take any data as prisoner, and changing platform should be
   easy.
 
-## Setup
+## Deploying
+See deployment notes in the [release repository](/openteach/release).
 
+## Development
+
+### Setup
 Four easy steps to get started from the terminal:
 
 1. Clone this repository:
@@ -48,7 +52,7 @@ __GitHub personal access token:__
 
 __Now__ run `meteor npm install` to install dependencies.
 
-## Running Locally
+### Running Locally
 This projects can be run in two modes: As the normal app and for testing.
 
 __Running as a normal app:__
@@ -66,20 +70,20 @@ meteor test --driver-package practicalmeteor:mocha --port 3100
 __Note:__ Tests are served on port `3100`. This is so that both an app and tests
 may be run at the same time.
 
-### Endpoints
+#### Endpoints
 For importing stuff from github, invoke following API endpoint:
 
 ```
 http://localhost:3000/api/v1/import/github
 ```
 
-## Quick Start Guide
+### Quick Start Guide
 For more info, see the setup guide in the handbook folder.
 
-## Documentation
+### Documentation
 Documentation is available in the handbook folder
 
-## Collaboration
+### Collaboration
 This is an open source project, and as such we do not take any responsibility
 or are in any ways liable for the project. Everybody are more than welcome to
 use the software.
