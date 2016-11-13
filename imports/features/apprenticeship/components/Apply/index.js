@@ -1,2 +1,2 @@
-import ApplyContainer from './ApplyContainer';
+import ApplyContainer from './ApplyContainer.js';
 export default ApplyContainer

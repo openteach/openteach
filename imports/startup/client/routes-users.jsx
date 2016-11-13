@@ -1,42 +1,23 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import PublicLayout from '../../common-ui/layouts/PublicLayout.jsx';
-import AppLayout from '../../common-ui/layouts/AppLayout.jsx';
+import MainLayout from '../../common-ui/layouts/MainLayout.jsx';
 
-import Entrypage from '../../common-ui/pages/entrypage/Entrypage.jsx';
-import NotFound from '../../common-ui/pages/notfound-404/components/NotFound/NotFound.js';
-
-
-FlowRouter.notFound = {
-    action: function() {
-        mount(PublicLayout, {
-            content: <NotFound />
-        });
-    }
-};
+import Dashboard from '../../common-ui/pages/dashboard/Dashboard.jsx';
+import ListBooks from '../../features/book/components/ListBooks';
+import Book from '../../features/book/components/Book/';
 
 // Set up groups
-var publicGroup = FlowRouter.group({
-    prefix: '/',
-    name: 'public',
+var userGroup = FlowRouter.group({
+    prefix: '/u',
+    name: 'users',
     triggersEnter: [function(context, redirect) {
-        console.log('running group triggers for public group');
+        // Test that the user is logged in
+        if(!Meteor.user()){
+            console.log("You at not logged in.");
+            redirect("indexRoute");
+        }
     }]
-});
-
-/**
- * Public routes
- */
-
-// Root, mounting entry component
-publicGroup.route('/', {
-    name: "indexRoute",
-    action(params, queryParams){
-        mount(PublicLayout, {
-            content: (<Entrypage />)
-        })
-    }
 });
 
 /**
@@ -47,10 +28,10 @@ publicGroup.route('/', {
 userGroup.route('/course/:id/:chapterId?', {
     name: "bookRoute",
     action(params, queryParams) {
-        mount(AppLayout, {
+        mount(MainLayout, {
             content: (
                 <Dashboard selected={1}>
-                    <Book id={params.id} chapterId={params.chapterId} />
+                    <Book id={params.id} currentChapter={params.chapterId} />
                 </Dashboard>)
         });
     }
@@ -59,7 +40,7 @@ userGroup.route('/course/:id/:chapterId?', {
 userGroup.route('/dashboard/apprenticeship', {
     name: "dashboardApprenticeship",
     action(params, queryParams) {
-        mount(AppLayout, {
+        mount(MainLayout, {
             content: (<Dashboard selected={0} />)
         })
     }
@@ -68,7 +49,7 @@ userGroup.route('/dashboard/apprenticeship', {
 userGroup.route('/dashboard/books', {
     name: "dashboardBooks",
     action(params, queryParams) {
-        mount(AppLayout, {
+        mount(MainLayout, {
             content: (
                 <Dashboard selected={1}>
                     <ListBooks />
@@ -80,7 +61,7 @@ userGroup.route('/dashboard/books', {
 userGroup.route('/dashboard/lectures', {
     name: "dashboardLectures",
     action(params, queryParams) {
-        mount(AppLayout, {
+        mount(MainLayout, {
             content: (<Dashboard selected={2} />)
         })
     }
@@ -89,7 +70,7 @@ userGroup.route('/dashboard/lectures', {
 userGroup.route('/apprenticeship', {
     name: "apprenticeshipRoute",
     action(params, queryParams) {
-        mount(AppLayout, {
+        mount(MainLayout, {
             content: (<Apprenticeship />)
         })
     }

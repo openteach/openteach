@@ -8,10 +8,10 @@ class Book extends Component {
         let book = this.props.book;
 
         // Find lecture
-        let chapterId = this.props.chapterIdx;
+        let chapterId = this.props.currentChapter;
         var chapter;
         if(typeof chapterId !== 'undefined'){
-            chapter = this.props.chapters[chapterId]
+            chapter = this.props.chapters.find(x => x.urlTitle == chapterId);
         }
         else {
             chapter = book.index
@@ -35,13 +35,13 @@ class Book extends Component {
     }
 
     renderChapterList() {
-        let chapterId = this.props.chapterIdx;
+        let chapterId = this.props.currentChapter;
         let book = this.props.book;
 
         return this.props.chapters.map((chapter, i) => {
             let href = FlowRouter.path("bookRoute", {
                 id : book.urlTitle,
-                chapterId : i + ""
+                chapterId : chapter.urlTitle
             });
             return (
                 <li key={i}>
@@ -98,7 +98,7 @@ const styles = {
 Book.propTypes = {
     book : React.PropTypes.object,
     chapters: React.PropTypes.array,
-    chapterIdx : React.PropTypes.number
+    currentChapter : React.PropTypes.string
 };
 
 Book.defaultProps = {};
