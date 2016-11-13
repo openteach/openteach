@@ -1,7 +1,8 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import MainLayout from '../../common-ui/layouts/MainLayout.jsx';
+import PublicLayout from '../../common-ui/layouts/PublicLayout.jsx';
+import AppLayout from '../../common-ui/layouts/AppLayout.jsx';
 
 import Entrypage from '../../common-ui/pages/entrypage/Entrypage.jsx';
 import Dashboard from '../../common-ui/pages/dashboard/Dashboard.jsx';
@@ -12,7 +13,7 @@ import NotFound from '../../common-ui/pages/notfound-404/components/NotFound/Not
 
 FlowRouter.notFound = {
     action: function() {
-        mount(MainLayout, {
+        mount(PublicLayout, {
             content: <NotFound />
         });
     }
@@ -52,7 +53,7 @@ var userGroup = FlowRouter.group({
 publicGroup.route('/', {
     name: "indexRoute",
     action(params, queryParams){
-        mount(MainLayout, {
+        mount(PublicLayout, {
             content: (<Entrypage />)
         })
     }
@@ -66,7 +67,7 @@ publicGroup.route('/', {
 userGroup.route('/course/:id/:chapterId?', {
     name: "bookRoute",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (
                 <Dashboard selected={1}>
                     <Book id={params.id} chapterId={params.chapterId} />
@@ -78,7 +79,7 @@ userGroup.route('/course/:id/:chapterId?', {
 userGroup.route('/dashboard/apprenticeship', {
     name: "dashboardApprenticeship",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (<Dashboard selected={0} />)
         })
     }
@@ -87,7 +88,7 @@ userGroup.route('/dashboard/apprenticeship', {
 userGroup.route('/dashboard/books', {
     name: "dashboardBooks",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (
                 <Dashboard selected={1}>
                     <ListBooks />
@@ -99,7 +100,7 @@ userGroup.route('/dashboard/books', {
 userGroup.route('/dashboard/lectures', {
     name: "dashboardLectures",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (<Dashboard selected={2} />)
         })
     }
@@ -108,8 +109,8 @@ userGroup.route('/dashboard/lectures', {
 userGroup.route('/apprenticeship', {
     name: "apprenticeshipRoute",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (<Apprenticeship />)
         })
     }
-})
+});
