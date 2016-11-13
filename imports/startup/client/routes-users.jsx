@@ -24,7 +24,6 @@ var userGroup = FlowRouter.group({
  * User routes
  */
 
-// /u/course/:courseId...
 userGroup.route('/course/:id/:chapterId?', {
     name: "bookRoute",
     action(params, queryParams) {
