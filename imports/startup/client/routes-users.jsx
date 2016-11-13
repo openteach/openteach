@@ -31,7 +31,7 @@ userGroup.route('/course/:id/:chapterId?', {
         mount(MainLayout, {
             content: (
                 <Dashboard selected={1}>
-                    <Book id={params.id} chapterId={params.chapterId} />
+                    <Book id={params.id} currentChapter={params.chapterId} />
                 </Dashboard>)
         });
     }

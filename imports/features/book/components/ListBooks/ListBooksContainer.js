@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Books } from '../../../../collections/books.js';
+import { Book } from '../../../../collections/books.js';
 import ListBooks from './ListBooks.js';
 
 export default createContainer((params) => {
@@ -8,7 +8,7 @@ export default createContainer((params) => {
     const booksHandle = Meteor.subscribe('books');
 
     const loading = !booksHandle.ready();
-    const books = Books.find({}).fetch()
+    const books = Book.find({}).fetch()
 
     return {
         bookList : books,
