@@ -14,7 +14,7 @@ we emphasize:
   easy.
 
 ## Deploying
-See deployment notes in the [release repository](/openteach/release).
+[release repository](https://github.com/openteach/release).
 
 ## Development
 
