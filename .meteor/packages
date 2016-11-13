@@ -21,7 +21,7 @@ react-meteor-data
 static-html@1.1.12_1
 practicalmeteor:mocha
 fortawesome:fontawesome
-ewall:foundation
+zurb:foundation-sites
 fourseven:scss
 bruz:github-api
 ostrio:base64

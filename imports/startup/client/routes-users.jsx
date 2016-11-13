@@ -73,4 +73,4 @@ userGroup.route('/apprenticeship', {
             content: (<Apprenticeship />)
         })
     }
-})
+});
