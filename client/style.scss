@@ -1,0 +1,24 @@
+//EXTERNAL IMPORTS
+    // Foundation settings file
+    @import 'settings';
+
+// TYPOGRAPHI
+
+//White color text class
+    .whiteText {
+        color: $white;
+    }
+
+// Classes for navigation
+
+
+// Classes for Sign up content
+
+.signUpInput input {
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid $white;
+    box-shadow: none;
+}
