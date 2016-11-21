@@ -108,7 +108,7 @@ export default class SignInInput extends React.Component {
                 <p className="text-center">
                     <a
                         href="#0"
-                        className="text-center"
+                        className="whiteText text-center"
                         onClick={this.openModal.bind(this)}>
                         Sign in
                     </a>

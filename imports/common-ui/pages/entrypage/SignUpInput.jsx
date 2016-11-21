@@ -25,7 +25,7 @@ export default class SignUpInput extends React.Component {
 
     render() {
         return (
-            <div className="text-center">
+            <div className="signUpInput text-center">
                 <form onSubmit={this.onSubmit}>
                     <input name="uname" type="text" placeholder="Name" ref={(f) => {this._uname = f}} />
                     <input name="umail" type="text" placeholder="Email" ref={(f) => this._umail = f} />

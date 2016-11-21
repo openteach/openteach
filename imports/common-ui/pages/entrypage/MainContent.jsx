@@ -11,7 +11,7 @@ export default class mainContent extends React.Component {
 
 					    <div className="large-centered columns large-4">
 
-							<h4 className="text-center">
+							<h4 className="contentHeading text-center">
 								Learn with [name of teacher]
 							</h4>
 
