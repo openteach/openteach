@@ -24,14 +24,14 @@ export default class SignUpInput extends React.Component {
     }
 
     render() {
-      return (
-        <div>
-          <form className="signUpForm" onSubmit={this.onSubmit}>
-            <input name="uname" type="text" placeholder="Name" ref={(f) => {this._uname = f}} />
-            <input name="umail" type="text" placeholder="Email" ref={(f) => this._umail = f} />
-            <input name="upass" type="text" placeholder="Password" ref={(f) => this._upass = f} />
-            <input type="submit" value="Sign up" />
-          </form>
-        </div>
-    )}
-};
+        return (
+            <div className="text-center">
+                <form className="signUpForm" onSubmit={this.onSubmit}>
+                    <input name="uname" type="text" placeholder="Name" ref={(f) => {this._uname = f}} />
+                    <input name="umail" type="text" placeholder="Email" ref={(f) => this._umail = f} />
+                    <input name="upass" type="text" placeholder="Password" ref={(f) => this._upass = f} />
+                    <input className="button success" type="submit" value="Sign up" />
+                </form>
+            </div>
+        )}
+    };

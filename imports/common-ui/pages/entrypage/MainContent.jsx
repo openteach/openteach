@@ -7,19 +7,22 @@ import SignInInput from './SignInInput.jsx';
 export default class mainContent extends React.Component {
 	render() {
 		return(
-				<div className="mainContent">
+				<div className="row">
 
-					<h4 className="mainHeading">
-						Learn with openTeach
-					</h4>
+					    <div className="large-centered columns large-4">
 
-					<p className="mainContent__subtext">
-						Providing the conditions for you to learn
-					</p>
+							<h4 className="text-center">
+								Learn with [name of teacher]
+							</h4>
 
-					<SignUpInput />
+							<p className="text-center">
+								Providing the conditions for you to learn
+							</p>
 
-					<SignInInput />
+							<SignUpInput />
+
+							<SignInInput />
+					    </div>
 
 				</div>
 		)

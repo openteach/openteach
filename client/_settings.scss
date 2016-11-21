@@ -40,6 +40,10 @@
 //  35. Tooltip
 //  36. Top Bar
 
+// EXTERNAL IMPORTS
+// Google font Quicksand
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 @import '{zurb:foundation-sites}/scss/util/util';
 
 // 1. Global
@@ -60,7 +64,7 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: $white;
+$body-background: #3498db;
 $body-font-color: $black;
 $body-font-family: 'Quicksand', sans-serif;
 $body-antialiased: true;
