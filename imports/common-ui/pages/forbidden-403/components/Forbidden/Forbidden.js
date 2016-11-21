@@ -3,10 +3,10 @@ import React from 'react';
 export default class Forbidden extends React.Component {
     render() {
         return (
-            <div className="forbidden">
-                <p className="forbidden__text">{this.props.text}</p>
-                <h1 className="forbidden__headline">{this.props.headline}</h1>
-                <p className="forbidden__tagline">{this.props.tagline}</p>
+            <div className="text-center">
+                <p>{this.props.text}</p>
+                <h1>{this.props.headline}</h1>
+                <p>{this.props.tagline}</p>
             </div>
         )
     }
