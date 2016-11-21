@@ -5,10 +5,18 @@ structure.scss contains the structure for the
 different elements on the page.
 ---------------------------------------------*/
 
-body {
+body, html {
     margin: 0;
     padding: 0;
-    height: 100vh;
+}
+
+#layout, #react-root {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
 }
 
 .DashboardBackground {

@@ -1,3 +1,3 @@
-import '../common/accounts.js'
-import './routes.jsx'
-import './routes-users.jsx'
+import '../common/accounts.js';
+import './routes.jsx';
+import './routes-users.jsx';

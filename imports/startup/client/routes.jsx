@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import MainLayout from '../../common-ui/layouts/MainLayout.jsx';
+import PublicLayout from '../../common-ui/layouts/PublicLayout.jsx';
 
 import Entrypage from '../../common-ui/pages/entrypage/Entrypage.jsx';
 import NotFound from '../../common-ui/pages/notfound-404/components/NotFound/NotFound.js';
@@ -9,7 +9,7 @@ import NotFound from '../../common-ui/pages/notfound-404/components/NotFound/Not
 
 FlowRouter.notFound = {
     action: function() {
-        mount(MainLayout, {
+        mount(PublicLayout, {
             content: <NotFound />
         });
     }
@@ -32,8 +32,8 @@ var publicGroup = FlowRouter.group({
 publicGroup.route('/', {
     name: "indexRoute",
     action(params, queryParams){
-        mount(MainLayout, {
+        mount(PublicLayout, {
             content: (<Entrypage />)
         })
     }
-})
+});

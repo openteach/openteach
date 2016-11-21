@@ -1,4 +1,4 @@
-import '../common/accounts.js'
+import '../common/accounts.js';
 import './publications.js';
 import './routes.js';
 

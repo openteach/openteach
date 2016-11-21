@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import MainLayout from '../../common-ui/layouts/MainLayout.jsx';
+import AppLayout from '../../common-ui/layouts/AppLayout.jsx';
 
 import Dashboard from '../../common-ui/pages/dashboard/Dashboard.jsx';
 import ListBooks from '../../features/book/components/ListBooks';
@@ -24,11 +24,10 @@ var userGroup = FlowRouter.group({
  * User routes
  */
 
-// /u/course/:courseId...
 userGroup.route('/course/:id/:chapterId?', {
     name: "bookRoute",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (
                 <Dashboard selected={1}>
                     <Book id={params.id} currentChapter={params.chapterId} />
@@ -40,7 +39,7 @@ userGroup.route('/course/:id/:chapterId?', {
 userGroup.route('/dashboard/apprenticeship', {
     name: "dashboardApprenticeship",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (<Dashboard selected={0} />)
         })
     }
@@ -49,7 +48,7 @@ userGroup.route('/dashboard/apprenticeship', {
 userGroup.route('/dashboard/books', {
     name: "dashboardBooks",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (
                 <Dashboard selected={1}>
                     <ListBooks />
@@ -61,7 +60,7 @@ userGroup.route('/dashboard/books', {
 userGroup.route('/dashboard/lectures', {
     name: "dashboardLectures",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (<Dashboard selected={2} />)
         })
     }
@@ -70,8 +69,8 @@ userGroup.route('/dashboard/lectures', {
 userGroup.route('/apprenticeship', {
     name: "apprenticeshipRoute",
     action(params, queryParams) {
-        mount(MainLayout, {
+        mount(AppLayout, {
             content: (<Apprenticeship />)
         })
     }
-})
+});
