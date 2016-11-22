@@ -56,11 +56,11 @@ export default class SignInInput extends React.Component {
                         height="500"
                         effect="fadeInDown">
                         <div>
-                            <h1 className="text-center">
+                            <h1 className="text-center blackText">
                                 Sign in
                             </h1>
                             <p
-                                className="text-center">
+                                className="text-center blackText">
                                 Welcome - Sign in and start learning today!
                             </p>
                             <form>
