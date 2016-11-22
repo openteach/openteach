@@ -1,0 +1,70 @@
+$menu-icon-size: 4rem;
+$menu-icon-color: #333;
+$menu-link-height: 6.25rem;
+$menu-link-color: #fff;
+$menu-link-border: 1px solid rgba(255,255,255, .5);
+
+.toggle-menu {
+  position:fixed;
+  font-size: $menu-icon-size;
+  z-index: 5000;
+  color: $menu-icon-color;
+  top: 2.6rem;
+  right: 0.8rem;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transition: all 0.4s ease-in-out;
+    color: lighten($menu-icon-color, 30%);
+  }
+}
+
+.overlay-menu {
+  position: absolute;;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  margin:0;
+  padding: 5rem 0 0;
+  opacity: 0;
+  list-style: none;
+  background-color: #000000;
+  background-size: cover;
+  text-align: center;
+  transform: translateX(-100%) rotateX(40deg);
+  transition: all 400ms cubic-bezier(1.000, -0.400, 0.440, 0.985);
+
+  li {
+    font-size: 1.5rem;
+  }
+
+  a {
+    display: block;
+    color: $menu-link-color;
+    font-weight: bold;
+    height: $menu-link-height;
+    line-height: 6.25rem;
+    border-bottom: $menu-link-border;
+    text-decoration: none;
+
+    &:hover {
+      background-color: darken(#3498db, 3%);
+    }
+  }
+
+  &.is-open ~ .toggle-menu {
+    display: inline-block;
+    transition: all 0.4s ease-in-out;
+    transform: rotate(135deg);
+    color: lighten($menu-icon-color, 100%);
+  }
+}
+
+.is-open {
+  top: 0;
+  opacity: 0.9;
+  transform: perspective(200px) translateX(0) rotateX(0);
+}
