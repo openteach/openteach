@@ -9,8 +9,9 @@
         color: $white;
     }
 
-// Classes for navigation
-
+    .blackText {
+        color: $black;
+    }
 
 // Classes for Sign up content
 
@@ -21,4 +22,16 @@
     border-right: none;
     border-bottom: 1px solid $white;
     box-shadow: none;
+}
+
+.signUpInput input:first-child {
+    margin-top: 50px;
+}
+
+.signUpInput input[type=submit] {
+    border: none;
+    border-radius: 3px;
+    width: 100px;
+    margin-top: 40px;
+    outline: none;
 }
