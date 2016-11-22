@@ -3,6 +3,7 @@ import React from 'react';
 export default class Navigation extends React.Component {
 	render() {
 		return(
+			<div>
 				<div className="callout clearfix">
 
 					<h5 className="textLogo float-left">openTeach</h5>
@@ -17,6 +18,10 @@ export default class Navigation extends React.Component {
 					</a>
 
 				</div>
+
+				<p className="githubText float-right">GitHub</p>
+
+			</div>
 		)
 	}
 }

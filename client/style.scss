@@ -5,13 +5,28 @@
 // TYPOGRAPHI
 
 //White color text class
-    .whiteText {
-        color: $white;
-    }
+.whiteText {
+    color: $white;
+}
 
-    .blackText {
-        color: $black;
-    }
+.blackText {
+    color: $black;
+}
+
+// Classes for navigation
+
+.githubLogo {
+    color: $medium-gray;
+}
+
+.githubLogo:hover {
+    color: $white;
+}
+
+.githubText {
+    margin-right: 20px;
+    color: $medium-gray;
+}
 
 // Classes for Sign up content
 
