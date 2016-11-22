@@ -11,7 +11,7 @@ export default class Navigation extends React.Component {
                     <a href="https://github.com/openteach/openTeach" className="githubLogo float-right whiteText">
                         <i className="fi-social-github"></i>
                     </a>
-
+                    
                 </div>
             </div>
         )
