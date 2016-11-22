@@ -20,7 +20,6 @@ kadira:flow-router
 react-meteor-data
 static-html@1.1.12_1
 practicalmeteor:mocha
-fortawesome:fontawesome
 zurb:foundation-sites
 fourseven:scss
 bruz:github-api
