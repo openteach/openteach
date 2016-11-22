@@ -27,7 +27,7 @@ class ListBooks extends React.Component {
         let rowidx = 0;
 
         return rows.map((cols) => (
-            <div key={rowidx++} className="row expanded">
+            <div key={rowidx++} className="row">
                 {cols.map((book) => (<BookCard key={book._id} book={book} />))}
             </div>));
     }
