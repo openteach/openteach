@@ -89,6 +89,7 @@ export default class SignInInput extends React.Component {
                             </form>
                             <div className="text-center">
                                 <a
+                                    className="button success"
                                     href="#"
                                     onClick={this.onSubmit}>
                                     Sign in
