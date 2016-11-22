@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import Radium from 'radium';
+import BookCard from '../BookCard';
 
 const array_chunk = function chunks(arr, size) {
     if (!Array.isArray(arr)) {
@@ -21,39 +22,19 @@ const array_chunk = function chunks(arr, size) {
 
 class ListBooks extends React.Component {
     renderBooks() {
-        let books = this.props.bookList; //Books.find({}).fetch();
-
+        let books = this.props.bookList;
         const rows = array_chunk(books, 2);
-
         let rowidx = 0;
 
         return rows.map((cols) => (
-            <div key={rowidx++} className="row">
-                {
-                cols.map((book) =>
-                    (<div key={book._id} className="medium-6 columns">
-                        <div className="card">
-                            <div className="content">
-                                <span className="title">{book.title}</span>
-                                <p>Resume of the book here.</p>
-                            </div>
-                            <div className="action">
-                                <a href={FlowRouter.path("bookRoute", {"id" : book.urlTitle})}>Open</a>
-                            </div>
-                        </div>
-                    </div>)
-
-                )
-
-                }
-
+            <div key={rowidx++} className="row expanded">
+                {cols.map((book) => (<BookCard key={book._id} book={book} />))}
             </div>));
-
     }
 
     render() {
         return (
-         <div className="listOfCourses row">
+         <div className="listOfCourses">
             {this.renderBooks()}
          </div>
         )
