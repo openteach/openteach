@@ -30,12 +30,6 @@ export const Topic = Class.create({
         resources : [Resource],
         tags : [Tag],
         messages : [Message]
-    },
-    events: {
-        beforeSave(e) {
-            // update url field to match title
-            e.currentTarget.urlTitle = convertToUrlStr(e.currentTarget.title);
-        }
     }
 });
 
