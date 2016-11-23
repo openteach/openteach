@@ -28,7 +28,6 @@ ejson@1.0.13
 email@1.1.18
 es5-shim@4.6.15
 fastclick@1.0.12
-fortawesome:fontawesome@4.6.3
 fourseven:scss@3.10.0
 geojson-utils@1.0.10
 hot-code-push@1.0.4
@@ -44,6 +43,7 @@ launch-screen@1.0.12
 livedata@1.0.18
 localstorage@1.0.12
 logging@1.1.16
+maibaum:foundation-icons@0.0.1
 mdg:validated-method@1.1.0
 mdg:validation-error@0.5.1
 meteor@1.6.0

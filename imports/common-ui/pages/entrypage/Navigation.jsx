@@ -1,28 +1,19 @@
 import React from 'react';
 
-export default class navigation extends React.Component {
-	render() {
-		return(
-				<div className="navigation">
+export default class Navigation extends React.Component {
+    render() {
+        return(
+            <div>
+                <div className="callout clearfix">
 
-					<h5 className="navigation__logo">openTeach</h5>
+                    <h5 className="textLogo float-left">openTeach</h5>
 
-					<ul>
-
-						<li>
-							<a
-								href="https://github.com/openteach/openTeach"
-								target="_blank">
-								<i
-									className="fa fa-github fa-2x"
-									aria-hidden="true">
-								</i> GitHub
-							</a>
-						</li>
-
-					</ul>
-
-				</div>
-		)
-	}
+                    <a href="https://github.com/openteach/openTeach" className="githubLogo float-right whiteText">
+                        <i className="fi-social-github"></i>
+                    </a>
+                    
+                </div>
+            </div>
+        )
+    }
 }

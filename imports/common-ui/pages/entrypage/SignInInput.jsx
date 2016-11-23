@@ -56,17 +56,17 @@ export default class SignInInput extends React.Component {
                         height="500"
                         effect="fadeInDown">
                         <div>
-                            <h1 className="signIn__heading">
+                            <h1 className="text-center blackText">
                                 Sign in
                             </h1>
                             <p
-                                className="signIn__subtext">
+                                className="text-center blackText">
                                 Welcome - Sign in and start learning today!
                             </p>
                             <form>
                                 <div className="row">
                                     <label
-                                        className="signIn__input__text signIn__input">
+                                        className="text-center">
                                         Email
                                         <input
                                             placeholder="Email"
@@ -75,7 +75,7 @@ export default class SignInInput extends React.Component {
                                             />
                                     </label>
                                     <label
-                                        className="signIn__input__text signIn__input">
+                                        className="text-center">
                                         Password
                                         <input
                                             id="js-signIn__input"
@@ -87,15 +87,15 @@ export default class SignInInput extends React.Component {
                                     </label>
                                 </div>
                             </form>
-                            <div>
+                            <div className="text-center">
                                 <a
-                                    className="signIn__btn"
+                                    className="button success"
                                     href="#"
                                     onClick={this.onSubmit}>
                                     Sign in
                                 </a>
                             </div>
-                            <div className="SignIn__close__btn">
+                            <div className="text-center">
                                 <a
                                     href="javascript:void(0);"
                                     onClick={this.closeModal.bind(this)}>
@@ -105,11 +105,11 @@ export default class SignInInput extends React.Component {
                         </div>
                     </Modal>
                 </section>
-                <p className="orTagline">Or</p>
-                <p className="signInBtn">
+                <p className="text-center">Or</p>
+                <p className="text-center">
                     <a
                         href="#0"
-                        className="signInBtn__link"
+                        className="whiteText text-center"
                         onClick={this.openModal.bind(this)}>
                         Sign in
                     </a>

@@ -1,25 +1,41 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import Radium from 'radium';
+import BookCard from '../BookCard';
+
+const array_chunk = function chunks(arr, size) {
+    if (!Array.isArray(arr)) {
+        throw new TypeError('Input should be Array');
+    }
+
+    if (typeof size !== 'number') {
+        throw new TypeError('Size should be a Number');
+    }
+
+    var result = [];
+    for (var i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, size + i));
+    }
+
+    return result;
+};
 
 class ListBooks extends React.Component {
     renderBooks() {
-        let books = this.props.bookList; //Books.find({}).fetch();
+        let books = this.props.bookList;
+        const rows = array_chunk(books, 2);
+        let rowidx = 0;
 
-        return books.map((book) => {
-            let href = FlowRouter.path("bookRoute", {"id" : book.urlTitle});
-            return (
-            <li key={book.urlTitle}><a href={href}>{book.title}</a></li>
-            );
-        });
+        return rows.map((cols) => (
+            <div key={rowidx++} className="row">
+                {cols.map((book) => (<BookCard key={book._id} book={book} />))}
+            </div>));
     }
 
     render() {
         return (
          <div className="listOfCourses">
-          <ul className="listOfCourses__list">
-           {this.renderBooks()}
-          </ul>
+            {this.renderBooks()}
          </div>
         )
     }
