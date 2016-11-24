@@ -11,8 +11,23 @@
     margin: 10px 20px 0 0;
 }
 
+.githubLogo__text {
+    font-size: 20px;
+}
+
 // Classes for maincontent
 
 .contentHeading {
     margin-top: 100px;
+}
+
+// Classes for Sign in component
+
+.signInInputEmail {
+    // display: inline-block;
+    margin-left: 21px;
+}
+
+.signInButton {
+    margin-top: 30px;
 }
