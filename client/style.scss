@@ -29,7 +29,7 @@
     color: $medium-gray;
 }
 
-// Classes for Sign up content
+// Classes for Sign up
 
 .signUpInput input {
     background: none;
@@ -50,4 +50,8 @@
     width: 100px;
     margin-top: 40px;
     outline: none;
+}
+
+.modalBackground {
+    background-color: #3498db;
 }
