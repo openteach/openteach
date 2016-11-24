@@ -39,12 +39,13 @@ class Apply extends Component {
                 <h4>Your Motivation</h4>
                 {/* Textarea for motivation for an apprenticeship */}
                 <textarea
+                    className="apprenticeship__textarea"
                     placeholder="Please write your motivation here...">
                 </textarea>
                 {/* Green Btn to Apply for Apprenticeship */}
                 <input
                     type="submit"
-                    className="apply__btn"
+                    className="button success"
                     value="Apply"
                     />
             </div>
@@ -52,16 +53,16 @@ class Apply extends Component {
   }
 }
 
-const styles = {
-  root: {
-    display: 'inline',
-  },
-  button: {
-    background: '#eee',
-    border: '1px solid #ddd',
-    fontSize: 24,
-  },
-};
+// const styles = {
+//   root: {
+//     display: 'inline',
+//   },
+//   button: {
+//     background: '#eee',
+//     border: '1px solid #ddd',
+//     fontSize: 24,
+//   },
+// };
 
 Apply.propTypes = {};
 

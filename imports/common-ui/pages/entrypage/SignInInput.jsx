@@ -65,32 +65,8 @@ export default class SignInInput extends React.Component {
                             </p>
                             <form>
                                 <div className="row">
-<<<<<<< HEAD
-                                    <p
-                                        className="text-center signInInputEmail">
-                                        Email
-                                        <input
-                                            className="medium-6 blackText"
-                                            placeholder="Email"
-                                            value={this.state.user}
-                                            onChange={this.updateUser}
-                                            />
-                                    </p>
-                                    <p
-                                        className="text-center">
-                                        Password
-                                        <input
-                                            className="medium-6 blackText"
-                                            id="js-signIn__input"
-                                            placeholder="Password"
-                                            name="password"
-                                            value={this.state.pass}
-                                            onChange={this.updatePass}
-                                            />
-                                    </p>
-=======
-                                    <div className="large-10 columns large-centered">
-                                        <label>
+                                    <div className="medium-10 columns medium-centered">
+                                        <label className="whiteText">
                                             Email
                                             <input
                                                 type="text"
@@ -99,8 +75,8 @@ export default class SignInInput extends React.Component {
                                                 onChange={this.updateUser} />
                                         </label>
                                     </div>
-                                    <div className="large-10 columns large-centered">
-                                        <label>
+                                    <div className="medium-10 columns medium-centered">
+                                        <label className="whiteText">
                                             Password
                                             <input
                                                 type="text"
@@ -111,7 +87,6 @@ export default class SignInInput extends React.Component {
                                                 onChange={this.updatePass} />
                                         </label>
                                     </div>
->>>>>>> 36364a8d20a20a525f44aa8e90df28509b4b4744
                                 </div>
                             </form>
                             <div className="text-center">

@@ -28,7 +28,7 @@ export default class OverlayMenu extends React.Component {
                     <ul id="menu" className={this.state.classes}>
                         <li><a href="#">Log Out</a></li>
                     </ul>
-                    <a className="toggle-menu" ><i onClick={this.onClick} className="fi-widget"></i></a>
+                    <a className="toggle-menu" ><i onClick={this.onClick} className="fi-widget whiteText"></i></a>
                 </nav>);
     }
 }
