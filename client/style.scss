@@ -13,6 +13,14 @@
     color: $black;
 }
 
+// Classes for Entrypage
+
+.entrypage__back {
+    height: 100vh;
+    background-color: #3498db;
+    max-width: 100vw;
+}
+
 // Classes for navigation
 
 .githubLogo {
@@ -57,20 +65,16 @@
 }
 
 #chapter-content, .chapterList__ul {
-    background-color: #ffffff;
+    background-color: $white;
 }
+
+// Classes for apprenticeship
 
 .apprenticeship__textarea {
     border: 1px solid lightgrey;
     resize: none;
     height: 200px;
     width: 550px;
-}
-
-.entrypage__back {
-    height: 100vh;
-    background-color: #3498db;
-    max-width: 100vw;
 }
 
 .apprenticeship__content {
