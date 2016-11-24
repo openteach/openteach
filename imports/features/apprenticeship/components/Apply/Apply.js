@@ -3,7 +3,7 @@ import Radium from 'radium';
 
 class Apply extends Component {
   render() {
-    return <div className="row">
+    return <div className="row apprenticeship__content">
         {/* This is the foundation className for fluid container grid */}
             {/* 1. grid */}
             <div className="small-6 columns">
