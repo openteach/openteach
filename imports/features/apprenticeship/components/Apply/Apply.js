@@ -10,7 +10,7 @@ class Apply extends Component {
                 {/* Headline for Apprenticeship Information */}
                 <h4>Apprenticeship Information</h4>
                 {/* Description of apprenticeship */}
-                <p>
+                <p className="text-justify">
                     The word apprenticeship comes from the Old French
                     aprentiz meaning "someone learning" and the Anglian
                     suffix -scip, meaning "state, condition of being."
