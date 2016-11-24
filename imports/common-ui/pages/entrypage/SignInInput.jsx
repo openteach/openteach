@@ -55,41 +55,43 @@ export default class SignInInput extends React.Component {
                         width="400"
                         height="500"
                         effect="fadeInDown">
-                        <div>
-                            <h1 className="text-center blackText">
+                        <div className="modalBackground">
+                            <h1 className="text-center whiteText">
                                 Sign in
                             </h1>
                             <p
-                                className="text-center blackText">
+                                className="text-center whiteText">
                                 Welcome - Sign in and start learning today!
                             </p>
                             <form>
                                 <div className="row">
-                                    <label
-                                        className="text-center">
+                                    <p
+                                        className="text-center signInInputEmail">
                                         Email
                                         <input
+                                            className="medium-6 blackText"
                                             placeholder="Email"
                                             value={this.state.user}
                                             onChange={this.updateUser}
                                             />
-                                    </label>
-                                    <label
+                                    </p>
+                                    <p
                                         className="text-center">
                                         Password
                                         <input
+                                            className="medium-6 blackText"
                                             id="js-signIn__input"
                                             placeholder="Password"
                                             name="password"
                                             value={this.state.pass}
                                             onChange={this.updatePass}
                                             />
-                                    </label>
+                                    </p>
                                 </div>
                             </form>
                             <div className="text-center">
                                 <a
-                                    className="button success"
+                                    className="button success signInButton"
                                     href="#"
                                     onClick={this.onSubmit}>
                                     Sign in
@@ -97,6 +99,7 @@ export default class SignInInput extends React.Component {
                             </div>
                             <div className="text-center">
                                 <a
+                                    className="whiteText"
                                     href="javascript:void(0);"
                                     onClick={this.closeModal.bind(this)}>
                                     Close
@@ -109,7 +112,7 @@ export default class SignInInput extends React.Component {
                 <p className="text-center">
                     <a
                         href="#0"
-                        className="whiteText text-center"
+                        className="text-center secondary hollow button"
                         onClick={this.openModal.bind(this)}>
                         Sign in
                     </a>
