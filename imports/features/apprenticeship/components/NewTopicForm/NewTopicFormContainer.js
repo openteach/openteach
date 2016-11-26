@@ -1,6 +1,6 @@
 import { createContainer } from 'meteor/react-meteor-data';
 
-import Topic from './Topic.js';
+import NewTopicForm from './NewTopicForm.js';
 export default createContainer((params) => {
     return {};
-}, Topic)
+}, NewTopicForm)

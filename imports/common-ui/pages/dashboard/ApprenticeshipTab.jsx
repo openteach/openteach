@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Apply from '../../../features/apprenticeship/components/Apply/';
+import ApprDashboard from '../../../features/apprenticeship/components/ApprDashboard/';
 
 export default class ApprenticeshipTab extends React.Component {
     componentDidMount() {
@@ -9,8 +9,7 @@ export default class ApprenticeshipTab extends React.Component {
         });
     }
     render() {
-        return (
-            <Apply />
-        )
+        console.log(ApprDashboard);
+        return (<div><ApprDashboard /></div>);
     }
 }
