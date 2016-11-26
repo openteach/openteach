@@ -3,16 +3,14 @@ import Radium from 'radium';
 
 class Apply extends Component {
   render() {
-    return <div className="apprenticeship expanded row">
+    return <div className="row apprenticeship__content">
         {/* This is the foundation className for fluid container grid */}
             {/* 1. grid */}
-            <div className="small-6 columns apprenticeship--information">
+            <div className="small-6 columns">
                 {/* Headline for Apprenticeship Information */}
-                <h4 className="apprenticeship--headline">
-                    Apprenticeship Information
-                </h4>
+                <h4>Apprenticeship Information</h4>
                 {/* Description of apprenticeship */}
-                <p className="apprenticeship--informationtext">
+                <p className="text-justify">
                     The word apprenticeship comes from the Old French
                     aprentiz meaning "someone learning" and the Anglian
                     suffix -scip, meaning "state, condition of being."
@@ -36,19 +34,18 @@ class Apply extends Component {
 
             </div>
             {/* 2. Grid */}
-            <div className="small-6 columns apprenticeship--motivation">
+            <div className="small-6 columns">
                 {/* Headline for Apprenticeship Motivation */}
-                <h4 className="apprenticeship--headline">
-                    Your Motivation
-                </h4>
+                <h4>Your Motivation</h4>
                 {/* Textarea for motivation for an apprenticeship */}
                 <textarea
+                    className="apprenticeship__textarea"
                     placeholder="Please write your motivation here...">
                 </textarea>
                 {/* Green Btn to Apply for Apprenticeship */}
                 <input
                     type="submit"
-                    className="apply__btn"
+                    className="button success"
                     value="Apply"
                     />
             </div>
@@ -56,16 +53,16 @@ class Apply extends Component {
   }
 }
 
-const styles = {
-  root: {
-    display: 'inline',
-  },
-  button: {
-    background: '#eee',
-    border: '1px solid #ddd',
-    fontSize: 24,
-  },
-};
+// const styles = {
+//   root: {
+//     display: 'inline',
+//   },
+//   button: {
+//     background: '#eee',
+//     border: '1px solid #ddd',
+//     fontSize: 24,
+//   },
+// };
 
 Apply.propTypes = {};
 

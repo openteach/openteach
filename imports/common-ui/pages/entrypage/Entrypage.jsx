@@ -7,7 +7,7 @@ import Footer from './Footer.jsx';
 export default class Entrypage extends React.Component {
     render() {
         return(
-            <div className="whiteText">
+            <div className="whiteText entrypage__back">
 
                 <Navigation />
 

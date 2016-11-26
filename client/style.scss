@@ -13,6 +13,14 @@
     color: $black;
 }
 
+// Classes for Entrypage
+
+.entrypage__back {
+    height: 100vh;
+    background-color: #3498db;
+    max-width: 100vw;
+}
+
 // Classes for navigation
 
 .githubLogo {
@@ -29,7 +37,7 @@
     color: $medium-gray;
 }
 
-// Classes for Sign up content
+// Classes for Sign up
 
 .signUpInput input {
     background: none;
@@ -50,4 +58,25 @@
     width: 100px;
     margin-top: 40px;
     outline: none;
+}
+
+.modalBackground {
+    background-color: #3498db;
+}
+
+#chapter-content, .chapterList__ul {
+    background-color: $white;
+}
+
+// Classes for apprenticeship
+
+.apprenticeship__textarea {
+    border: 1px solid lightgrey;
+    resize: none;
+    height: 200px;
+    width: 550px;
+}
+
+.apprenticeship__content {
+    margin-top: 100px;
 }

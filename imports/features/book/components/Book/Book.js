@@ -55,45 +55,24 @@ class Book extends Component {
         });
     }
   render() {
-    return  <div className="expanded" className="DashboardBackground">
-                <div id="chapter-selector">
-                    <div className="chapterList small-2 columns">
-
-                            <ul className="chapterList__ul">
-
-                                <p className="list__logo__text">
-                                    OpenTeach
-                                </p>
-
-                                <span className="list__logo">
-                                </span>
-
-                                {this.renderChapterList()}
-                            </ul>
-
-                        </div>
-
-                        <div
-                            id="chapter-content"
-                            className="small-10 columns">
-                            {this.renderChapterContent()}
-                        </div>
-
+    return  <div className="DashboardBackground">
+                <div id="chapter-selector" className="row expanded">
+                    <div className="chapterList small-2 large-2 columns chapterList__ul">
+                        <p className="list__logo__text">
+                            OpenTeach
+                        </p>
+                        <span className="list__logo"></span>
+                        <ul>
+                            {this.renderChapterList()}
+                        </ul>
+                    </div>
+                    <div id="chapter-content" className="small-10 large-10 columns">
+                        {this.renderChapterContent()}
                     </div>
                 </div>
+            </div>
   }
 }
-
-const styles = {
-  root: {
-    display: 'inline',
-  },
-  button: {
-    background: '#eee',
-    border: '1px solid #ddd',
-    fontSize: 24,
-  },
-};
 
 Book.propTypes = {
     book : React.PropTypes.object,
