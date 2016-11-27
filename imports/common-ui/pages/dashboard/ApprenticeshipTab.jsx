@@ -9,7 +9,6 @@ export default class ApprenticeshipTab extends React.Component {
         });
     }
     render() {
-        console.log(ApprDashboard);
         return (<div><ApprDashboard /></div>);
     }
 }

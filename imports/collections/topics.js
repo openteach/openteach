@@ -6,11 +6,17 @@ import { globalizeData } from '../helpers';
 const Topics = new Mongo.Collection('topics');
 
 const Resource = Class.create({
-
+    name : "Resource",
+    fields : {
+        url : String
+    }
 });
 
 const Tag = Class.create({
-
+    name : "Tag",
+    fields : {
+        title : String
+    }
 });
 
 const Message = Class.create({
@@ -26,11 +32,12 @@ export const Topic = Class.create({
     collection: Topics,
     fields: {
         title: String,
-        description : String,
-        resources : [Resource],
-        tags : [Tag],
-        messages : [Message]
+        description : String
+
+        //resources : [Resource],
+        //tags : [Tag],
+        //messages : [Message]
     }
 });
 
-globalizeData({ Books }, { Book });
+globalizeData({ Topics }, { Topic });

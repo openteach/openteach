@@ -6,7 +6,6 @@ import NewTopicForm from '../NewTopicForm'
 
 class ApprDashboard extends Component {
     render() {
-        console.log("wahaha")
         return (<div>
             <div className="row">
                 <div className="large-8 columns">
