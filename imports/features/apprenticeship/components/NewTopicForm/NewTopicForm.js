@@ -25,13 +25,15 @@ class NewTopicForm extends Component {
         console.log(this.state);
 
         // Create new object
-        const t = new Topic({
+        let t = new Topic({
             title : this.state.title,
             description : this.state.description
         });
 
         // Save it
-        t.save();
+        t.save(function(res){
+            console.log(res);
+        });
 
         // Reset the form
         this.setState({

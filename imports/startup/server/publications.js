@@ -7,5 +7,5 @@ Meteor.publish('books', function() {
 });
 
 Meteor.publish('topics', function() {
-    return Topics.find();
+    return Topic.find();
 })

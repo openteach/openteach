@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
+import TopicCard from '../TopicCard';
 
 class TopicList extends Component {
-  render() {
-    return (
-        <div  className="row">
-            Her er en lsite.
-        </div>)
-  }
+    renderTopics() {
+        let topics = this.props.topics;
+        console.log(topics);
+        return topics.map((t) => (<TopicCard key={t._id} topic={t} />));
+    }
+    render() {
+        return (
+            <div  className="row">
+                {this.renderTopics()}
+            </div>)
+    }
 }
 
-TopicList.propTypes = {};
+TopicList.propTypes = {
+    topics : React.PropTypes.array,
+    loading: React.PropTypes.bool
+};
 
 TopicList.defaultProps = {};
 
