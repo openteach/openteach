@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import {Topic} from '../../../../collections/topics.js';
+import {TopicMessage} from '../../../../collections/topic-messages.js';
 
 class MessageForm extends Component {
 
@@ -20,21 +20,22 @@ class MessageForm extends Component {
     onSubmit(event) {
         event.preventDefault();
 
+        console.log(this.props.topicId);
+        console.log(this.state);
+
         // Create new object
-        /*let t = new Topic({
-            title : this.state.title,
-            description : this.state.description
+        let tm = new TopicMessage({
+            message : this.state.message,
+            topicId : this.props.topicId
         });
 
         // Save it
-        t.save(function(res){
-            console.log(res);
-        });
+        tm.save();
 
         // Reset the form
         this.setState({
             message : ""
-        })*/
+        })
     }
 
     render() {
@@ -52,7 +53,9 @@ class MessageForm extends Component {
     }
 }
 
-MessageForm.propTypes = {};
+MessageForm.propTypes = {
+    topicId : React.PropTypes.string
+};
 
 MessageForm.defaultProps = {};
 
