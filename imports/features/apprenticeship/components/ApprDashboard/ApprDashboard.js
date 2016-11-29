@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 
 import TopicList from '../TopicList'
-import NewTopicForm from '../NewTopicForm'
+import TopicNewForm from '../TopicNewForm'
 
 class ApprDashboard extends Component {
     render() {
@@ -15,7 +15,7 @@ class ApprDashboard extends Component {
             </div>
             <div className="row">
                 <div className="large-6 columns">
-                    <NewTopicForm />
+                    <TopicNewForm />
                     <TopicList />
                 </div>
                 <div className="large-6 columns">

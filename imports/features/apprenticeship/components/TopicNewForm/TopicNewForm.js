@@ -3,7 +3,7 @@ import Radium from 'radium';
 
 import {Topic} from '../../../../collections/topics.js';
 
-class NewTopicForm extends Component {
+class TopicNewForm extends Component {
 
     constructor(props) {
         super(props);
@@ -60,8 +60,8 @@ class NewTopicForm extends Component {
     }
 }
 
-NewTopicForm.propTypes = {};
+TopicNewForm.propTypes = {};
 
-NewTopicForm.defaultProps = {};
+TopicNewForm.defaultProps = {};
 
-export default Radium(NewTopicForm)
+export default Radium(TopicNewForm)
