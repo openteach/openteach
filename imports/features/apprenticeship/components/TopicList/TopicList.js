@@ -5,7 +5,6 @@ import TopicCard from '../TopicCard';
 class TopicList extends Component {
     renderTopics() {
         let topics = this.props.topics;
-        console.log(topics);
         return topics.map((t) => (<TopicCard key={t._id} topic={t} />));
     }
     render() {

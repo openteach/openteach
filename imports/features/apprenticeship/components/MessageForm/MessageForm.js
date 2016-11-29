@@ -20,9 +20,6 @@ class MessageForm extends Component {
     onSubmit(event) {
         event.preventDefault();
 
-        console.log(this.props.topicId);
-        console.log(this.state);
-
         // Create new object
         let tm = new TopicMessage({
             message : this.state.message,
