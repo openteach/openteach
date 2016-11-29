@@ -5,7 +5,9 @@ import AppLayout from '../../common-ui/layouts/AppLayout.jsx';
 
 import Dashboard from '../../common-ui/pages/dashboard/Dashboard.jsx';
 import ListBooks from '../../features/book/components/ListBooks';
+
 import Book from '../../features/book/components/Book/';
+import TopicView from '../../features/apprenticeship/components/TopicView/';
 
 // Set up groups
 var userGroup = FlowRouter.group({
@@ -71,6 +73,15 @@ userGroup.route('/apprenticeship', {
     action(params, queryParams) {
         mount(AppLayout, {
             content: (<Apprenticeship />)
+        })
+    }
+});
+
+userGroup.route('/apprenticeship/:id', {
+    name: "topicRoute",
+    action(params, queryParams) {
+        mount(AppLayout, {
+            content: (<TopicView topicId={params.id} />)
         })
     }
 });
