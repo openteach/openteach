@@ -10,7 +10,7 @@ export default createContainer((params) => {
     const loading = !handle.ready();
     const topic = Topic.findOne({_id : topicId});
 
-    const handleMsg = Meteor.subscribe('topic-messages');
+    const handleMsg = Meteor.subscribe('topic-messages', topicId);
     const loadingMsg = !handleMsg.ready();
     const topicMsgs = TopicMessage.find({topicId : topicId}).fetch();
 
