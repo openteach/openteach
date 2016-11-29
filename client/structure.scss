@@ -1,6 +1,16 @@
 //EXTERNAL IMPORTS
-    // Foundation settings file
-    @import 'settings';
+// Foundation settings file
+@import 'settings';
+
+// OVerall structure
+#main-dashboard {
+    height: 100%;
+}
+
+#chapter-content {
+    height: 90vh;
+    overflow: auto;
+}
 
 // Classes for navigation
 .textLogo {

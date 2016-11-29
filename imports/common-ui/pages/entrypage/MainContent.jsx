@@ -11,11 +11,11 @@ export default class mainContent extends React.Component {
 
 					    <div className="large-centered columns large-4">
 
-							<h4 className="contentHeading text-center">
+							<h4 className="contentHeading text-center whiteText">
 								Learn with [name of teacher]
 							</h4>
 
-							<p className="text-center">
+							<p className="text-center whiteText">
 								Providing the conditions for you to learn
 							</p>
 

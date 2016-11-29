@@ -6,10 +6,10 @@ export default class Navigation extends React.Component {
             <div>
                 <div className="callout clearfix">
 
-                    <h5 className="textLogo float-left">openTeach</h5>
+                    <h5 className="textLogo float-left whiteText">openTeach</h5>
 
                     <a href="https://github.com/openteach/openTeach" className="githubLogo float-right whiteText">
-                        <i className="githubLogo__text fi-social-github">GitHub</i>
+                        <i className="githubLogo__text fi-social-github whiteText">GitHub</i>
                     </a>
 
                 </div>

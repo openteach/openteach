@@ -13,7 +13,7 @@ export default class Dashboard extends React.Component {
 
 	render() {
 		return(
-			<div className="DashboardBackground">
+			<div className="DashboardBackground" id="main-dashboard">
                 <Tabs
                     selected={this.props.selected}
                     tabs={[

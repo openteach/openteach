@@ -12,6 +12,17 @@ export default class OverlayMenu extends React.Component {
         this.onClick = this.onClick.bind(this);
     }
 
+    logout(event){
+        Meteor.logout(function(err) {
+            if(!!err){
+                console.log("Logout failed");
+            } else {
+                console.log("Logged out");
+                FlowRouter.go("indexRoute");
+            }
+        });
+    }
+
     onClick(event){
         console.log(this.state.classes);
         if(this.state.classes === "overlay-menu") {
@@ -26,7 +37,7 @@ export default class OverlayMenu extends React.Component {
     render () {
         return (<nav role="navigation">
                     <ul id="menu" className={this.state.classes}>
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="" onClick={this.logout}>Log Out</a></li>
                     </ul>
                     <a className="toggle-menu" ><i onClick={this.onClick} className="fi-widget"></i></a>
                 </nav>);

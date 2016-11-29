@@ -47,67 +47,59 @@ export default class SignInInput extends React.Component {
     render () {
         return (
             <div>
-                {/* Importing React awesome modal from:
-                    'http://shibe97.github.io/react-awesome-modal/'*/}
-                <section>
-                    <Modal
-                        visible={this.state.visible}
-                        width="400"
-                        height="500"
-                        effect="fadeInDown">
-                        <div className="modalBackground">
-                            <h1 className="text-center whiteText">
-                                Sign in
-                            </h1>
-                            <p
-                                className="text-center whiteText">
-                                Welcome - Sign in and start learning today!
-                            </p>
-                            <form>
-                                <div className="row">
-                                    <div className="medium-10 columns medium-centered">
-                                        <label className="whiteText">
-                                            Email
-                                            <input
-                                                type="text"
-                                                placeholder="Email"
-                                                value={this.state.user}
-                                                onChange={this.updateUser} />
-                                        </label>
-                                    </div>
-                                    <div className="medium-10 columns medium-centered">
-                                        <label className="whiteText">
-                                            Password
-                                            <input
-                                                type="text"
-                                                id="js-signIn__input"
-                                                placeholder="Password"
-                                                name="password"
-                                                value={this.state.pass}
-                                                onChange={this.updatePass} />
-                                        </label>
-                                    </div>
-                                </div>
-                            </form>
-                            <div className="text-center">
-                                <a
-                                    className="button success signInButton"
-                                    href="#"
-                                    onClick={this.onSubmit}>
-                                    Sign in
-                                </a>
+                <Modal
+                    visible={this.state.visible}
+                    width="400"
+                    height="500"
+                    effect="fadeInDown">
+                    <h1 className="text-center">
+                        Sign in
+                    </h1>
+                    <p
+                        className="text-center">
+                        Welcome - Sign in and start learning today!
+                    </p>
+                    <form>
+                        <div className="row">
+                            <div className="medium-10 columns medium-centered">
+                                <label>
+                                    Email
+                                    <input
+                                        type="text"
+                                        placeholder="Email"
+                                        value={this.state.user}
+                                        onChange={this.updateUser} />
+                                </label>
                             </div>
-                            <div className="text-center">
-                                <a
-                                    className="whiteText"
-                                    href="javascript:void(0);"
-                                    onClick={this.closeModal.bind(this)}>
-                                    Close
-                                </a>
+                            <div className="medium-10 columns medium-centered">
+                                <label>
+                                    Password
+                                    <input
+                                        type="text"
+                                        id="js-signIn__input"
+                                        placeholder="Password"
+                                        name="password"
+                                        value={this.state.pass}
+                                        onChange={this.updatePass} />
+                                </label>
                             </div>
                         </div>
-                    </Modal>
-                </section>
+                    </form>
+                    <div className="text-center">
+                        <a
+                            className="button success signInButton"
+                            href="#"
+                            onClick={this.onSubmit}>
+                            Sign in
+                        </a>
+                    </div>
+                    <div className="text-center">
+                        <a href="javascript:void(0);"
+                            onClick={this.closeModal.bind(this)}>
+                            Close
+                        </a>
+                    </div>
+                </Modal>
                 <p className="text-center">Or</p>
                 <p className="text-center">
                     <a
