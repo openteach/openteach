@@ -8,7 +8,7 @@ export default class Entrypage extends React.Component {
         return(
             <div className="entrypage__back">
                 <div>
-                    <div className="callout clearfix">
+                    <div className="clearfix">
                         <h5 className="textLogo float-left whiteText">openTeach</h5>
                         <a href="https://github.com/openteach/openTeach" className="githubLogo float-right whiteText">
                             <i className="githubLogo__text fi-social-github whiteText">GitHub</i>
