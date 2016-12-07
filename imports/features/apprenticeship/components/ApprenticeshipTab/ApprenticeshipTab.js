@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 
 import Apply from '../Apply/';
+import ApprDashboard from '../ApprDashboard/';
 
 class ApprenticeshipTab extends Component {
     componentDidMount() {
@@ -10,7 +11,7 @@ class ApprenticeshipTab extends Component {
         });
     }
     render() {
-        return  <Apply />
+        return  this.props.children ? this.props.children : <ApprDashboard />
     }
 }
 
