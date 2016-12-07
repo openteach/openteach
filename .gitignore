@@ -4,3 +4,4 @@ settings.json
 deploy.sh
 docker-compose.yml
 Dockerfile
+openteach.tar.gz

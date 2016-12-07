@@ -3,9 +3,9 @@ import {mount} from 'react-mounter';
 
 import AppLayout from '../../common-ui/layouts/AppLayout.jsx';
 
-import Dashboard from '../../common-ui/pages/dashboard/Dashboard.jsx';
 import ListBooks from '../../features/book/components/ListBooks';
-
+import Dashboard from '../../features/dashboard/components/Dashboard';
+import ListBooks    from '../../features/book/components/ListBooks';
 import Book from '../../features/book/components/Book/';
 import TopicView from '../../features/apprenticeship/components/TopicView/';
 
