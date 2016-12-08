@@ -9,7 +9,8 @@ export default class SignInInput extends React.Component {
         this.state = {
             visible : false,
             user : "",
-            pass : ""
+            pass : "",
+            loginError : false
         }
 
         this.updateUser = this.updateUser.bind(this);
@@ -18,12 +19,13 @@ export default class SignInInput extends React.Component {
     }
 
     onSubmit(event){
+        let that = this;
         Meteor.loginWithPassword(this.state.user, this.state.pass, function(err){
             if(typeof err === 'undefined'){
                 FlowRouter.go("dashboardBooks");
             } else {
-                // error
-                console.log("Error logging in");
+                console.log(err);
+                that.setState({loginError : true});
             }
         })
     }
@@ -37,11 +39,11 @@ export default class SignInInput extends React.Component {
     }
 
     updateUser(event){
-        this.setState({user: event.target.value});
+        this.setState({user: event.target.value, loginError: false});
     }
 
     updatePass(event){
-        this.setState({pass: event.target.value});
+        this.setState({pass: event.target.value, loginError: false});
     }
 
     render () {
@@ -61,6 +63,13 @@ export default class SignInInput extends React.Component {
                     </p>
                     <form>
                         <div className="row">
+                            <div className={this.state.loginError ? "" : "hide"}>
+                                <div className="medium-centered medium-10 columns">
+                                    <div className="callout alert">
+                                        Wrong password or username.
+                                    </div>
+                                </div>
+                            </div>
                             <div className="medium-10 columns medium-centered">
                                 <label>
                                     Email

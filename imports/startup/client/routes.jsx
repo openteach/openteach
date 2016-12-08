@@ -3,7 +3,7 @@ import {mount} from 'react-mounter';
 
 import PublicLayout from '../../common-ui/layouts/PublicLayout.jsx';
 
-import Entrypage from '../../common-ui/pages/entrypage/Entrypage.jsx';
+import Entrypage from '../../common-ui/pages/EntryPage/';
 import NotFound from '../../common-ui/pages/notfound-404/components/NotFound/NotFound.js';
 
 
