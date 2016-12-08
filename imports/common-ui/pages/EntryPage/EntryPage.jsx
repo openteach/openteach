@@ -18,7 +18,7 @@ export default class Entrypage extends React.Component {
                 <div className="row">
                     <div className="large-centered columns large-4">
                         <h4 className="contentHeading text-center whiteText">
-                            Learn with [name of teacher]
+                            Learn with {this.props.instructor.name}
                         </h4>
                         <p className="text-center whiteText">
                             Providing the conditions for you to learn
@@ -32,8 +32,17 @@ export default class Entrypage extends React.Component {
                         Powered by <strong>NextAdept</strong> 2016
                     </p>
                 </div>
-
             </div>
         )
     }
 }
+
+Entrypage.propTypes = {
+    instructor : React.PropTypes.object
+};
+
+Entrypage.defaultProps = {
+    instructor : {
+        name : "[instructor]"
+    }
+};

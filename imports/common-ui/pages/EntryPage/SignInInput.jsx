@@ -35,7 +35,7 @@ export default class SignInInput extends React.Component {
     }
 
     closeModal() {
-        this.setState({visible : false});
+        this.setState({visible : false, loginError: false});
     }
 
     updateUser(event){
