@@ -5,10 +5,16 @@ export default class SignUpInput extends React.Component {
         super(props);
         this.state = {
             error : false,
-            errorReason : ""
+            errorReason : "",
+            mail : "",
+            pass : "",
+            name : ""
         }
 
         this.onSubmit = this.onSubmit.bind(this);
+        this.updateMail = this.updateMail.bind(this);
+        this.updatePass = this.updatePass.bind(this);
+        this.updateName = this.updateName.bind(this);
     }
 
 
@@ -18,10 +24,10 @@ export default class SignUpInput extends React.Component {
         //TODO: Create meteor user
         Accounts.createUser({
             profile : {
-                name : e.target.uname.value
+                name : this.state.name
             },
-            email : e.target.umail.value,
-            password : e.target.upass.value
+            email : this.state.mail,
+            password : this.state.pass
         }, function(err){
             if(typeof err === 'undefined'){
                 FlowRouter.go("dashboardApprenticeship");
@@ -32,6 +38,18 @@ export default class SignUpInput extends React.Component {
         });
 
         return 0;
+    }
+
+    updateMail(event){
+        this.setState({mail: event.target.value, error: false});
+    }
+
+    updatePass(event){
+        this.setState({pass: event.target.value, error: false});
+    }
+
+    updateName(event){
+        this.setState({name: event.target.value, error: false});
     }
 
     render() {
@@ -45,9 +63,9 @@ export default class SignUpInput extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <input name="uname" type="text" placeholder="Name" ref={(f) => {this._uname = f}} />
-                    <input name="umail" type="text" placeholder="Email" ref={(f) => this._umail = f} />
-                    <input name="upass" type="text" placeholder="Password" ref={(f) => this._upass = f} />
+                    <input name="uname" type="text" placeholder="Name" onChange={this.updateName} value={this.state.name} />
+                    <input name="umail" type="text" placeholder="Email" onChange={this.updateMail} value={this.state.mail} />
+                    <input name="upass" type="text" placeholder="Password" onChange={this.updatePass} value={this.state.pass} />
                     <input className="button success" type="submit" value="Sign up" />
                 </form>
             </div>
