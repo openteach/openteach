@@ -14,8 +14,25 @@ we emphasize:
   easy.
 
 ## Deploying
-See deployment notes in the
-[release repository](https://github.com/openteach/release).
+With docker use following docker compose template for a `docker-compose.yml`
+file
+
+```
+openteach:
+  image: kadirahq/meteord:base
+  restart: always
+  ports:
+   + "80:80"
+  links:
+   + mongo
+  environment:
+   + MONGO_URL=mongodb://mongo/meteor-db
+   + ROOT_URL=http://[YOUR DOMAIN]
+   + BUNDLE_URL=https://raw.githubusercontent.com/openteach/release/master/releases/[RELEASE].tar.gz
+   + METEOR_SETTINGS=[CONTENT OF SETTINGS.JSON]
+mongo:
+  image: mongo:latest
+```
 
 ## Development
 
@@ -78,8 +95,15 @@ For importing stuff from github, invoke following API endpoint:
 http://localhost:3000/api/v1/import/github
 ```
 
-### Quick Start Guide
-For more info, see the setup guide in the handbook folder.
+## Create a release
+If you adopt this project and which to create a deployment file, follow following
+steps.
+
+1. Run `meteor build --architecture=os.linux.x86_64 ./` in the library
+2. Move the newly created file, `openteach.tar.gz`, to a public location on
+   the web
+3. Update the docker compose file from the deployment section.
+4. Do a `compose up -d`.
 
 ### Documentation
 Documentation is available in the handbook folder
