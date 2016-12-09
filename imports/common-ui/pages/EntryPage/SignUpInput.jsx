@@ -54,7 +54,7 @@ export default class SignUpInput extends React.Component {
 
     render() {
         return (
-            <div className="signUpInput text-center">
+            <div className="text-center">
                 <form onSubmit={this.onSubmit}>
                     <div className={this.state.error ? "" : "hide"}>
                         <div className="medium-centered medium-10 columns">
@@ -63,10 +63,14 @@ export default class SignUpInput extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <input name="uname" type="text" placeholder="Name" onChange={this.updateName} value={this.state.name} />
-                    <input name="umail" type="text" placeholder="Email" onChange={this.updateMail} value={this.state.mail} />
-                    <input name="upass" type="text" placeholder="Password" onChange={this.updatePass} value={this.state.pass} />
-                    <input className="button success" type="submit" value="Sign up" />
+                    <input name="uname" type="text" placeholder="Name"
+                        onChange={this.updateName} value={this.state.name}
+                        className="entrypage-input" />
+                    <input name="umail" type="text" placeholder="Email" onChange={this.updateMail} value={this.state.mail}
+                        className="entrypage-input" />
+                    <input name="upass" type="text" placeholder="Password" onChange={this.updatePass} value={this.state.pass}
+                        className="entrypage-input" />
+                    <input className="button success entrypage-submit" type="submit" value="Sign up" />
                 </form>
             </div>
         )}
