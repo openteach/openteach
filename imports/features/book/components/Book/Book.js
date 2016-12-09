@@ -25,13 +25,15 @@ class Book extends Component {
         // Generate the content
         return (
             <div>
-                <div id="chapterTitle">{chapter.meta.title}</div>
-                <div id="chapterSection">
+                <div className="row">
+                    <div className="large-12 columns" id="book-chapter-title">{chapter.meta.title}</div>
+                </div>
+                <div className="row">
                     <div>{chapter.meta.tags}</div>
                     <div>{chapter.meta.difficulty}</div>
-                    <div dangerouslySetInnerHTML={ {__html: html} } /></div>
                 </div>
-        )
+                <div className="markdown-body row" dangerouslySetInnerHTML={ {__html: html} } />
+            </div>)
     }
 
     renderChapterList() {
@@ -66,7 +68,7 @@ class Book extends Component {
                             {this.renderChapterList()}
                         </ul>
                     </div>
-                    <div id="chapter-content" className="small-10 large-10 columns">
+                    <div className="small-10 large-10 columns">
                         {this.renderChapterContent()}
                     </div>
                 </div>
