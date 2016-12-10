@@ -7,11 +7,29 @@ import ApprenticeshipTab from '../../../apprenticeship/components/Apprenticeship
 import LecturesTab from '../../../lectures/components/LecturesTab/'
 
 class Dashboard extends Component {
+
+    handleChange(idx){
+        if(idx === 0){
+            FlowRouter.withReplaceState(function() {
+                FlowRouter.go("dashboardApprenticeship");
+            });
+        } else if(idx === 1){
+            FlowRouter.withReplaceState(function() {
+                FlowRouter.go("dashboardBooks");
+            });
+        } else if (idx === 2) {
+            FlowRouter.withReplaceState(function() {
+                FlowRouter.go("dashboardLectures");
+            });
+        }
+    }
+
     render() {
         return(
             <div className="DashboardBackground" id="main-dashboard">
                 <Tabs
                 selected={this.props.selected}
+                onTabChange={this.handleChange}
                 tabs={[
                     {
                         children: () => (

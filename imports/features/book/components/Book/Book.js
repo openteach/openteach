@@ -56,27 +56,30 @@ class Book extends Component {
             );
         });
     }
-  render() {
-    return  <div className="DashboardBackground">
-                <div id="chapter-selector" className="row expanded">
-                    <div className="chapterList small-2 large-2 columns chapterList__ul">
-                        <p className="list__logo__text">
-                            OpenTeach
-                        </p>
-                        <span className="list__logo"></span>
-                        <ul>
-                            {this.renderChapterList()}
-                        </ul>
-                    </div>
-                    <div className="small-10 large-10 columns">
-                        {this.renderChapterContent()}
-                    </div>
-                </div>
-            </div>
-  }
+    render() {
+        console.log(this.props.loading)
+        if(this.props.loading)
+            return (<div>Book is loading</div>)
+        else
+            return  (<div id="chapter-selector" className="row expanded">
+                        <div className="chapterList small-2 large-2 columns chapterList__ul">
+                            <p className="list__logo__text">
+                                OpenTeach
+                            </p>
+                            <span className="list__logo"></span>
+                            <ul>
+                                {this.renderChapterList()}
+                            </ul>
+                        </div>
+                        <div className="small-10 large-10 columns">
+                            {this.renderChapterContent()}
+                        </div>
+                    </div>);
+    }
 }
 
 Book.propTypes = {
+    loading : React.PropTypes.bool,
     book : React.PropTypes.object,
     chapters: React.PropTypes.array,
     currentChapter : React.PropTypes.string

@@ -4,11 +4,6 @@ import Meta from 'remarkable-meta';
 import Radium from 'radium';
 
 class BookTab extends Component {
-    componentDidMount() {
-        FlowRouter.withReplaceState(function() {
-            FlowRouter.go("dashboardBooks");
-        });
-    }
     render() {
         return (
             <div className="dashboard">
