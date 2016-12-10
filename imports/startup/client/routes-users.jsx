@@ -13,7 +13,7 @@ var userGroup = FlowRouter.group({
     name: 'users',
     triggersEnter: [function(context, redirect) {
         // Test that the user is logged in
-        if(!Meteor.user()){
+        if(!Meteor.loggingIn() && !Meteor.userId()){
             console.log("You at not logged in.");
             redirect("indexRoute");
         }

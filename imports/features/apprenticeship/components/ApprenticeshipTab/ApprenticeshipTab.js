@@ -4,11 +4,6 @@ import Radium from 'radium';
 import Apply from '../Apply/';
 
 class ApprenticeshipTab extends Component {
-    componentDidMount() {
-        FlowRouter.withReplaceState(function() {
-            FlowRouter.go("dashboardApprenticeship");
-        });
-    }
     render() {
         return  <Apply />
     }

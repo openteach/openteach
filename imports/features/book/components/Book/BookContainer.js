@@ -12,11 +12,11 @@ export default createContainer((params) => {
     const book = BookClass.findOne({ urlTitle : id});
 
     console.log(currentChapter);
-    console.log(book.chapters);
 
     return {
+        loading : loading,
         book: book,
-        chapters : book.chapters,
+        chapters : typeof book === 'undefined' ? [] : book.chapters,
         currentChapter : currentChapter
     }
 }, Book)

@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 
 class LecturesTab extends Component {
-    componentDidMount() {
-        FlowRouter.withReplaceState(function() {
-            FlowRouter.go("dashboardLectures");
-        });
-    }
     render() {
         return (<div className="lectures__back">
                     <div>
