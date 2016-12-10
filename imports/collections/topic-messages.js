@@ -21,7 +21,8 @@ export const TopicMessage = Class.create({
     collection : TopicMessages,
     fields : {
         message : String,
-        topicId : String
+        topicId : String,
+        author: String
     },
     secured: {
         update: false,

@@ -23,7 +23,8 @@ class MessageForm extends Component {
         // Create new object
         let tm = new TopicMessage({
             message : this.state.message,
-            topicId : this.props.topicId
+            topicId : this.props.topicId,
+            author  : "Author"
         });
 
         // Save it

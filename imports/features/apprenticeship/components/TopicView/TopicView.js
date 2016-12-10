@@ -6,17 +6,28 @@ class TopicView extends Component {
 
     renderMessages() {
         let messages = this.props.messages;
-        return messages.map((m) => (<div key={m._id}> {m.message} </div>));
+        return messages.map((m) => (
+        <div key={m._id}>
+            <h4>{m.author}</h4>
+            <p>{m.message}</p>
+            <hr />
+        </div>));
     }
 
     render() {
         const t = this.props.topic;
-        return (<div>
+        return (
+        <div>
             <div className="row">
-                <div className="large-12 columns"><h1>{t.title}</h1></div>
-            </div>
-            <div className="row">
-                <div className="large-12 columns">{t.description}</div>
+                <div className="card large-8 medium-10 small-12 columns large-centered medium-centered">
+                    <div className="content">
+                        <span className="title">{t.title}</span>
+                        <p>{t.description}</p>
+                    </div>
+                    <div className="action">
+                        <a>Tag1</a>, <a>Tag2</a>, <a>Tag3</a>
+                    </div>
+                </div>
             </div>
             <div className="row">
                 {this.renderMessages()}
