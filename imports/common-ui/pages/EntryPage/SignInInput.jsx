@@ -19,6 +19,7 @@ export default class SignInInput extends React.Component {
     }
 
     onSubmit(event){
+        event.preventDefault();
         let that = this;
         Meteor.loginWithPassword(this.state.user, this.state.pass, function(err){
             if(typeof err === 'undefined'){
@@ -35,7 +36,7 @@ export default class SignInInput extends React.Component {
     }
 
     closeModal() {
-        this.setState({visible : false});
+        this.setState({visible : false, loginError: false});
     }
 
     updateUser(event){
@@ -61,7 +62,7 @@ export default class SignInInput extends React.Component {
                         className="text-center">
                         Welcome - Sign in and start learning today!
                     </p>
-                    <form>
+                    <form onSubmit={this.onSubmit}>
                         <div className="row">
                             <div className={this.state.loginError ? "" : "hide"}>
                                 <div className="medium-centered medium-10 columns">
@@ -93,15 +94,12 @@ export default class SignInInput extends React.Component {
                                 </label>
                             </div>
                         </div>
+                        <div className="text-center">
+                            <input type="submit"
+                                className="button success signInButton"
+                                onClick={this.onSubmit} value="Sign in" />
+                        </div>
                     </form>
-                    <div className="text-center">
-                        <a
-                            className="button success signInButton"
-                            href="#"
-                            onClick={this.onSubmit}>
-                            Sign in
-                        </a>
-                    </div>
                     <div className="text-center">
                         <a href="javascript:void(0);"
                             onClick={this.closeModal.bind(this)}>

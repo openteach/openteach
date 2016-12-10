@@ -6,34 +6,36 @@ import SignInInput from './SignInInput.jsx';
 export default class Entrypage extends React.Component {
     render() {
         return(
-            <div className="entrypage__back">
-                <div>
-                    <div className="clearfix">
-                        <h5 className="textLogo float-left whiteText">openTeach</h5>
-                        <a href="https://github.com/openteach/openTeach" className="githubLogo float-right whiteText">
-                            <i className="githubLogo__text fi-social-github whiteText">GitHub</i>
+            <div>
+                <div className="row expanded">
+                    <div>
+                        <h5 className="large-2 column float-left" id="entrypage-title">openTeach</h5>
+                    </div>
+                    <div className="large-2 column right text-right" id="github-logo">
+                        <a href="https://github.com/openteach/openTeach">
+                            <i className="fi-social-github white">GitHub</i>
                         </a>
                     </div>
                 </div>
-                <div className="row">
+
+                <div className="row" id="entrypage-main-row">
                     <div className="large-centered columns large-4">
-                        <h4 className="contentHeading text-center whiteText">
-                            Learn with [name of teacher]
-                        </h4>
-                        <p className="text-center whiteText">
-                            Providing the conditions for you to learn
-                        </p>
+                        <h4 className="white text-center"> Learn with {this.props.instructor.name} </h4>
                         <SignUpInput />
                         <SignInInput />
                     </div>
                 </div>
-                <div className="text-center">
-                    <p>
-                        Powered by <strong>NextAdept</strong> 2016
-                    </p>
-                </div>
-
             </div>
         )
     }
 }
+
+Entrypage.propTypes = {
+    instructor : React.PropTypes.object
+};
+
+Entrypage.defaultProps = {
+    instructor : {
+        name : "[instructor]"
+    }
+};

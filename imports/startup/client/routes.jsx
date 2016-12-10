@@ -33,7 +33,7 @@ publicGroup.route('/', {
     name: "indexRoute",
     action(params, queryParams){
         mount(PublicLayout, {
-            content: (<Entrypage />)
+            content: (<Entrypage instructor={{name : Meteor.settings.public.instructorName}} />)
         })
     }
 });
