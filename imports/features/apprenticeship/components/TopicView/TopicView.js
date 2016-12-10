@@ -4,7 +4,7 @@ import MessageForm from '../MessageForm';
 
 class TopicView extends Component {
 
-    renderMessages() {
+    renderMessageList() {
         let messages = this.props.messages;
         return messages.map((m) => (
         <div key={m._id}>
@@ -14,10 +14,33 @@ class TopicView extends Component {
         </div>));
     }
 
-    render() {
+    renderMessageSection(){
+        // Are we loading?
+        if(this.props.loadingMsg){
+            return (<div>Loading</div>)
+        }
+
+        // No
+        const t = this.props.topic;
+        return(
+            <div>
+                <div className="row">
+                    {this.renderMessageList()}
+                </div>
+                <div className="row">
+                    <MessageForm topicId={t._id} />
+                </div>
+            </div>
+        )
+    }
+
+    renderTopic() {
+        if(this.props.loadingTopic){
+            return (<div>Loading</div>)
+        }
+
         const t = this.props.topic;
         return (
-        <div>
             <div className="row">
                 <div className="card large-8 medium-10 small-12 columns large-centered medium-centered">
                     <div className="content">
@@ -28,14 +51,16 @@ class TopicView extends Component {
                         <a>Tag1</a>, <a>Tag2</a>, <a>Tag3</a>
                     </div>
                 </div>
-            </div>
-            <div className="row">
-                {this.renderMessages()}
-            </div>
-            <div className="row">
-                <MessageForm topicId={t._id} />
-            </div>
-        </div>)
+            </div>)
+    }
+
+    render() {
+        return (
+            <div>
+                {this.renderTopic()}
+
+                {this.renderMessageSection()}
+            </div>)
     }
 }
 
