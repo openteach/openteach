@@ -37,6 +37,7 @@ export default class OverlayMenu extends React.Component {
     render () {
         return (<nav role="navigation">
                     <ul id="menu" className={this.state.classes}>
+                        <li><a href="" onClick="">Settings</a></li>
                         <li><a href="" onClick={this.logout}>Log Out</a></li>
                     </ul>
                     <a className="toggle-menu" ><i onClick={this.onClick} className="fi-widget"></i></a>
