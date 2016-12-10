@@ -6,10 +6,12 @@ import TopicNewForm from '../TopicNewForm'
 
 class ApprDashboard extends Component {
     render() {
+        const instructorName = this.props.instructor.name;
+        const studentName = this.props.student.name;
         return (<div>
             <div className="row">
                 <div className="large-8 columns">
-                    <h1>[Instructor] teaching [student]</h1>
+                    <h1>{instructorName} teaching {studentName}</h1>
                 </div>
                 <div className="large-4 columns"><a>Contract</a></div>
             </div>
@@ -27,8 +29,8 @@ class ApprDashboard extends Component {
 }
 
 ApprDashboard.propTypes = {
-    topicList: React.PropTypes.array,
-    loading: React.PropTypes.bool,
+    instructor: React.PropTypes.object,
+    student: React.PropTypes.object,
 };
 
 ApprDashboard.defaultProps = {};
