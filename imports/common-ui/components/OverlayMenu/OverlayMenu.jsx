@@ -8,7 +8,10 @@ export default class OverlayMenu extends React.Component {
         this.state = {
             classes : "overlay-menu",
         }
-        this.settings = this.settings.bind(this);
+
+        this.goSettings = this.goSettings.bind(this);
+        this.goInstructor = this.goInstructor.bind(this);
+        this.goHome = this.goHome.bind(this);
         this.toggle = this.toggle.bind(this);
     }
 
@@ -22,8 +25,18 @@ export default class OverlayMenu extends React.Component {
         });
     }
 
-    settings(e){
+    goSettings(e){
         FlowRouter.go("settingsRoute");
+        this.toggle(e);
+    }
+
+    goInstructor(e){
+        FlowRouter.go("instructorRoute");
+        this.toggle(e);
+    }
+
+    goHome(e){
+        FlowRouter.go("dashboardBooks");
         this.toggle(e);
     }
 
@@ -36,11 +49,16 @@ export default class OverlayMenu extends React.Component {
         }
     }
 
+    instructor(){
+        return (<li><a href="" onClick={this.goInstructor}>Instructor</a></li>);
+    }
 
     render () {
         return (<nav role="navigation">
                     <ul id="menu" className={this.state.classes}>
-                        <li><a href="" onClick={this.settings}>Settings</a></li>
+                        <li><a href="" onClick={this.goHome}>Home</a></li>
+                        {this.instructor()}
+                        <li><a href="" onClick={this.goSettings}>Settings</a></li>
                         <li><a href="" onClick={this.logout}>Log Out</a></li>
                     </ul>
                     <a className="toggle-menu" ><i onClick={this.toggle} className="fi-widget"></i></a>
