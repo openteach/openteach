@@ -2,6 +2,7 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import AppLayout from '../../common-ui/layouts/AppLayout.jsx';
+import Settings from '../../common-ui/pages/Settings';
 
 import Dashboard from '../../features/dashboard/components/Dashboard';
 import ListBooks    from '../../features/book/components/ListBooks';
@@ -23,6 +24,15 @@ var userGroup = FlowRouter.group({
 /**
  * User routes
  */
+
+ userGroup.route('/settings', {
+    name: "settingsRoute",
+    action(params, queryParams) {
+        mount(AppLayout, {
+            content: (<Settings />)
+        });
+    }
+ });
 
 userGroup.route('/course/:id/:chapterId?', {
     name: "bookRoute",
