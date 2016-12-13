@@ -1,10 +1,23 @@
 import React from 'react';
-
-import SignUpInput from './SignUpInput.jsx';
-import SignInInput from './SignInInput.jsx';
-import UnvAccounts from './UnvAccounts.jsx'
+import Modal from 'react-awesome-modal';
+import SignUpForm from '../../components/SignUpForm';
+import SignInForm from '../../components/SignInForm';
 
 export default class Entrypage extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalVisible : false
+        }
+
+        this.toggleModal = this.toggleModal.bind(this);
+    }
+
+    toggleModal(e) {
+        this.setState({modalVisible : !this.state.modalVisible});
+    }
+
     render() {
         return(
             <div>
@@ -22,8 +35,27 @@ export default class Entrypage extends React.Component {
                 <div className="row" id="entrypage-main-row">
                     <div className="large-centered columns large-4">
                         <h4 className="white text-center"> Learn with {this.props.instructor.name} </h4>
-                        <SignUpInput />
-                        <SignInInput />
+                        <SignUpForm />
+
+                        <div>
+                            <Modal visible={this.state.modalVisible}
+                                width="400" height="500" effect="fadeInDown">
+                                <SignInForm />
+                                <div className="text-center">
+                                    <a href="javascript:void(0);"
+                                        onClick={this.toggleModal}>
+                                        Close
+                                    </a>
+                                </div>
+                            </Modal>
+                            <p className="text-center">Or</p>
+                            <p className="text-center">
+                            <a href="#0" className="text-center secondary hollow button"
+                                onClick={this.toggleModal}>
+                                Sign in
+                            </a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

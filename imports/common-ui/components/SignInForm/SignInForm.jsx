@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from 'react-awesome-modal';
 import { Meteor } from 'meteor/meteor';
 
 export default class SignInInput extends React.Component {
@@ -31,14 +30,6 @@ export default class SignInInput extends React.Component {
         })
     }
 
-    openModal() {
-        this.setState({visible : true});
-    }
-
-    closeModal() {
-        this.setState({visible : false, loginError: false});
-    }
-
     updateUser(event){
         this.setState({user: event.target.value, loginError: false});
     }
@@ -48,13 +39,7 @@ export default class SignInInput extends React.Component {
     }
 
     render () {
-        return (
-            <div>
-                <Modal
-                    visible={this.state.visible}
-                    width="400"
-                    height="500"
-                    effect="fadeInDown">
+        return ( <div>
                     <h1 className="text-center">
                         Sign in
                     </h1>
@@ -100,23 +85,6 @@ export default class SignInInput extends React.Component {
                                 onClick={this.onSubmit} value="Sign in" />
                         </div>
                     </form>
-                    <div className="text-center">
-                        <a href="javascript:void(0);"
-                            onClick={this.closeModal.bind(this)}>
-                            Close
-                        </a>
-                    </div>
-                </Modal>
-                <p className="text-center">Or</p>
-                <p className="text-center">
-                    <a
-                        href="#0"
-                        className="text-center secondary hollow button"
-                        onClick={this.openModal.bind(this)}>
-                        Sign in
-                    </a>
-                </p>
-            </div>
-        )
+                </div>)
     }
 }

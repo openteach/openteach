@@ -40,12 +40,12 @@ function debug(){
     // Setup Demo book
     if(!Book.findOne({title : "Test Course"})){
         let demoBook = new Book({
-            title : "Test Course",
+            title : "Test Book",
             index : {
                 meta : {
                     title : "Welcome"
                 },
-                content : "# This is the frontpage text of the course."
+                content : "# This is the frontpage text of the book."
             },
             chapters : [
                 {
