@@ -6,8 +6,14 @@ import Settings from '../../common-ui/pages/Settings';
 import Instructor from '../../common-ui/pages/Instructor';
 
 import Dashboard from '../../features/dashboard/components/Dashboard';
+
+// Books
 import ListBooks    from '../../features/book/components/ListBooks';
 import Book from '../../features/book/components/Book/';
+
+// Apprenticeship
+import ApprDashboard from '../../features/apprenticeship/components/ApprDashboard/';
+import TopicView from '../../features/apprenticeship/components/TopicView/';
 
 // Set up groups
 var userGroup = FlowRouter.group({
@@ -56,15 +62,6 @@ userGroup.route('/course/:id/:chapterId?', {
     }
 });
 
-userGroup.route('/dashboard/apprenticeship', {
-    name: "dashboardApprenticeship",
-    action(params, queryParams) {
-        mount(AppLayout, {
-            content: (<Dashboard selected={0} />)
-        })
-    }
-});
-
 userGroup.route('/dashboard/books', {
     name: "dashboardBooks",
     action(params, queryParams) {
@@ -86,11 +83,24 @@ userGroup.route('/dashboard/lectures', {
     }
 });
 
-userGroup.route('/apprenticeship', {
-    name: "apprenticeshipRoute",
+userGroup.route('/dashboard/apprenticeship', {
+    name: "dashboardApprenticeship",
     action(params, queryParams) {
         mount(AppLayout, {
-            content: (<Apprenticeship />)
+            content: (  <Dashboard selected={0}>
+                            <ApprDashboard />
+                        </Dashboard>)
+        })
+    }
+});
+
+userGroup.route('/apprenticeship/:id', {
+    name: "topicRoute",
+    action(params, queryParams) {
+        mount(AppLayout, {
+            content: (  <Dashboard selected={0}>
+                            <TopicView topicId={params.id} />
+                        </Dashboard>)
         })
     }
 });
