@@ -3,6 +3,7 @@ import Radium from 'radium';
 
 import TopicList from '../TopicList'
 import TopicNewForm from '../TopicNewForm'
+import ConversationNewForm from '../ConversationNewForm'
 
 class ApprDashboard extends Component {
     render() {
@@ -16,12 +17,12 @@ class ApprDashboard extends Component {
                 <div className="large-4 columns"><a>Contract</a></div>
             </div>
             <div className="row">
-                <div className="large-6 columns">
+                <div className="large-6 small-12 columns">
                     <TopicNewForm />
                     <TopicList />
                 </div>
-                <div className="large-6 columns">
-                    conversation list goes here.
+                <div className="large-6 small-12 columns">
+                    <ConversationNewForm />
                 </div>
             </div>
         </div>);

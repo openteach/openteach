@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import {Topic} from '../../../../collections/topics.js';
+import {Conversation} from '../../../../collections/conversations.js';
 
-class TopicNewForm extends Component {
+class ConversationNewForm extends Component {
 
     constructor(props) {
         super(props);
@@ -25,7 +25,7 @@ class TopicNewForm extends Component {
         console.log(this.state);
 
         // Create new object
-        let t = new Topic({
+        let t = new Conversation({
             title : this.state.title,
             description : this.state.description
         });
@@ -60,8 +60,8 @@ class TopicNewForm extends Component {
     }
 }
 
-TopicNewForm.propTypes = {};
+ConversationNewForm.propTypes = {};
 
-TopicNewForm.defaultProps = {};
+ConversationNewForm.defaultProps = {};
 
-export default Radium(TopicNewForm)
+export default Radium(ConversationNewForm)

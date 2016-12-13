@@ -13,7 +13,9 @@ import { Book, Books } from '../../collections/books.js';
 function debug(){
     try {
         Accounts.createUser({
-            username : "test",
+            profile: {
+                name : "Test Hansen"
+            },
             email : "test@example.com",
             password : "test"
         });
