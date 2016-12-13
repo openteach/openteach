@@ -53,7 +53,6 @@ Four easy steps to get started from the terminal:
       "access_token" : "GitHub personal access token"
   },
   "instructor" : {
-      "name"   : "Kurt"
       "ghUser" : "openteach",
       "ghRepo" : "test-instructor",
       "email"  : "example@example.com"
