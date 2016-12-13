@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Book as BookClass } from '../../../../collections/books.js';
-import Book from './Book.js';
+import Book from './Book.jsx';
 
 export default createContainer((params) => {
 
@@ -10,8 +10,6 @@ export default createContainer((params) => {
 
     const loading = !booksHandle.ready();
     const book = BookClass.findOne({ urlTitle : id});
-
-    console.log(currentChapter);
 
     return {
         loading : loading,

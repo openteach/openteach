@@ -57,7 +57,6 @@ class Book extends Component {
         });
     }
     render() {
-        console.log(this.props.loading)
         if(this.props.loading)
             return (<div>Book is loading</div>)
         else
