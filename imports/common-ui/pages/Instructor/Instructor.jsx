@@ -10,19 +10,21 @@ class Instructor extends React.Component {
     render() {
         return(
             <div>
-                <h1>Settings</h1>
+                <div className="text-center">
+                    <h1>Instructor</h1>
+                </div>
                 <div className="row">
                     <div className="large-6 small-12 columns">
                         <h2>General</h2>
-                        <div class="row">
-                            <div class="large-12 columns">
+                        <div className="row">
+                            <div className="large-12 columns">
                                 <label>Name
                                     <input type="text" value="[Instructor Name]" disabled />
                                 </label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="large-12 columns">
+                        <div className="row">
+                            <div className="large-12 columns">
                                 <label>Teaching Philosophy
                                     <textarea className="large-12 small-12 columns" />
                                 </label>
