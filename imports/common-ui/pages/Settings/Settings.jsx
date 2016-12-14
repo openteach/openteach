@@ -10,29 +10,38 @@ class Settings extends React.Component {
     render() {
         return(
             <div>
-                <h1>Settings</h1>
+                <div className="text-center">
+                    <h1>Settings</h1>
+                </div>
                 <div className="row">
                     <div className="large-6 small-12 columns">
-                        <h2>General</h2>
-                        <div class="row">
-                            <div class="large-12 columns">
+                        <div className="row">
+                            <div className="large-12 columns">
+                                <h4>General</h4>
                                 <label>Name
                                     <input type="text" placeholder="Name" />
                                 </label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="large-12 columns">
+                        <div className="row">
+                            <div className="large-12 columns">
                                 <label>Learning Philosophy
                                     <textarea className="large-12 small-12 columns" />
                                 </label>
                             </div>
                         </div>
+                        <div className="row">
+                            <div className="large-12 columns">
+                                <h4>Change password</h4>
+                            </div>
+                        </div>
                     </div>
                     <div className="large-6 small-12 columns">
-                        <h2>Learning Philosophy</h2>
-                        The learning philosophy is your way of telling you
-                        instructor how you learn in the best way.
+                        <h4>Learning Philosophy</h4>
+                        <p>
+                            The learning philosophy is your way of telling you
+                            instructor how you learn in the best way.
+                        </p>
                     </div>
                 </div>
             </div>
