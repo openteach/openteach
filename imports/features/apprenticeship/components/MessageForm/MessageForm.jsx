@@ -40,7 +40,7 @@ class MessageForm extends Component {
         return (
             <div  className="row">
                 <form onSubmit={this.onSubmit} action="">
-                    <div className="large-8 medium-10 columns small-12 large-centered">
+                    <div className="columns large-8 medium-10 small-12 large-centered medium-centered">
                         <textarea placeholder="Topic Content" onChange={this.changeMsg} value={this.state.message}></textarea>
                         <input type="submit" value="Post" className="input button" />
                     </div>

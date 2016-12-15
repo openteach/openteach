@@ -25,22 +25,22 @@ class TopicView extends Component {
     renderMessageSection(){
         // Are we loading?
         if(this.props.loadingMsg){
-            return (<div>Loading</div>)
+            return (<div className="row">Loading</div>)
         }
 
-        // No
+        // Yes!
         const t = this.props.topic;
         return(
             <div>
-                <MessageForm topicId={t._id} />
                 {this.renderMessageList()}
+                <MessageForm topicId={t._id} />
             </div>
         )
     }
 
     renderTopic() {
         if(this.props.loadingTopic){
-            return (<div>Loading</div>)
+            return (<div className="row">Loading</div>)
         }
 
         const t = this.props.topic;
@@ -62,7 +62,7 @@ class TopicView extends Component {
         return (
             <div>
                 {this.renderTopic()}
-
+                <hr />
                 {this.renderMessageSection()}
             </div>)
     }

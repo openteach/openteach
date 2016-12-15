@@ -18,10 +18,16 @@ class ApprDashboard extends Component {
             </div>
             <div className="row">
                 <div className="large-6 small-12 columns">
+                    <div className="row">
+                        <h2>Topics</h2>
+                    </div>
                     <TopicNewForm />
                     <TopicList />
                 </div>
                 <div className="large-6 small-12 columns">
+                    <div className="row">
+                        <h2>Conversations</h2>
+                    </div>
                     <ConversationNewForm />
                 </div>
             </div>

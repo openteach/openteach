@@ -46,13 +46,13 @@ class ConversationNewForm extends Component {
         return (
             <div  className="row">
                 <form onSubmit={this.onSubmit} action="">
-                    <div className="large-12-columns">
+                    <div className="large-12 columns">
                         <input type="text" placeholder="Title" onChange={this.changeTitle} value={this.state.title} />
                     </div>
-                    <div className="large-12-columns">
-                        <textarea placeholder="Topic Content" onChange={this.changeDescription} value={this.state.description}></textarea>
+                    <div className="large-12 columns">
+                        <textarea placeholder="Conversation Agenda" onChange={this.changeDescription} value={this.state.description}></textarea>
                     </div>
-                    <div className="large-12-columns">
+                    <div className="large-12 columns">
                         <input type="submit" value="Create" className="input button" />
                     </div>
                 </form>
