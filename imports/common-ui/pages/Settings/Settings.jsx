@@ -26,13 +26,49 @@ class Settings extends React.Component {
                         <div className="row">
                             <div className="large-12 columns">
                                 <label>Learning Philosophy
-                                    <textarea className="large-12 small-12 columns" />
+                                    <textarea
+                                        className="large-12 small-12 columns"
+                                        placeholder="Write your learning philosophy"
+                                    />
                                 </label>
                             </div>
                         </div>
                         <div className="row">
                             <div className="large-12 columns">
                                 <h4>Change password</h4>
+                                <label>Current Password
+                                    <input
+                                        type="password"
+                                        placeholder="Type old password"
+                                    />
+                                <a href="#">
+                                    <small>Restore old password
+                                        <span
+                                            data-tooltip aria-haspopup="true"
+                                            className="has-tip"
+                                            data-disable-hover="false"
+                                            tabIndex="1" title="Receive your old password
+                                        ">&nbsp;&#63;&nbsp;
+                                        </span>
+                                    </small>
+                                </a>
+                                </label>
+                                <label>New Password
+                                    <input
+                                        type="password"
+                                        placeholder="Type new password"
+                                    />
+                                </label>
+                                <label>New Password again
+                                    <input
+                                        type="password"
+                                        placeholder="Retype new password"
+                                    />
+                                </label>
+                                <input
+                                    className="button" type="submit"
+                                    value="Reset password"
+                                />
                             </div>
                         </div>
                     </div>
