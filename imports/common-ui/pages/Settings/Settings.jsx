@@ -48,7 +48,7 @@ class Settings extends React.Component {
                                             className="has-tip"
                                             data-disable-hover="false"
                                             tabindex="1" title="Receive your old password
-                                        ">&nbsp;&nbsp;!
+                                        ">&nbsp;&#63;&nbsp;
                                         </span>
                                     </small>
                                 </a>
