@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-awesome-modal';
+import Modal from 'react-modal';
 import SignUpForm from '../../components/SignUpForm';
 import SignInForm from '../../components/SignInForm';
 
@@ -23,11 +23,11 @@ export default class Entrypage extends React.Component {
             <div>
                 <div className="row expanded">
                     <div>
-                        <h5 className="large-2 column float-left" id="entrypage-title">openTeach</h5>
+                        <h5 className="large-2 small-4 column float-left" id="entrypage-title">openTeach</h5>
                     </div>
-                    <div className="large-2 column right text-right" id="github-logo">
+                    <div className="large-2 small-4 column right text-right" id="github-logo">
                         <a href="https://github.com/openteach/openTeach">
-                            <i className="fi-social-github white">GitHub</i>
+                            <i className="fi-social-github white"></i>
                         </a>
                     </div>
                 </div>
@@ -38,8 +38,9 @@ export default class Entrypage extends React.Component {
                         <SignUpForm />
 
                         <div>
-                            <Modal visible={this.state.modalVisible}
-                                width="400" height="500" effect="fadeInDown">
+                            <Modal isOpen={this.state.modalVisible} effect="fadeInDown"
+                                portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
+                                contentLabel="Example Modal">
                                 <SignInForm />
                                 <div className="text-center">
                                     <a href="javascript:void(0);"

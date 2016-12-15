@@ -72,7 +72,7 @@ export default class SignInInput extends React.Component {
                                     Password
                                     <input
                                         id="password"
-                                        type="text"
+                                        type="password"
                                         id="js-signIn__input"
                                         placeholder="Password"
                                         name="password"

@@ -21,6 +21,7 @@
     "react-awesome-modal": "^0.3.3",
     "react-dom": "^15.2.1",
     "react-marked": "^0.3.1",
+    "react-modal": "^1.6.4",
     "react-mounter": "^1.2.0",
     "react-tabs-navigation": "^0.4.2",
     "remarkable": "^1.6.2",
