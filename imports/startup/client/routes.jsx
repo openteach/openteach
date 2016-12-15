@@ -31,6 +31,12 @@ var publicGroup = FlowRouter.group({
 // Root, mounting entry component
 publicGroup.route('/', {
     name: "indexRoute",
+    triggersEnter: [function(context, redirect) {
+        // Test that the user is logged in
+        if(Meteor.userId()){
+            redirect("dashboardBooks");
+        }
+    }],
     action(params, queryParams){
         mount(PublicLayout, {
             content: (<Entrypage instructor={{name : Meteor.settings.public.instructorName}} />)

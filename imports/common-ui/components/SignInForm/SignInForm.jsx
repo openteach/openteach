@@ -60,6 +60,7 @@ export default class SignInInput extends React.Component {
                                 <label>
                                     Email
                                     <input
+                                        id="mail"
                                         type="text"
                                         placeholder="Email"
                                         value={this.state.user}
@@ -70,6 +71,7 @@ export default class SignInInput extends React.Component {
                                 <label>
                                     Password
                                     <input
+                                        id="password"
                                         type="text"
                                         id="js-signIn__input"
                                         placeholder="Password"
