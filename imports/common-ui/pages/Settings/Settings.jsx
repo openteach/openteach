@@ -41,17 +41,6 @@ class Settings extends React.Component {
                                         type="password"
                                         placeholder="Type old password"
                                     />
-                                <a href="#">
-                                    <small>Restore old password
-                                        <span
-                                            data-tooltip aria-haspopup="true"
-                                            className="has-tip"
-                                            data-disable-hover="false"
-                                            tabIndex="1" title="Receive your old password
-                                        ">&nbsp;&#63;&nbsp;
-                                        </span>
-                                    </small>
-                                </a>
                                 </label>
                                 <label>New Password
                                     <input
@@ -65,6 +54,19 @@ class Settings extends React.Component {
                                         placeholder="Retype new password"
                                     />
                                 </label>
+                                <a href="#">
+                                    <small>Restore old password
+                                        <span
+                                            data-tooltip aria-haspopup="true"
+                                            className="has-tip"
+                                            data-disable-hover="false"
+                                            tabIndex="1" title="Receive your old password
+                                            ">&nbsp;&#63;&nbsp;
+                                        </span>
+                                    </small>
+                                </a>
+                                <br/>
+                                <br/>
                                 <input
                                     className="button" type="submit"
                                     value="Reset password"
