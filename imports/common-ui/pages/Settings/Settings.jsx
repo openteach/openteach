@@ -65,7 +65,10 @@ class Settings extends React.Component {
                                         placeholder="Retype new password"
                                     />
                                 </label>
-
+                                <input
+                                    className="button" type="submit"
+                                    value="Reset password"
+                                />
                             </div>
                         </div>
                     </div>
