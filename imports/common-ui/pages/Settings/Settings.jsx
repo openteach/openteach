@@ -47,7 +47,7 @@ class Settings extends React.Component {
                                             data-tooltip aria-haspopup="true"
                                             className="has-tip"
                                             data-disable-hover="false"
-                                            tabindex="1" title="Receive your old password
+                                            tabIndex="1" title="Receive your old password
                                         ">&nbsp;&#63;&nbsp;
                                         </span>
                                     </small>
