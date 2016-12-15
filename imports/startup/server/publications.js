@@ -1,4 +1,4 @@
-import {Book} from '../../collections/books.js'
+import {Book} from '../../collections/books/books.js'
 import {Topic} from '../../collections/topics.js'
 import {TopicMessage} from '../../collections/topic-messages.js'
 

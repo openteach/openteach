@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 import { Instructor } from '../../../collections/instructor.js';
-import { Book, convertToUrlStr, Chapter } from '../../../collections/books.js';
+import { Book, convertToUrlStr, Chapter } from '../../../collections/books/books.js';
 
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';

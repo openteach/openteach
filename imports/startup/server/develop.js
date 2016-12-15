@@ -2,7 +2,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import { Book, Books } from '../../collections/books.js';
+import { Book, Books } from '../../collections/books/books.js';
 
 
 

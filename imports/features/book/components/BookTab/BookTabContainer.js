@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Book as BookClass } from '../../../../collections/books.js';
+import { Book as BookClass } from '../../../../collections/books/books.js';
 import BookTab from './BookTab.js';
 
 export default createContainer((params) => {
