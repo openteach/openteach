@@ -33,6 +33,7 @@ class TopicView extends Component {
         return(
             <div>
                 {this.renderMessageList()}
+                <hr />
                 <MessageForm topicId={t._id} />
             </div>
         )

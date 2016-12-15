@@ -4,23 +4,23 @@ import React from 'react';
 import jsdom from 'mocha-jsdom';
 import TestUtils from 'react-addons-test-utils';
 
-import Book from './Book.jsx';
-import BookContainer from './BookContainer.js'
+import TopicView from './TopicView.jsx';
+import TopicViewContainer from './TopicViewContainer.js';
 
 /**
 This initial version of the test file merely makes sure all files are included
 to see that they are parsed properly
 **/
 
-describe('Book Component Tests', () => {
+describe('TopicView Component Tests', () => {
     if (Meteor.isClient) {
         describe('Client Test', () => {
             it('Can render', () => {
-                var component = TestUtils.renderIntoDocument(<Book chapters={[]} book={{}} loading={true} currentChapter="book-id" />);
+                var component = TestUtils.renderIntoDocument(<TopicView loadingMsg={true} loadingTopic={true} topic={{}} messages={[]} />);
             });
 
             it('Can run container', () => {
-                var component = TestUtils.renderIntoDocument(<BookContainer id="123" currentChapter="ee-we" />);
+                var component = TestUtils.renderIntoDocument(<TopicViewContainer topicId="123" />);
             });
         });
     }
