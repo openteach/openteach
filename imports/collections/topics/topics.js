@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import { Class } from 'meteor/jagi:astronomy';
 
-import { globalizeData } from '../helpers';
+import { globalizeData } from '../../helpers';
 
 const Topics = new Mongo.Collection('topics');
 Topics.allow({

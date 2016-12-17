@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import {Topic} from '../../../../collections/topics.js';
+import {Topic} from '../../../../collections/topics/topics.js';
 
 class TopicNewForm extends Component {
 
