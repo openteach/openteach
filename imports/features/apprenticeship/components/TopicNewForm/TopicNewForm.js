@@ -3,8 +3,6 @@ import Radium from 'radium';
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
 
-import {Topic} from '../../../../collections/topics/topics.js';
-
 class TopicNewForm extends Component {
 
     constructor(props) {
@@ -24,24 +22,19 @@ class TopicNewForm extends Component {
 
     onSubmit(event) {
         event.preventDefault();
-        console.log(this.state);
-
-        // Create new object
-        let t = new Topic({
+        let that = this;
+        this.props.newTopic({
             title : this.state.title,
-            description : this.state.description
-        });
+            description : this.state.description }, (error, result) => {
+                // Reset the form
+                that.setState({
+                    title : "",
+                    description : ""
+                });
+                FlowRouter.go("topicRoute", {"id" : result._id})
+            });
 
-        // Save it
-        t.save(function(res){
-            console.log(res);
-        });
 
-        // Reset the form
-        this.setState({
-            title : "",
-            description : ""
-        })
     }
 
     render() {
@@ -50,6 +43,7 @@ class TopicNewForm extends Component {
         let html = md.render(this.state.description);
         return (
             <form onSubmit={this.onSubmit} action="">
+                <h1>New Topic: {this.state.title}</h1>
                 <div className="row">
                     <div className="large-6 small-12 columns">
                         <div  className="row">
@@ -67,7 +61,6 @@ class TopicNewForm extends Component {
                     </div>
                     <div className="large-6 small-12 columns">
                         <div  className="row">
-                            <h1>{this.state.title}</h1>
                             <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
                         </div>
                     </div>
@@ -76,7 +69,9 @@ class TopicNewForm extends Component {
     }
 }
 
-TopicNewForm.propTypes = {};
+TopicNewForm.propTypes = {
+    newTopic : React.PropTypes.func
+};
 
 TopicNewForm.defaultProps = {};
 

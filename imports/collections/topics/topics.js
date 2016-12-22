@@ -4,17 +4,6 @@ import { Class } from 'meteor/jagi:astronomy';
 import { globalizeData } from '../../helpers';
 
 const Topics = new Mongo.Collection('topics');
-Topics.allow({
-  insert: function (userId, doc) {
-    return true;
-  },
-  update: function (userId, doc, fields, modifier) {
-    return true;
-  },
-  remove: function (userId, doc) {
-    return true;
-  }
-});
 
 const Resource = Class.create({
     name : "Resource",
@@ -48,10 +37,6 @@ export const Topic = Class.create({
         //resources : [Resource],
         //tags : [Tag],
         //messages : [Message]
-    },
-    secured: {
-        update: false,
-        insert: false
     }
 });
 
