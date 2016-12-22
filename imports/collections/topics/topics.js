@@ -19,24 +19,16 @@ const Tag = Class.create({
     }
 });
 
-const Message = Class.create({
-    name : "Message",
-    fields : {
-        message : String,
-        author : String
-    }
-});
-
 export const Topic = Class.create({
     name: 'Topic',
     collection: Topics,
     fields: {
         title: String,
-        description : String
-
+        description : String,
+        author : String,
+        hasAccess : [String]
         //resources : [Resource],
         //tags : [Tag],
-        //messages : [Message]
     }
 });
 

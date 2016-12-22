@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import {TopicMessage} from '../../../../collections/topic-messages.js';
+import {TopicMessage} from '../../../../collections/topic-messages/topic-messages.js';
 
 class MessageForm extends Component {
 

@@ -1,6 +1,6 @@
 import { createContainer } from 'meteor/react-meteor-data';
 import { Topic } from '../../../../collections/topics/topics.js';
-import {TopicMessage} from '../../../../collections/topic-messages.js';
+import {TopicMessage} from '../../../../collections/topic-messages/topic-messages.js';
 import TopicView from './TopicView.jsx';
 
 export default createContainer((params) => {

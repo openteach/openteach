@@ -18,7 +18,9 @@ export const newTopic = new ValidatedMethod({
         // Create new object
         let t = new Topic({
             title : args.title,
-            description : args.description
+            description : args.description,
+            author : Meteor.userId(),
+            hasAccess : [Meteor.userId()]
         });
 
         // Save it
