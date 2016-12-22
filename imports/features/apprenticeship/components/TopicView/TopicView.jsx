@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 import MessageForm from '../MessageForm';
+import Remarkable from 'remarkable';
+import Meta from 'remarkable-meta';
 
 class TopicView extends Component {
 
@@ -45,12 +47,17 @@ class TopicView extends Component {
         }
 
         const t = this.props.topic;
+        let md = new Remarkable();
+        md.use(Meta);
+        let html = md.render(t.description);
         return (
             <div className="row">
                 <div className="card large-8 medium-10 small-12 columns large-centered medium-centered">
                     <div className="content">
-                        <span className="title">{t.title}</span>
-                        <p>{t.description}</p>
+                        <span className="title">
+                            {t.title}
+                        </span>
+                        <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
                     </div>
                     <div className="action">
                         <a>Tag1</a>, <a>Tag2</a>, <a>Tag3</a>

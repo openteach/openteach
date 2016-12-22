@@ -4,6 +4,11 @@
 
 /**  SPECIFIC STYLE AND STRUCTURE **/
 
+/* Ugly hack for etxtareas. Remove */
+textarea{
+    height: 200px;
+}
+
 /*PUBLIC LAYOUT*/
 #public-layout {
     background-color: #3498db;

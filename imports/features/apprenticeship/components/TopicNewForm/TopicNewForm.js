@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
+import Remarkable from 'remarkable';
+import Meta from 'remarkable-meta';
 
 import {Topic} from '../../../../collections/topics/topics.js';
 
@@ -43,17 +45,31 @@ class TopicNewForm extends Component {
     }
 
     render() {
+        let md = new Remarkable();
+        md.use(Meta);
+        let html = md.render(this.state.description);
         return (
             <form onSubmit={this.onSubmit} action="">
-                <div  className="row">
-                    <div className="large-12 columns large-centered">
-                        <input type="text" placeholder="Title" onChange={this.changeTitle} value={this.state.title} className="input" />
+                <div className="row">
+                    <div className="large-6 small-12 columns">
+                        <div  className="row">
+                            <div className="large-12 columns large-centered">
+                                <input type="text" placeholder="Title" onChange={this.changeTitle} value={this.state.title} className="input" />
+                            </div>
+                            <div className="large-12 columns large-centered">
+                                <textarea placeholder="Topic Content" onChange={this.changeDescription}
+                                    value={this.state.description} className="input"></textarea>
+                            </div>
+                            <div className="large-12 columns large-centered">
+                                <input type="submit" value="Create" className="input button" />
+                            </div>
+                        </div>
                     </div>
-                    <div className="large-12 columns large-centered">
-                        <textarea placeholder="Topic Content" onChange={this.changeDescription} value={this.state.description} className="input"></textarea>
-                    </div>
-                    <div className="large-12 columns large-centered">
-                        <input type="submit" value="Create" className="input button" />
+                    <div className="large-6 small-12 columns">
+                        <div  className="row">
+                            <h1>{this.state.title}</h1>
+                            <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
+                        </div>
                     </div>
                 </div>
             </form>)

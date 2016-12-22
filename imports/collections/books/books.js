@@ -63,6 +63,11 @@ export const Book = Class.create({
             // A separator used for generating a slug.
             separator: '-'
         }
+    },
+    meteorMethods: {
+        getBySlug(slug) {
+            return this.findOne({slug : slug});
+        }
     }
 });
 
