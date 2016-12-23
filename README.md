@@ -3,15 +3,17 @@ Platform for online teaching.
 
 OpenTeach is an online open source platform for educators. With OpenTeach,
 educators will be able to hold their own private lessons, courses and lectures
-online. Everyone can in this way be a teacher and share their knowledge of one
-or more subjects they have a great interest and knowledge about. OpenTeach is
-the bridge that creates the way from teacher to student.
+online.
 
 we emphasize:
 
 * __Data Control:__ All data is in the hand of the instructor. We
   do not take any data as prisoner, and changing platform should be
   easy.
+* __Philosophical emphasis:__
+    - Communication
+    - Feedback over assessment
+    - Writing teaching material on demand (and develop it lean)
 
 ## Deploying
 With docker use following docker compose template for a `docker-compose.yml`
@@ -33,6 +35,9 @@ openteach:
 mongo:
   image: mongo:latest
 ```
+
+Hereafter one can log in using the mail from the `settings.json` file with the
+password _openteach_.
 
 ## Development
 
