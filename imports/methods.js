@@ -14,3 +14,17 @@ export const getResponsibleInstructor = new ValidatedMethod({
 
     },
 });
+
+export const getResponsibleInstructor = new ValidatedMethod({
+    name: 'getResponsibleInstructor',
+
+    validate(args) {
+        check(args, {
+            userId : String
+        });
+    },
+
+    run({userId}) {
+        Roles.addUsersToRoles(userId, ['instructor'], 'openteach');
+    },
+});

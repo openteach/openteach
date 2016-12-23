@@ -1,3 +1,4 @@
+import './bootstrap.js'
 import './methods.js';
 import '../common/accounts.js';
 import './publications.js';

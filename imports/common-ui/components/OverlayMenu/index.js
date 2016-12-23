@@ -1,2 +1,2 @@
-import OverlayMenu from './OverlayMenu.jsx';
-export default OverlayMenu
+import OverlayMenuContainer from './OverlayMenuContainer.js';
+export default OverlayMenuContainer

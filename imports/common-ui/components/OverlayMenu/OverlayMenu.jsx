@@ -50,7 +50,9 @@ export default class OverlayMenu extends React.Component {
     }
 
     instructor(){
-        return (<li><a href="" onClick={this.goInstructor}>Instructor</a></li>);
+        if(this.props.isInstructor)
+            return (<li><a href="" onClick={this.goInstructor}>Instructor</a></li>);
+        return;
     }
 
     render () {
@@ -65,3 +67,8 @@ export default class OverlayMenu extends React.Component {
                 </nav>);
     }
 }
+
+OverlayMenu.propTypes = {
+    isInstructor : React.PropTypes.bool,
+    isStudent : React.PropTypes.bool
+};

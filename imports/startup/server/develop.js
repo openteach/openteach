@@ -23,19 +23,6 @@ function debug(){
     } catch (e) {
         // User was already set up
     }
-    // Instructor
-    try {
-        let id = Accounts.createUser({
-            profile: {
-                name : "Instructor Joe"
-            },
-            email : Meteor.settings.instructor.email,
-            password : "test"
-        });
-        Roles.addUsersToRoles(id, ['instructor'], 'openteach');
-    } catch (e) {
-        // User was already set up
-    }
 
 
     // Setup instructor
