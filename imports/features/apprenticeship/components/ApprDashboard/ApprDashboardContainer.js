@@ -7,7 +7,6 @@ export default createContainer((params) => {
         name : "Loading ..."
     }
     if(Meteor.user()){
-        console.log(Meteor.user())
         user = Meteor.user().profile;
     }
 

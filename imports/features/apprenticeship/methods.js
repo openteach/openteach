@@ -2,9 +2,10 @@ import { check } from 'meteor/check';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 import { Topic } from '../../collections/topics/topics.js';
+import {TopicMessage} from '../../collections/topic-messages/topic-messages.js';
 
 export const newTopic = new ValidatedMethod({
-    name: 'newTopic',
+    name: 'appr.newTopic',
 
     validate(args) {
         check(args, {
@@ -13,14 +14,14 @@ export const newTopic = new ValidatedMethod({
         });
     },
 
-    run(args) {
+    run({ title, description }) {
         //console.log('Executing on client?', this.isSimulation);
         // Create new object
         let t = new Topic({
-            title : args.title,
-            description : args.description,
-            author : Meteor.userId(),
-            hasAccess : [Meteor.userId()]
+            title : title,
+            description : description,
+            authorId : Meteor.userId(),
+            hasAccessIds : [Meteor.userId()]
         });
 
         // Save it
@@ -30,15 +31,28 @@ export const newTopic = new ValidatedMethod({
 });
 
 export const newTopicMessage = new ValidatedMethod({
-    name: 'newTopicMessage',
+    name: 'appr.newTopicMessage',
 
     validate(args) {
         check(args, {
-            description : String
+            topicId : String,
+            message : String
         });
     },
 
-    run(args) {
-        return "Not yet implemented.";
+    run({ topicId, message }) {
+        const authorName = Meteor.user().profile.name;
+
+        // Create new object
+        let tm = new TopicMessage({
+            message : message,
+            topicId : topicId,
+            authorName  : authorName,
+            authorId : Meteor.userId(),
+            hasAccessIds : [Meteor.userId()]
+        });
+
+        // Save it
+        tm.save();
     },
 });

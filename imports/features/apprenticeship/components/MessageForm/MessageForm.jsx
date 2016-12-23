@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 import Remarkable from 'remarkable';
 
-import {TopicMessage} from '../../../../collections/topic-messages/topic-messages.js';
-
 class MessageForm extends Component {
 
     constructor(props) {
@@ -20,7 +18,17 @@ class MessageForm extends Component {
 
     onSubmit(event) {
         event.preventDefault();
-
+        const that = this;
+        this.props.newTopicMessage({
+            topicId : this.props.topicId,
+            message : this.state.message
+        }, (error, result) => {
+                // Reset the form
+                that.setState({
+                    message : ""
+                });
+        });
+/*
         // Create new object
         let tm = new TopicMessage({
             message : this.state.message,
@@ -34,7 +42,7 @@ class MessageForm extends Component {
         // Reset the form
         this.setState({
             message : ""
-        })
+        })*/
     }
 
     render() {
@@ -47,7 +55,7 @@ class MessageForm extends Component {
                         <div className="large-6 small-12 columns">
                             <div  className="row">
                                 <div className="large-12 columns large-centered">
-                                    <textarea placeholder="Topic Content" onChange={this.changeMsg}
+                                    <textarea placeholder="Answer Content" onChange={this.changeMsg}
                                         value={this.state.message} className="input"
                                         style={styles.textarea}></textarea>
                                 </div>
@@ -68,7 +76,8 @@ class MessageForm extends Component {
 }
 
 MessageForm.propTypes = {
-    topicId : React.PropTypes.string
+    topicId : React.PropTypes.string,
+    newTopicMessage : React.PropTypes.func,
 };
 
 MessageForm.defaultProps = {};

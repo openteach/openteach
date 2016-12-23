@@ -25,8 +25,8 @@ export const Topic = Class.create({
     fields: {
         title: String,
         description : String,
-        author : String,
-        hasAccess : [String]
+        authorId : String,
+        hasAccessIds : [String]
         //resources : [Resource],
         //tags : [Tag],
     }

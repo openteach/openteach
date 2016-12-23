@@ -10,7 +10,7 @@ class TopicView extends Component {
         return messages.map((m) => {
             let md = new Remarkable();
             let html = md.render(m.message);
-            return (<div className="row" key="m._id">
+            return (<div className="row" key={m._id}>
                         <div className="card large-12 medium-12 small-12">
                             <div className="content">
                                 <span className="title">{m.author}</span>

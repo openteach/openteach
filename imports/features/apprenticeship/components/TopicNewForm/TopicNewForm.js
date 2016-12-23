@@ -25,16 +25,15 @@ class TopicNewForm extends Component {
         let that = this;
         this.props.newTopic({
             title : this.state.title,
-            description : this.state.description }, (error, result) => {
-                // Reset the form
-                that.setState({
-                    title : "",
-                    description : ""
-                });
-                FlowRouter.go("topicRoute", {"id" : result._id})
+            description : this.state.description
+        }, (error, result) => {
+            // Reset the form
+            that.setState({
+                title : "",
+                description : ""
             });
-
-
+            FlowRouter.go("topicRoute", {"id" : result._id})
+        });
     }
 
     render() {
