@@ -7,6 +7,22 @@ class Instructor extends React.Component {
         super(props);
     }
 
+    renderUserList() {
+        let chapterId = this.props.currentChapter;
+        let book = this.props.book;
+
+        return this.props.users.map((u, i) => {
+
+            return (
+                <tr key={i}>
+                    <td>
+                        {u.profile.name}
+                    </td>
+                </tr>
+            );
+        });
+    }
+
     render() {
         return(
             <div>
@@ -38,15 +54,35 @@ class Instructor extends React.Component {
                         <p>Most of your settings are stored in github</p>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="large-6 small-12 columns">
+                        <h2>Users</h2>
+                        <p>Administrate your users here.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="200">Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.renderUserList()}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
 Instructor.propTypes = {
+    users : React.PropTypes.array,
+    loading : React.PropTypes.bool,
+    isInstructor : React.PropTypes.bool,
 };
 
 Instructor.defaultProps = {
+    users : []
 };
 
 export default Radium(Instructor)

@@ -8,7 +8,7 @@ export default createContainer((params) => {
     const booksHandle = Meteor.subscribe('books');
 
     const loading = !booksHandle.ready();
-    const books = Book.find({}).fetch()
+    const books = Book.find({}).fetch();
 
     return {
         bookList : books,

@@ -43,16 +43,19 @@ class TopicNewForm extends Component {
         let html = md.render(this.state.description);
         return (
             <form onSubmit={this.onSubmit} action="">
-                <h1>New Topic: {this.state.title}</h1>
+                <div className="row">
+                    <h1>New Topic: {this.state.title}</h1>
+                    <div className="large-12 columns large-centered">
+                        <input type="text" placeholder="Title" onChange={this.changeTitle} value={this.state.title} className="input" />
+                    </div>
+                </div>
                 <div className="row">
                     <div className="large-6 small-12 columns">
                         <div  className="row">
                             <div className="large-12 columns large-centered">
-                                <input type="text" placeholder="Title" onChange={this.changeTitle} value={this.state.title} className="input" />
-                            </div>
-                            <div className="large-12 columns large-centered">
                                 <textarea placeholder="Topic Content" onChange={this.changeDescription}
-                                    value={this.state.description} className="input"></textarea>
+                                    value={this.state.description} className="input"
+                                    style={styles.textarea}></textarea>
                             </div>
                             <div className="large-12 columns large-centered">
                                 <input type="submit" value="Create" className="input button" />
@@ -61,7 +64,7 @@ class TopicNewForm extends Component {
                     </div>
                     <div className="large-6 small-12 columns">
                         <div  className="row">
-                            <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
+                            <div className="markdown-body" style={styles.preview} dangerouslySetInnerHTML={ {__html: html} } />
                         </div>
                     </div>
                 </div>
@@ -74,5 +77,16 @@ TopicNewForm.propTypes = {
 };
 
 TopicNewForm.defaultProps = {};
+
+const styles = {
+    preview: {
+        border: '1px dotted #aaa',
+        height: '250px',
+        padding: '3px'
+    },
+    textarea: {
+        height: '250px',
+    },
+};
 
 export default Radium(TopicNewForm)

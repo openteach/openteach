@@ -11,6 +11,7 @@ import { Book, Books } from '../../collections/books/books.js';
  * It sets up:
  */
 function debug(){
+    // Ordinary student
     try {
         Accounts.createUser({
             profile: {
@@ -19,6 +20,19 @@ function debug(){
             email : "test@example.com",
             password : "test"
         });
+    } catch (e) {
+        // User was already set up
+    }
+    // Instructor
+    try {
+        let id = Accounts.createUser({
+            profile: {
+                name : "Instructor Joe"
+            },
+            email : Meteor.settings.instructor.email,
+            password : "test"
+        });
+        Roles.addUsersToRoles(id, ['instructor'], 'openteach');
     } catch (e) {
         // User was already set up
     }
@@ -40,7 +54,7 @@ function debug(){
     }
 
     // Setup Demo book
-    if(!Book.findOne({title : "Test Course"})){
+    if(!Book.findOne({title : "Test Book"})){
         let demoBook = new Book({
             title : "Test Book",
             index : {

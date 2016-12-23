@@ -1,2 +1,2 @@
-import Instructor from './Instructor.jsx'
-export default Instructor
+import InstructorContainer from './InstructorContainer.js'
+export default InstructorContainer
