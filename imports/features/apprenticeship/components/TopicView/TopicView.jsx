@@ -2,24 +2,26 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 import MessageForm from '../MessageForm';
 import Remarkable from 'remarkable';
-import Meta from 'remarkable-meta';
 
 class TopicView extends Component {
 
     renderMessageList() {
         let messages = this.props.messages;
-        return messages.map((m) => (
-        <div className="row">
-            <div className="card large-8 medium-10 small-12 columns large-centered medium-centered">
-                <div className="content">
-                    <span className="title">{m.author}</span>
-                    <p>{m.message}</p>
-                </div>
-                <div className="action">
-                    <a>tag?</a>
-                </div>
-            </div>
-        </div>));
+        return messages.map((m) => {
+            let md = new Remarkable();
+            let html = md.render(m.message);
+            return (<div className="row" key="m._id">
+                        <div className="card large-12 medium-12 small-12">
+                            <div className="content">
+                                <span className="title">{m.author}</span>
+                                <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
+                            </div>
+                            <div className="action">
+                                <a>tag?</a>
+                            </div>
+                        </div>
+                    </div>)
+                });
 
 
     }
@@ -48,11 +50,10 @@ class TopicView extends Component {
 
         const t = this.props.topic;
         let md = new Remarkable();
-        md.use(Meta);
         let html = md.render(t.description);
         return (
             <div className="row">
-                <div className="card large-8 medium-10 small-12 columns large-centered medium-centered">
+                <div className="card large-12 medium-12 small-12 columns large-centered medium-centered">
                     <div className="content">
                         <span className="title">
                             {t.title}
@@ -68,10 +69,22 @@ class TopicView extends Component {
 
     render() {
         return (
-            <div>
-                {this.renderTopic()}
-                <hr />
-                {this.renderMessageSection()}
+            <div className="row">
+                <div className="large-8 columns">
+                    {this.renderTopic()}
+                    <hr />
+                    {this.renderMessageSection()}
+                </div>
+                <div className="large-4 columns">
+                    <h4>Resources</h4>
+                    <a>Some link</a>, <a>Some other link</a>
+                    <hr />
+                    <h4>Actions</h4>
+                    <ul>
+                        <li><a>Edit</a></li>
+                        <li><a>...</a></li>
+                    </ul>
+                </div>
             </div>)
     }
 }

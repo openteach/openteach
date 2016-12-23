@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
+import Remarkable from 'remarkable';
 
 import {TopicMessage} from '../../../../collections/topic-messages/topic-messages.js';
 
@@ -37,15 +38,32 @@ class MessageForm extends Component {
     }
 
     render() {
+        let md = new Remarkable();
+        let html = md.render(this.state.message);
         return (
-            <div  className="row">
-                <form onSubmit={this.onSubmit} action="">
-                    <div className="columns large-8 medium-10 small-12 large-centered medium-centered">
-                        <textarea placeholder="Topic Content" onChange={this.changeMsg} value={this.state.message}></textarea>
-                        <input type="submit" value="Post" className="input button" />
+            <form onSubmit={this.onSubmit}>
+                <div  className="row">
+                    <div className="row">
+                        <div className="large-6 small-12 columns">
+                            <div  className="row">
+                                <div className="large-12 columns large-centered">
+                                    <textarea placeholder="Topic Content" onChange={this.changeMsg}
+                                        value={this.state.message} className="input"
+                                        style={styles.textarea}></textarea>
+                                </div>
+                                <div className="large-12 columns large-centered">
+                                    <input type="submit" value="Post" className="input button" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="large-6 small-12 columns">
+                            <div  className="row">
+                                <div className="markdown-body" style={styles.preview} dangerouslySetInnerHTML={ {__html: html} } />
+                            </div>
+                        </div>
                     </div>
-                </form>
-            </div>)
+                </div>
+            </form>)
     }
 }
 
@@ -54,5 +72,16 @@ MessageForm.propTypes = {
 };
 
 MessageForm.defaultProps = {};
+
+const styles = {
+    preview: {
+        border: '1px dotted #aaa',
+        height: '250px',
+        padding: '3px'
+    },
+    textarea: {
+        height: '250px',
+    },
+};
 
 export default Radium(MessageForm)
