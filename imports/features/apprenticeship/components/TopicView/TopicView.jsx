@@ -5,19 +5,49 @@ import Remarkable from 'remarkable';
 
 class TopicView extends Component {
 
+    constructor(props) {
+        super(props);
+        this.links = [];
+    }
+
+    findLinks(rawHTML){
+        var doc = document.createElement("html");
+        doc.innerHTML = rawHTML;
+        var links = doc.getElementsByTagName("a")
+        var urls = [];
+
+        function uniq(a) {
+            return a.sort().filter(function(item, pos, ary) {
+                return !pos || item != ary[pos - 1];
+            })
+        }
+
+        for (var i=0; i<links.length; i++) {
+            urls.push(links[i].getAttribute("href"));
+        }
+        this.links = uniq(this.links.concat(urls));
+    }
+
     renderMessageList() {
         let messages = this.props.messages;
+
+        if(messages.length === 0)
+            return (<div>No Messages</div>)
+
         return messages.map((m) => {
-            let md = new Remarkable();
+            let md = new Remarkable({
+                linkify: true
+            });
             let html = md.render(m.message);
+            this.findLinks(html);
             return (<div className="row" key={m._id}>
                         <div className="card large-12 medium-12 small-12">
                             <div className="content">
-                                <span className="title">{m.author}</span>
                                 <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
                             </div>
-                            <div className="action">
-                                <a>tag?</a>
+                            <div className="action row">
+                                <div className="large-8 small-8 columns"><a>tag?</a></div>
+                                <div className="large-4 columns text-right pull-right">{m.authorName}</div>
                             </div>
                         </div>
                     </div>)
@@ -49,8 +79,11 @@ class TopicView extends Component {
         }
 
         const t = this.props.topic;
-        let md = new Remarkable();
+        let md = new Remarkable({
+            linkify: true
+        });
         let html = md.render(t.description);
+        this.findLinks(html);
         return (
             <div className="row">
                 <div className="card large-12 medium-12 small-12 columns large-centered medium-centered">
@@ -60,11 +93,20 @@ class TopicView extends Component {
                         </span>
                         <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
                     </div>
-                    <div className="action">
-                        <a>Tag1</a>, <a>Tag2</a>, <a>Tag3</a>
+                    <div className="action row">
+                        <div className="large-8 small-8 columns">
+                            <a>Example Tag Bruna</a>, <a>Example tag Some sample</a>
+                        </div>
+                        <div className="large-4 columns text-right pull-right">{t.authorName}</div>
                     </div>
                 </div>
             </div>)
+    }
+
+    renderlinks(){
+        return this.links.map((l) => {
+            return <li><a href={l}>{l}</a></li>
+        });
     }
 
     render() {
@@ -77,7 +119,10 @@ class TopicView extends Component {
                 </div>
                 <div className="large-4 columns">
                     <h4>Resources</h4>
-                    <a>Some link</a>, <a>Some other link</a>
+                    <p>This is the list of all links in this topic</p>
+                    <ul>
+                        {this.renderlinks()}
+                    </ul>
                     <hr />
                     <h4>Actions</h4>
                     <ul>

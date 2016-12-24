@@ -8,9 +8,10 @@ function doBootstrap(){
         // TODO: Autogenerate password and send a mail
         let id = Accounts.createUser({
 
-        profile: {
-            name : "Instructor Joe"
-        },
+            profile: {
+                name : "Instructor Joe"
+            },
+            isInstructor : true,
             email : Meteor.settings.instructor.email,
             password : "openteach"
         });

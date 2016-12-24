@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import AppLayout from '../../common-ui/layouts/AppLayout.jsx';
+import AppLayout from '../../common-ui/layouts/AppLayout';
 import Settings from '../../common-ui/pages/Settings';
 import Instructor from '../../common-ui/pages/Instructor';
 

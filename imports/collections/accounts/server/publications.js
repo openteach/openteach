@@ -1,5 +1,7 @@
 //Generally we want the user to be able to
 
+// TODO: Security, publish only info
+
 // Publish the user currently in view
 Meteor.publish('accounts-instructor-single-user', function(user) {
     return "ApprContract.find()";
@@ -17,6 +19,6 @@ Meteor.publish('accounts-instructor-users', function() {
 });
 
 // Publish the instructor
-Meteor.publish('accounts-user', function(user) {
-    return;
+Meteor.publish('accounts-user', function() {
+    return Meteor.users.find({isInstructor : true});
 });

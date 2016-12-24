@@ -16,12 +16,20 @@ export const newTopic = new ValidatedMethod({
 
     run({ title, description }) {
         //console.log('Executing on client?', this.isSimulation);
+
+        // Find all instructors
+        const users = Meteor.users.find({isInstructor : true}).fetch();
+
+        // Find all relevant students
+        let authorName = Meteor.user().profile.name;
+
         // Create new object
         let t = new Topic({
             title : title,
             description : description,
+            authorName : authorName,
             authorId : Meteor.userId(),
-            hasAccessIds : [Meteor.userId()]
+            hasAccessIds : [Meteor.userId()] // TODO, add relevant instructor/student
         });
 
         // Save it
@@ -41,7 +49,7 @@ export const newTopicMessage = new ValidatedMethod({
     },
 
     run({ topicId, message }) {
-        const authorName = Meteor.user().profile.name;
+        let authorName = Meteor.user().profile.name;
 
         // Create new object
         let tm = new TopicMessage({
@@ -54,5 +62,23 @@ export const newTopicMessage = new ValidatedMethod({
 
         // Save it
         tm.save();
+    },
+});
+
+
+/******************* Conversations ****************/
+
+export const newConversation = new ValidatedMethod({
+    name: 'appr.newConversation',
+
+    validate(args) {
+        check(args, {
+            title: String,
+            agenda : String
+        });
+    },
+
+    run({ title, description }) {
+        return "Not yet implemented";
     },
 });
