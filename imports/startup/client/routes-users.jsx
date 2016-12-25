@@ -50,7 +50,7 @@ var userGroup = FlowRouter.group({
     }
 });
 
-userGroup.route('/course/:id/:chapterId?', {
+userGroup.route('/book/:id/:chapterId?', {
     name: "bookRoute",
     action(params, queryParams) {
         mount(AppLayout, {

@@ -3,8 +3,8 @@
 // TODO: Security, publish only info
 
 // Publish the user currently in view
-Meteor.publish('accounts-instructor-single-user', function(user) {
-    return "ApprContract.find()";
+Meteor.publish('accounts-instructor-single-user', function(userId) {
+    return Meteor.users.find({_id : userId});
 });
 
 // Publish all users with a limit

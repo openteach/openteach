@@ -9,13 +9,13 @@ function doBootstrap(){
         let id = Accounts.createUser({
 
             profile: {
-                name : "Instructor Joe"
+                name : Meteor.settings.public.instructorName
             },
-            isInstructor : true,
             email : Meteor.settings.instructor.email,
             password : "openteach"
         });
         Roles.addUsersToRoles(id, ['instructor'], 'openteach');
+        Meteor.users.update(id, {"$set" : {isInstructor : true}});
     } catch (e) {
         // User was already set up
     }

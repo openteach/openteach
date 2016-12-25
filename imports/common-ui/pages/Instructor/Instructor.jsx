@@ -7,6 +7,13 @@ class Instructor extends React.Component {
         super(props);
     }
 
+    goToDashboard(userId){
+        return function(e){
+            Session.set("appr-current-student", userId);
+            FlowRouter.go("dashboardApprenticeship");
+        }
+    }
+
     renderUserList() {
         let chapterId = this.props.currentChapter;
         let book = this.props.book;
@@ -17,6 +24,9 @@ class Instructor extends React.Component {
                 <tr key={i}>
                     <td>
                         {u.profile.name}
+                    </td>
+                    <td>
+                        <a onClick={this.goToDashboard(u._id)}>Apprenticeship Dashboard</a>
                     </td>
                 </tr>
             );
@@ -62,6 +72,7 @@ class Instructor extends React.Component {
                             <thead>
                                 <tr>
                                     <th width="200">Name</th>
+                                    <th width="200">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>

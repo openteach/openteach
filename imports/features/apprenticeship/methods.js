@@ -17,8 +17,12 @@ export const newTopic = new ValidatedMethod({
     run({ title, description }) {
         //console.log('Executing on client?', this.isSimulation);
 
-        // Find all instructors
-        const users = Meteor.users.find({isInstructor : true}).fetch();
+        // We assume that all published users are to have access to this
+        // document. This include currently logged in user
+        // TODO: This is not a good idea: In particular, when an instructor
+        // switched between two users both users might be in the collection.
+        const users = Meteor.users.find().fetch();
+        const userIds = users.map((u) => u._id);
 
         // Find all relevant students
         let authorName = Meteor.user().profile.name;
@@ -29,7 +33,7 @@ export const newTopic = new ValidatedMethod({
             description : description,
             authorName : authorName,
             authorId : Meteor.userId(),
-            hasAccessIds : [Meteor.userId()] // TODO, add relevant instructor/student
+            hasAccessIds : userIds // TODO, add relevant instructor/student
         });
 
         // Save it

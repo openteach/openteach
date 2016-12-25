@@ -105,7 +105,7 @@ class TopicView extends Component {
 
     renderlinks(){
         return this.links.map((l) => {
-            return <li><a href={l}>{l}</a></li>
+            return <li key={l}><a href={l}>{l}</a></li>
         });
     }
 
