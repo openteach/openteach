@@ -17,9 +17,11 @@ export const ApprContract = Class.create({
     name: 'ApprContracts',
     collection: ApprContracts,
     fields: {
-        price : String, // some pricing object
-        extend : String,
-        goal : String
+        studentId : String, // As for now, only one student for one instructor
+        instrucotId : String,
+        contractGoals : String, // some pricing object
+        learningStructure : String,
+        formalStructure : String
     }
 });
 
