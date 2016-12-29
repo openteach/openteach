@@ -86,3 +86,20 @@ export const newConversation = new ValidatedMethod({
         return "Not yet implemented";
     },
 });
+
+/******************* Contract ****************/
+
+export const newContract = new ValidatedMethod({
+    name: 'appr.newContract',
+
+    validate(args) {
+        check(args, {
+            title: String,
+            agenda : String
+        });
+    },
+
+    run({ title, description }) {
+        return "Not yet implemented";
+    },
+});
