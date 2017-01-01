@@ -1,7 +1,9 @@
 import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import ApprDashboard from './ApprDashboard.js';
-export default createContainer((params) => {
+import { ApprContract } from '../../../../collections/appr-contracts/appr-contracts.js';
+
+export default createContainer((_) => {
 
     let user = {
         name : "Loading ..."
@@ -10,25 +12,36 @@ export default createContainer((params) => {
         name : "Loading ..."
     }
 
-    // Are we an instructor?
-    let isInstructor = Roles.userIsInRole(Meteor.user(), ['instructor'], 'openteach');
 
-    if(isInstructor){ // We are an instructor
-        const userInView = Meteor.users.findOne({ "_id" : Session.get("appr-current-student") });
-        if(typeof userInView !== 'undefined')
-            user = userInView.profile;
-    } else if(Meteor.user()){ // We are a user
-        user = Meteor.user().profile;
+    // Subscriptions
+    const contractSub = Meteor.subscribe('appr-contract');
+    if(!contractSub.ready()){
+        return {
+            instructor : instructor,
+            student    : user,
+            loading    : true
+        }
     }
 
-    // Find instructor
-    let instructorInView = Meteor.users.findOne({ isInstructor : true });
+    // Find the contract
+    const contractInView = ApprContract.findOne({ "_id" : Session.get("appr-current-contract") });
+
+    // Find the student, so far we pic the first student from the list. this
+    // it to support multiple students later
+    const userInView = Meteor.users.findOne({ _id : contractInView.studentIds[0] });
+    if(typeof userInView !== 'undefined')
+        user = userInView.profile;
+
+    // Find instructor, so far we pic the first instructor from the list. this
+    // it to support multiple instructors later
+    let instructorInView = Meteor.users.findOne({ _id : contractInView.instructorIds[0] });
     if(typeof instructorInView !== 'undefined')
         instructor = instructorInView.profile;
 
-
     return {
         instructor : instructor,
-        student    : user
+        student    : user,
+        contract : contractInView,
+        loading : false
     };
 }, ApprDashboard)

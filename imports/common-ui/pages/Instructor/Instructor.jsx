@@ -1,17 +1,38 @@
 import React from 'react';
 import Radium from 'radium';
+import Modal from 'react-modal';
+
+import ContractNewForm from '../../../features/apprenticeship/components/ContractNewForm'
+import UserRow from '../../components/UserRow';
 
 class Instructor extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            contractModalVisible : false,
+            userInView : {}
+        }
+
+        this.closeContractModal = this.closeContractModal.bind(this);
+        this.openContractModal = this.openContractModal.bind(this);
     }
 
-    goToDashboard(userId){
+    openContractModal(user) {
+        let that = this;
         return function(e){
-            Session.set("appr-current-student", userId);
-            FlowRouter.go("dashboardApprenticeship");
+            that.setState({
+                contractModalVisible : true,
+                userInView : user
+            });
         }
+    }
+
+    closeContractModal(e){
+        this.setState({
+            contractModalVisible : false,
+            userInView : {}
+        });
     }
 
     renderUserList() {
@@ -19,17 +40,7 @@ class Instructor extends React.Component {
         let book = this.props.book;
 
         return this.props.users.map((u, i) => {
-
-            return (
-                <tr key={i}>
-                    <td>
-                        {u.profile.name}
-                    </td>
-                    <td>
-                        <a onClick={this.goToDashboard(u._id)}>Apprenticeship Dashboard</a>
-                    </td>
-                </tr>
-            );
+            return (<UserRow key={i} user={u} modalFunction={this.openContractModal} />);
         });
     }
 
@@ -68,6 +79,7 @@ class Instructor extends React.Component {
                     <div className="large-6 small-12 columns">
                         <h2>Users</h2>
                         <p>Administrate your users here.</p>
+
                         <table>
                             <thead>
                                 <tr>
@@ -81,6 +93,16 @@ class Instructor extends React.Component {
                         </table>
                     </div>
                 </div>
+
+
+                <Modal isOpen={this.state.contractModalVisible} effect="fadeInDown"
+                    portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
+                    contentLabel="Example Modal">
+                    <ContractNewForm student={this.state.userInView} instructor={Meteor.user()} />
+                    <div className="text-center">
+                        <button className="button" onClick={this.closeContractModal}>Close</button>
+                    </div>
+                </Modal>
             </div>
         )
     }

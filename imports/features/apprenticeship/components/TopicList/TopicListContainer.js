@@ -3,12 +3,12 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Topic } from '../../../../collections/topics/topics.js';
 import TopicList from './TopicList.js';
 
-export default createContainer((params) => {
+export default createContainer(({contract}) => {
 
-    const handle = Meteor.subscribe('topics');
+    const handle = Meteor.subscribe('topics-contract', contract._id);
 
     const loading = !handle.ready();
-    const topics = Topic.find({}).fetch()
+    const topics = Topic.find({contractId : contract._id}).fetch()
 
     return {
         loading : loading,

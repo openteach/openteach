@@ -3,7 +3,7 @@ import { Class } from 'meteor/jagi:astronomy';
 
 import { globalizeData } from '../../helpers';
 
-const TopicMessages = new Mongo.Collection('topic-messages');
+const TopicMessages = new Mongo.Collection('topicMessages');
 
 export const TopicMessage = Class.create({
     name : "TopicMessage",
@@ -12,8 +12,7 @@ export const TopicMessage = Class.create({
         message : String,
         topicId : String,
         authorName: String,
-        authorId : String,
-        hasAccessIds : [String]
+        authorId : String
     }
 });
 

@@ -6,8 +6,9 @@ import Instructor from './Instructor.jsx';
 export default createContainer((params) => {
 
     const subscription = Meteor.subscribe('accounts-instructor-users');
+    const contractSub = Meteor.subscribe('appr-contract');
 
-    const loading = !subscription.ready();
+    const loading = !subscription.ready() && !contractSub.ready();
     const users = Meteor.users.find().fetch();
 
     return {

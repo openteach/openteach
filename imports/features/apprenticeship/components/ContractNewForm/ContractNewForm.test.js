@@ -16,11 +16,17 @@ describe('ContractNewForm Component Tests', () => {
     if (Meteor.isClient) {
         describe('Client Test', () => {
             it('Can render', () => {
-                var component = TestUtils.renderIntoDocument(<ContractNewForm />);
+                const newContract = function(){};
+                const student = {profile : {name : "Test"}};
+                const instructor = {profile : {name : "Test"}};
+                var component = TestUtils.renderIntoDocument(<ContractNewForm newContract={newContract} student={student} instructor={instructor} />);
             });
 
             it('Can run container', () => {
-                var component = TestUtils.renderIntoDocument(<ContractNewFormContainer/>);
+                const newContract = function(){};
+                const student = {profile : {name : "Test"}};
+                const instructor = {profile : {name : "Test"}};
+                var component = TestUtils.renderIntoDocument(<ContractNewFormContainer newContract={newContract} student={student} instructor={instructor} />);
             });
         });
     }

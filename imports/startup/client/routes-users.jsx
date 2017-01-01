@@ -12,7 +12,7 @@ import ListBooks    from '../../features/book/components/ListBooks';
 import Book from '../../features/book/components/Book/';
 
 // Apprenticeship
-import ApprDashboard from '../../features/apprenticeship/components/ApprDashboard/';
+import Entrypoint from '../../features/apprenticeship/components/Entrypoint/';
 import TopicView from '../../features/apprenticeship/components/TopicView/';
 
 // Set up groups
@@ -88,7 +88,7 @@ userGroup.route('/dashboard/apprenticeship', {
     action(params, queryParams) {
         mount(AppLayout, {
             content: (  <Dashboard selected={0}>
-                            <ApprDashboard />
+                            <Entrypoint />
                         </Dashboard>)
         })
     }

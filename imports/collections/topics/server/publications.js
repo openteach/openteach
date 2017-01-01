@@ -1,8 +1,19 @@
 import {Topic} from '../topics.js'
 
+/* Security: Has access to the related contract */
+
+// TODO: Check authentication
 // TODO: Limit and offset
-Meteor.publish('topics', function() {
+Meteor.publish('topics-contract', function(contractId) {
     return Topic.find({
-        hasAccessIds : {"$in" : [this.userId]}
+        contractId : contractId
+    });
+})
+
+// TODO: Check authentication
+// TODO: Limit and offset
+Meteor.publish('topics-single', function(topicId) {
+    return Topic.find({
+        _id : topicId
     });
 })

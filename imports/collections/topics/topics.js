@@ -23,12 +23,11 @@ export const Topic = Class.create({
     name: 'Topic',
     collection: Topics,
     fields: {
-        contactId : String, // Id of associated contract
+        contractId : String, // Id of associated contract
         title: String,
         description : String,
         authorName : String,
-        authorId : String,
-        hasAccessIds : [String]
+        authorId : String
         //resources : [Resource],
         //tags : [Tag],
     }

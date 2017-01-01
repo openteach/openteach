@@ -30,6 +30,10 @@ class ApprDashboard extends Component {
     render() {
         const instructorName = this.props.instructor.name;
         const studentName = this.props.student.name;
+
+        if(this.props.loading)
+            return (<div>Loading...</div>)
+
         return (<div>
             <div className="row">
                 <div className="large-8 columns">
@@ -42,13 +46,13 @@ class ApprDashboard extends Component {
                     <div className="row">
                         <h2>Topics <input type="button" className="button" onClick={this.toggleModalTopicForm} value="New Topic" /></h2>
                     </div>
-                    <TopicList />
+                    <TopicList contract={this.props.contract} />
                 </div>
                 <div className="large-6 small-12 columns">
                     <div className="row">
                         <h2>Conversations</h2>
                     </div>
-                    <ConversationNewForm />
+                    <ConversationNewForm contract={this.props.contract} />
                 </div>
             </div>
 
@@ -56,7 +60,9 @@ class ApprDashboard extends Component {
             <Modal isOpen={this.state.newTopicModal} effect="fadeInDown"
                 portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
                 contentLabel="Example Modal">
-                <TopicNewForm />
+
+                <TopicNewForm contract={this.props.contract} />
+
                 <div className="text-center">
                     <button className="button" onClick={this.toggleModalTopicForm}>Close</button>
                 </div>
@@ -64,7 +70,9 @@ class ApprDashboard extends Component {
             <Modal isOpen={this.state.modalVisible} effect="fadeInDown"
                 portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
                 contentLabel="Example Modal">
-                <ContractView />
+
+                <ContractView contract={this.props.contract} />
+
                 <div className="text-center">
                     <button className="button" onClick={this.toggleModal}>Close</button>
                 </div>
@@ -76,6 +84,7 @@ class ApprDashboard extends Component {
 ApprDashboard.propTypes = {
     instructor: React.PropTypes.object,
     student: React.PropTypes.object,
+    contract : React.PropTypes.object
 };
 
 ApprDashboard.defaultProps = {};

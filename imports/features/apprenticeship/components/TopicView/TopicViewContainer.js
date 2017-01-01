@@ -6,7 +6,7 @@ import TopicView from './TopicView.jsx';
 export default createContainer((params) => {
     const { topicId } = params;
 
-    const handle = Meteor.subscribe('topics');
+    const handle = Meteor.subscribe('topics-single', topicId);
     const loading = !handle.ready();
     const topic = Topic.findOne({_id : topicId});
 

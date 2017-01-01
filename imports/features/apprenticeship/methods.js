@@ -2,7 +2,8 @@ import { check } from 'meteor/check';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 import { Topic } from '../../collections/topics/topics.js';
-import {TopicMessage} from '../../collections/topic-messages/topic-messages.js';
+import { TopicMessage } from '../../collections/topic-messages/topic-messages.js';
+import { ApprContract } from '../../collections/appr-contracts/appr-contracts.js';
 
 export const newTopic = new ValidatedMethod({
     name: 'appr.newTopic',
@@ -10,21 +11,15 @@ export const newTopic = new ValidatedMethod({
     validate(args) {
         check(args, {
             title: String,
-            description : String
+            description : String,
+            contractId : String
         });
     },
 
-    run({ title, description }) {
+    run({ title, description, contractId }) {
         //console.log('Executing on client?', this.isSimulation);
 
-        // We assume that all published users are to have access to this
-        // document. This include currently logged in user
-        // TODO: This is not a good idea: In particular, when an instructor
-        // switched between two users both users might be in the collection.
-        const users = Meteor.users.find().fetch();
-        const userIds = users.map((u) => u._id);
-
-        // Find all relevant students
+        // Current usre has authered
         let authorName = Meteor.user().profile.name;
 
         // Create new object
@@ -32,8 +27,8 @@ export const newTopic = new ValidatedMethod({
             title : title,
             description : description,
             authorName : authorName,
-            authorId : Meteor.userId(),
-            hasAccessIds : userIds // TODO, add relevant instructor/student
+            contractId : contractId,
+            authorId : Meteor.userId()
         });
 
         // Save it
@@ -60,8 +55,7 @@ export const newTopicMessage = new ValidatedMethod({
             message : message,
             topicId : topicId,
             authorName  : authorName,
-            authorId : Meteor.userId(),
-            hasAccessIds : [Meteor.userId()]
+            authorId : Meteor.userId()
         });
 
         // Save it
@@ -94,12 +88,25 @@ export const newContract = new ValidatedMethod({
 
     validate(args) {
         check(args, {
-            title: String,
-            agenda : String
+            contractGoals: String,
+            learningStructure : String,
+            formalStructure : String,
+            studentId : String,
+            instructorId : String
         });
     },
 
-    run({ title, description }) {
-        return "Not yet implemented";
+    run({ contractGoals, learningStructure, formalStructure, studentId, instructorId }) {
+
+        let contract = new ApprContract({
+            studentIds : [studentId],
+            instructorIds : [instructorId],
+            contractGoals : contractGoals,
+            learningStructure : learningStructure,
+            formalStructure : formalStructure
+        });
+
+        contract.save();
+        return contract;
     },
 });

@@ -25,8 +25,13 @@ class TopicNewForm extends Component {
         let that = this;
         this.props.newTopic({
             title : this.state.title,
-            description : this.state.description
+            description : this.state.description,
+            contractId : this.props.contract._id
         }, (error, result) => {
+            if(error){
+                console.log(error);
+                return;
+            }
             // Reset the form
             that.setState({
                 title : "",
@@ -72,7 +77,8 @@ class TopicNewForm extends Component {
 }
 
 TopicNewForm.propTypes = {
-    newTopic : React.PropTypes.func
+    newTopic : React.PropTypes.func,
+    contract : React.PropTypes.object
 };
 
 TopicNewForm.defaultProps = {};
