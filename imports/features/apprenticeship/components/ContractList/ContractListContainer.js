@@ -6,6 +6,7 @@ export default createContainer((params) => {
     // Find the contract
     const contractSub = Meteor.subscribe('appr-contract');
     const contracts = ApprContract.find().fetch();
+
     return {
         loading : contractSub.ready(),
         contracts : contracts

@@ -69,32 +69,32 @@ class ContractNewForm extends Component {
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="row">
-                    <div className="large-6 small-12 columns">
+                    <div className="large-6 columns">
+                        <h4>Title</h4>
                         <input type="text" placeholder="title" onChange={this.changeTitle} />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="large-6 small-12 columns">
                         <h4>Goals</h4>
-                        <p>
-                            List some goals for this project. The more concrete
-                            the better. This could be a piece of programming,
-                            an article, or some third.
-                        </p>
-                        <textarea onChange={this.changeGoals} />
+                        <p>Concrete product that the instructor and teacher work on.</p>
+                        <textarea onChange={this.changeGoals} style={styles.textarea} />
 
                         <h4>Frame</h4>
-                        <p>To keep track of a project one must have an idea on
-                            how it progresses. This field elaborates on</p>
-                        <textarea onChange={this.changeLearnStructure} />
-
-                        <h4>Formalities</h4>
-                        <p>Money and liabilities.</p>
-                        <textarea onChange={this.changeFormalStructure} />
-
-                        <input className="button" type="submit" value="Create" />
+                        <p>How the teaching will carry on.</p>
+                        <textarea onChange={this.changeLearnStructure} style={styles.textarea} />
                     </div>
                     <div className="large-6 small-12 columns">
+                        <h4>Formalities</h4>
+                        <p>Money and liabilities.</p>
+                        <textarea onChange={this.changeFormalStructure} style={styles.textarea} />
+
                         <h4>Details</h4>
                         Contract between the student
                         {this.props.student.profile.name} and the instructor
                         {this.props.instructor.profile.name}.
+
+                        <input className="button" type="submit" value="Create" />
                     </div>
                 </div>
             </form>)
@@ -110,7 +110,9 @@ ContractNewForm.propTypes = {
 ContractNewForm.defaultProps = {};
 
 const styles = {
-
+    textarea : {
+        height: "150px"
+    }
 };
 
 export default Radium(ContractNewForm)

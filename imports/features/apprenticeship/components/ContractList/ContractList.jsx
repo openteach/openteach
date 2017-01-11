@@ -16,8 +16,10 @@ class ContractsList extends Component {
             <div key={c._id} className=" large-6 small-12 columns">
                 <div className="card">
                     <div className="content">
-                        <span className="title">{i} : {c.title}</span>
-                        <div>Some Description</div>
+                        <span className="title">{c.title}</span>
+                        <div>
+                            Short status on this constract here.
+                        </div>
                     </div>
                     <div className="action">
                         <a onClick={this.openContract(c._id)}>Open</a>
@@ -35,8 +37,10 @@ class ContractsList extends Component {
 }
 
 ContractsList.propTypes = {
-    contracts : React.PropTypes.array,
-    loading: React.PropTypes.bool
+    contracts  : React.PropTypes.array,
+    student    : React.PropTypes.object,
+    instructor : React.PropTypes.object,
+    loading    : React.PropTypes.bool
 };
 
 ContractsList.defaultProps = {};
