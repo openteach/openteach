@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 
 import TopicList from '../TopicList'
 import TopicNewForm from '../TopicNewForm'
+import ConversationList from '../ConversationList'
 import ConversationNewForm from '../ConversationNewForm'
 import ContractView from '../ContractView'
 
@@ -57,7 +58,7 @@ class ApprDashboard extends Component {
                     <div className="row">
                         <h2>Conversations <input type="button" className="button" onClick={this.toggleModalConversationForm} value="New Conversation" /></h2>
                     </div>
-                    Conversation List here
+                    <ConversationList contract={this.props.contract} />
                 </div>
             </div>
 
