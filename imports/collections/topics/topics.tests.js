@@ -16,12 +16,34 @@ describe('Topic Collection', function () {
                 resetDatabase();
             });
 
-            it("can fail on empty description", function(){
-                assert.equal(true, false);
+            it("can fail on empty description", function(done){
+                const t = new Topic({
+                    contractId : "sd",
+                    title : "sdsd",
+                    description : "",
+                    authorName : "Ole",
+                    authorId : "sdsd"
+                });
+
+                t.validate(function(err) {
+                    assert.equal(err.details[0].message, "Description can not be empty.");
+                    done();
+                });
             });
 
-            it("can fail on empty title", function(){
-                assert.equal(true, false);
+            it("can fail on empty title", function(done){
+                const t = new Topic({
+                    contractId : "sd",
+                    title : "",
+                    description : "asdasd",
+                    authorName : "Ole",
+                    authorId : "sdsd"
+                });
+
+                t.validate(function(err) {
+                    assert.equal(err.details[0].message, "Title can not be empty.");
+                    done();
+                });
             });
         });
     }

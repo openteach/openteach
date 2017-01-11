@@ -24,8 +24,26 @@ export const Topic = Class.create({
     collection: Topics,
     fields: {
         contractId : String, // Id of associated contract
-        title: String,
-        description : String,
+        title: {
+            type: String,
+            validators : [
+                {
+                    type: 'minLength',
+                    param: 1,
+                    message: 'Title can not be empty.'
+                }
+            ]
+        },
+        description : {
+            type: String,
+            validators : [
+                {
+                    type: 'minLength',
+                    param: 1,
+                    message: 'Description can not be empty.'
+                }
+            ]
+        },
         authorName : String,
         authorId : String
         //resources : [Resource],
