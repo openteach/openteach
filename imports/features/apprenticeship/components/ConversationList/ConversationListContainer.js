@@ -5,7 +5,7 @@ import ConversationList from './ConversationList.jsx';
 
 export default createContainer(({contract}) => {
 
-    const handle = Meteor.subscribe('topics-contract', contract._id);
+    const handle = Meteor.subscribe('conversations-contract', contract._id);
 
     const loading = !handle.ready();
     const conversations = Conversation.find({contractId : contract._id}).fetch()
