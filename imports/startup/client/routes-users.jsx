@@ -14,6 +14,7 @@ import Book from '../../features/book/components/Book/';
 // Apprenticeship
 import Entrypoint from '../../features/apprenticeship/components/Entrypoint/';
 import TopicView from '../../features/apprenticeship/components/TopicView/';
+//import ConversationView from '../../features/apprenticeship/components/ConversationView/';
 
 // Set up groups
 var userGroup = FlowRouter.group({
@@ -94,12 +95,23 @@ userGroup.route('/dashboard/apprenticeship', {
     }
 });
 
-userGroup.route('/apprenticeship/:id', {
+userGroup.route('/apprenticeship/topic/:id', {
     name: "topicRoute",
     action(params, queryParams) {
         mount(AppLayout, {
             content: (  <Dashboard selected={0}>
                             <TopicView topicId={params.id} />
+                        </Dashboard>)
+        })
+    }
+});
+
+userGroup.route('/apprenticeship/conversation/:id', {
+    name: "conversationRoute",
+    action(params, queryParams) {
+        mount(AppLayout, {
+            content: (  <Dashboard selected={0}>
+                            <ConversationView conversationId={params.id} />
                         </Dashboard>)
         })
     }

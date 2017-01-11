@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import TopicCard from '../TopicCard';
+import ConversationCard from '../ConversationCard';
 
 class ConversationList extends Component {
     renderConversations() {
         let conversations = this.props.conversations;
-        return conversations.map((t) => (<TopicCard key={t._id} topic={t} />));
+        return conversations.map((t, i) => (<ConversationCard key={i} conversation={t} />));
     }
     render() {
         return (
