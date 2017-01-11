@@ -33,6 +33,7 @@ export default createContainer((params) => {
     if(contracts.length === 0){
         return {component : Apply}
     } if(contracts.length === 1){
+        Session.set("appr-current-contract", contracts[0]._id);
         return {component : ApprDashboard}
     } if(contracts.length > 1){
         return {component : ContractList}
