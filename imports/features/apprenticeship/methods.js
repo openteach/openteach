@@ -92,18 +92,20 @@ export const newContract = new ValidatedMethod({
             learningStructure : String,
             formalStructure : String,
             studentId : String,
-            instructorId : String
+            instructorId : String,
+            title : String
         });
     },
 
-    run({ contractGoals, learningStructure, formalStructure, studentId, instructorId }) {
+    run({ contractGoals, learningStructure, formalStructure, studentId, instructorId, title }) {
 
         let contract = new ApprContract({
             studentIds : [studentId],
             instructorIds : [instructorId],
             contractGoals : contractGoals,
             learningStructure : learningStructure,
-            formalStructure : formalStructure
+            formalStructure : formalStructure,
+            title: title
         });
 
         contract.save();
