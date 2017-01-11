@@ -3,6 +3,9 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 import { Topic } from '../../collections/topics/topics.js';
 import { TopicMessage } from '../../collections/topic-messages/topic-messages.js';
+
+import { Conversation } from '../../collections/conversations/conversations.js';
+
 import { ApprContract } from '../../collections/appr-contracts/appr-contracts.js';
 
 export const newTopic = new ValidatedMethod({
@@ -59,7 +62,7 @@ export const newTopicMessage = new ValidatedMethod({
         });
 
         // Save it
-        tm.save();
+        return tm.save();
     },
 });
 
@@ -72,12 +75,21 @@ export const newConversation = new ValidatedMethod({
     validate(args) {
         check(args, {
             title: String,
-            agenda : String
+            agenda : String,
+            contractId : String
         });
     },
 
-    run({ title, description }) {
-        return "Not yet implemented";
+    run({ title, agenda, contractId }) {
+        // Create new object
+        let c = new Conversation({
+            title : title,
+            agenda : agenda,
+            contractId : contractId
+        });
+
+        // Save it
+        return c.save();
     },
 });
 

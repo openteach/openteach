@@ -1,45 +1,42 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 
-import {Conversation} from '../../../../collections/conversations.js';
-
 class ConversationNewForm extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             title : "",
-            description : ""
+            agenda : ""
         }
 
         this.changeTitle = this.changeTitle.bind(this);
-        this.changeDescription = this.changeDescription.bind(this);
+        this.changeAgenda = this.changeAgenda.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
     changeTitle(event) {this.setState({title: event.target.value});}
-    changeDescription(event) {this.setState({description: event.target.value});}
+    changeAgenda(event) {this.setState({agenda: event.target.value});}
 
     onSubmit(event) {
         event.preventDefault();
-        console.log(this.state);
-
-        // Create new object
-        let t = new Conversation({
+        let that = this;
+        this.props.newConversation({
             title : this.state.title,
-            description : this.state.description
-        });
+            agenda : this.state.agenda,
+            contractId : this.props.contract._id
+        }, (error, result) => {
+            if(error){
+                console.log(error);
+                return;
+            }
+            // Reset the form
+            that.setState({
+                title  : "",
+                agenda : ""
+            });
 
-        // Save it
-        t.save(function(res){
-            console.log(res);
         });
-
-        // Reset the form
-        this.setState({
-            title : "",
-            description : ""
-        })
     }
 
     render() {
@@ -50,7 +47,7 @@ class ConversationNewForm extends Component {
                         <input type="text" placeholder="Title" onChange={this.changeTitle} value={this.state.title} />
                     </div>
                     <div className="large-12 columns">
-                        <textarea placeholder="Conversation Agenda" onChange={this.changeDescription} value={this.state.description}></textarea>
+                        <textarea placeholder="Conversation Agenda" onChange={this.changeAgenda} value={this.state.agenda}></textarea>
                     </div>
                     <div className="large-12 columns">
                         <input type="submit" value="Create" className="input button" />
@@ -60,7 +57,10 @@ class ConversationNewForm extends Component {
     }
 }
 
-ConversationNewForm.propTypes = {};
+ConversationNewForm.propTypes = {
+    newConversation : React.PropTypes.func,
+    contract : React.PropTypes.object
+};
 
 ConversationNewForm.defaultProps = {};
 
