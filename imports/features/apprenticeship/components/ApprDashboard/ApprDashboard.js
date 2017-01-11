@@ -16,11 +16,11 @@ class ApprDashboard extends Component {
             newTopicModal : false
         }
 
-        this.toggleModal = this.toggleModal.bind(this);
+        this.toggleContractModal = this.toggleContractModal.bind(this);
         this.toggleModalTopicForm = this.toggleModalTopicForm.bind(this);
     }
 
-    toggleModal(e) {
+    toggleContractModal(e) {
         this.setState({modalVisible : !this.state.modalVisible});
     }
     toggleModalTopicForm(e) {
@@ -39,7 +39,7 @@ class ApprDashboard extends Component {
                 <div className="large-8 columns">
                     <h1>{instructorName} teaching {studentName}</h1>
                 </div>
-                <div className="large-4 columns"><button onClick={this.toggleModal} className="button">Contract</button></div>
+                <div className="large-4 columns"><button onClick={this.toggleContractModal} className="button">Contract</button></div>
             </div>
             <div className="row">
                 <div className="large-6 small-12 columns">
@@ -67,6 +67,7 @@ class ApprDashboard extends Component {
                     <button className="button" onClick={this.toggleModalTopicForm}>Close</button>
                 </div>
             </Modal>
+
             <Modal isOpen={this.state.modalVisible} effect="fadeInDown"
                 portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
                 contentLabel="Example Modal">
@@ -74,7 +75,7 @@ class ApprDashboard extends Component {
                 <ContractView contract={this.props.contract} />
 
                 <div className="text-center">
-                    <button className="button" onClick={this.toggleModal}>Close</button>
+                    <button className="button" onClick={this.toggleContractModal}>Close</button>
                 </div>
             </Modal>
         </div>);
