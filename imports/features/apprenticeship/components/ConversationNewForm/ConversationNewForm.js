@@ -35,7 +35,7 @@ class ConversationNewForm extends Component {
                 title  : "",
                 agenda : ""
             });
-
+            FlowRouter.go("conversationRoute", {"id" : result._id})
         });
     }
 

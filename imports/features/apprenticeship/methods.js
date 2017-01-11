@@ -89,7 +89,8 @@ export const newConversation = new ValidatedMethod({
         });
 
         // Save it
-        return c.save();
+        c.save();
+        return c;
     },
 });
 

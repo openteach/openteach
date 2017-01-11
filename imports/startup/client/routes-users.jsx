@@ -14,7 +14,7 @@ import Book from '../../features/book/components/Book/';
 // Apprenticeship
 import Entrypoint from '../../features/apprenticeship/components/Entrypoint/';
 import TopicView from '../../features/apprenticeship/components/TopicView/';
-//import ConversationView from '../../features/apprenticeship/components/ConversationView/';
+import ConversationView from '../../features/apprenticeship/components/ConversationView/';
 
 // Set up groups
 var userGroup = FlowRouter.group({

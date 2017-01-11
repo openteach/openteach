@@ -4,23 +4,23 @@ import React from 'react';
 import jsdom from 'mocha-jsdom';
 import TestUtils from 'react-addons-test-utils';
 
-import ConversationCard from './ConversationCard.jsx';
-import ConversationCardContainer from './ConversationCardContainer.js'
+import ConversationView from './ConversationView.jsx';
+import ConversationViewContainer from './ConversationViewContainer.js';
 
 /**
 This initial version of the test file merely makes sure all files are included
 to see that they are parsed properly
 **/
 
-describe('ConversationCard Component Tests', () => {
+describe('ConversationView Component Tests', () => {
     if (Meteor.isClient) {
         describe('Client Test', () => {
             it('Can render', () => {
-                var component = TestUtils.renderIntoDocument(<ConversationCard conversation={{title : "bah", agenda : "buh"}} />);
+                var component = TestUtils.renderIntoDocument(<ConversationView loading={true} conversation={{}} />);
             });
 
             it('Can run container', () => {
-                var component = TestUtils.renderIntoDocument(<ConversationCardContainer conversation={{title : "bah", agenda : "buh"}} />);
+                var component = TestUtils.renderIntoDocument(<ConversationViewContainer topicId="123" />);
             });
         });
     }
