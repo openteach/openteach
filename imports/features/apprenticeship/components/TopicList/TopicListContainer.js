@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Topic } from '../../../../collections/topics/topics.js';
-import TopicList from './TopicList.js';
+import TopicList from './TopicList.jsx';
 
 export default createContainer(({contract}) => {
 
