@@ -16,11 +16,11 @@ describe('TopicCard Component Tests', () => {
     if (Meteor.isClient) {
         describe('Client Test', () => {
             it('Can render', () => {
-                var component = TestUtils.renderIntoDocument(<TopicCard topic={{title : "bah", description : "buh"}} />);
+                var component = TestUtils.renderIntoDocument(<TopicCard topic={{title : "bah", description : "buh", readBy : []}} />);
             });
 
             it('Can run container', () => {
-                var component = TestUtils.renderIntoDocument(<TopicCardContainer topic={{title : "bah", description : "buh"}} />);
+                var component = TestUtils.renderIntoDocument(<TopicCardContainer topic={{title : "bah", description : "buh", readBy : []}} />);
             });
         });
     }
