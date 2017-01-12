@@ -10,9 +10,13 @@ class TopicCard extends Component {
         let md = new Remarkable();
         md.use(Meta);
         let html = md.render(topic.description);
+
+        // True or False on whether this topic has been read by logged in user
+        let userHasReadTopic = topic.readBy.indexOf(Meteor.userId()) >= 0;
+
         return (
             <div className="large-12 medium-12 small-12 columns">
-                <div className="card" style={style.notification(topic.readBy.indexOf(Meteor.userId()) >= 0)}>
+                <div className="card" style={style.notification(userHasReadTopic)}>
                     <div className="content">
                         <span className="title">{topic.title}</span>
                         <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
