@@ -92,10 +92,10 @@ const styles = {
     githubLogo: {
         'color': '#ccc',
         'fontSize': '2rem',
-            // hover effect
-            ':hover': {
-                'color': '#fff'
-            },
+        // hover effect
+        ':hover': {
+            'color': '#fff'
+        },
     }
 }
 

@@ -12,7 +12,7 @@ class TopicCard extends Component {
         let html = md.render(topic.description);
         return (
             <div className="large-12 medium-12 small-12 columns">
-                <div className="card">
+                <div className="card" style={style.notification(topic.readBy.indexOf(Meteor.userId()) >= 0)}>
                     <div className="content">
                         <span className="title">{topic.title}</span>
                         <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
@@ -25,6 +25,14 @@ class TopicCard extends Component {
     }
 }
 
+const style = {
+    notification : function(isSeen){
+            if(isSeen)
+                return {}
+            else
+                return {"background" : "#fffece"}
+    }
+}
 
 TopicCard.propTypes = {
     topic : React.PropTypes.object

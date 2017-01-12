@@ -45,7 +45,12 @@ export const Topic = Class.create({
             ]
         },
         authorName : String,
-        authorId : String
+        authorId : String,
+        readBy : {
+            type : [String],
+            optional: true,
+            default: []
+        }
         //resources : [Resource],
         //tags : [Tag],
     }

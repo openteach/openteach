@@ -40,6 +40,31 @@ export const newTopic = new ValidatedMethod({
     },
 });
 
+export const markTopicSeen = new ValidatedMethod({
+    name: 'appr.markTopicSeen',
+
+    validate(args) {
+        check(args, {
+            topicId: String,
+        });
+    },
+
+    run({ topicId }) {
+        // Current usre has authered
+        let userId = Meteor.userId();
+
+        // Find topic
+        let t = Topic.findOne({_id : topicId });
+
+        // Is he already in?
+        if(!(t.readBy.indexOf(userId) < 0))
+            return;
+
+        t.readBy.push(userId)
+        t.save();
+    },
+});
+
 export const newTopicMessage = new ValidatedMethod({
     name: 'appr.newTopicMessage',
 
@@ -52,6 +77,10 @@ export const newTopicMessage = new ValidatedMethod({
 
     run({ topicId, message }) {
         let authorName = Meteor.user().profile.name;
+        let userId = Meteor.userId();
+
+        // Find topic
+        let t = Topic.findOne({_id : topicId });
 
         // Create new object
         let tm = new TopicMessage({
@@ -60,9 +89,12 @@ export const newTopicMessage = new ValidatedMethod({
             authorName  : authorName,
             authorId : Meteor.userId()
         });
+        t.readBy = [];
 
         // Save it
-        return tm.save();
+        t.save();
+        tm.save();
+        return tm;
     },
 });
 
