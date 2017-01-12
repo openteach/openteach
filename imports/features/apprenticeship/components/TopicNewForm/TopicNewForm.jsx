@@ -91,7 +91,7 @@ const styles = {
     },
     textarea: {
         height: '250px',
-    },
+    }
 };
 
 export default Radium(TopicNewForm)

@@ -26,7 +26,7 @@ class Book extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className="large-12 columns" id="book-chapter-title">{chapter.meta.title}</div>
+                    <div className="large-12 columns" style={styles}>{chapter.meta.title}</div>
                 </div>
                 <div className="row">
                     <div>{chapter.meta.tags}</div>
@@ -85,5 +85,10 @@ Book.propTypes = {
 };
 
 Book.defaultProps = {};
+
+const styles = {
+    'font-size': '3rem',
+    'font-weight': 'bold'
+}
 
 export default Radium(Book)

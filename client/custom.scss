@@ -4,51 +4,10 @@
 
 /**  SPECIFIC STYLE AND STRUCTURE **/
 
-/*PUBLIC LAYOUT*/
-#public-layout {
-    background-color: #3498db;
-    height: 100vh;
-    overflow:auto;
-}
-
-#app-layout{
-    height: 100vh;
-    overflow:auto;
-}
-
-/*DASHBOARD*/
-#main-dashboard {
-    height: 100%;
-}
-
 /*BOOK*/
 #chapter-content {
     height: 90vh;
     overflow: auto;
-}
-
-#book-chapter-title {
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-/*ENTRYPAGE*/
-#entrypage-main-row{
-    margin-top: 5em;
-}
-
-#github-logo {
-    color: #aaa;
-    font-size: 2rem;
-}
-
-#entrypage-title {
-    color: #fff;
-    font-size: 2rem;
-}
-
-#github-logo:hover {
-    color: #fff;
 }
 
 /** GENRAL CLASSES **/

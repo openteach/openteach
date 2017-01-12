@@ -26,7 +26,7 @@ class Dashboard extends Component {
 
     render() {
         return(
-            <div className="DashboardBackground" id="main-dashboard">
+            <div className="DashboardBackground" style={styles}>
                 <Tabs
                 selected={this.props.selected}
                 onTabChange={this.handleChange}
@@ -64,5 +64,9 @@ Dashboard.propTypes = {
 };
 
 Dashboard.defaultProps = {};
+
+const styles = {
+    height: '100%'
+}
 
 export default Radium(Dashboard)

@@ -2,8 +2,9 @@ import React from 'react';
 import Modal from 'react-modal';
 import SignUpForm from '../../components/SignUpForm';
 import SignInForm from '../../components/SignInForm';
+import Radium from 'radium';
 
-export default class Entrypage extends React.Component {
+class Entrypage extends React.Component {
 
     constructor(props) {
         super(props);
@@ -23,16 +24,22 @@ export default class Entrypage extends React.Component {
             <div>
                 <div className="row expanded">
                     <div>
-                        <h5 className="large-2 small-4 column float-left" id="entrypage-title">openTeach</h5>
+                        <h5
+                            className="large-2 small-4 column float-left"
+                            style={styles.entrypageTitle}>
+                            openTeach
+                        </h5>
                     </div>
-                    <div className="large-2 small-4 column right text-right" id="github-logo">
+                    <div
+                        className="large-2 small-4 column right text-right"
+                        style={styles.githubLogo}>
                         <a href="https://github.com/openteach/openTeach">
                             <i className="fi-social-github white"></i>
                         </a>
                     </div>
                 </div>
 
-                <div className="row" id="entrypage-main-row">
+                <div className="row" style={styles.position}>
                     <div className="large-centered columns large-4">
                         <h4 className="white text-center"> Learn with {this.props.instructor.name} </h4>
                         <SignUpForm />
@@ -73,3 +80,23 @@ Entrypage.defaultProps = {
         name : "[instructor]"
     }
 };
+
+const styles = {
+    position: {
+        'marginTop': '5em'
+    },
+    entrypageTitle: {
+        'color': '#fff',
+        'fontSize': '2rem'
+    },
+    githubLogo: {
+        'color': '#ccc',
+        'fontSize': '2rem',
+            // hover effect
+            ':hover': {
+                'color': '#fff'
+            },
+    }
+}
+
+export default Radium(Entrypage)
