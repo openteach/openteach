@@ -53,6 +53,14 @@ export const Topic = Class.create({
         }
         //resources : [Resource],
         //tags : [Tag],
+    },
+    behaviors: {
+        timestamp: {
+            hasCreatedField: true,
+            createdFieldName: 'createdAt',
+            hasUpdatedField: true,
+            updatedFieldName: 'updatedAt'
+        }
     }
 });
 

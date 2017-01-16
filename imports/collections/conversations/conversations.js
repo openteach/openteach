@@ -12,6 +12,14 @@ export const Conversation = Class.create({
         title: String,
         agenda : String,
         contractId : String
+    },
+    behaviors: {
+        timestamp: {
+            hasCreatedField: true,
+            createdFieldName: 'createdAt',
+            hasUpdatedField: true,
+            updatedFieldName: 'updatedAt'
+        }
     }
 });
 

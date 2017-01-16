@@ -23,6 +23,14 @@ export const ApprContract = Class.create({
         contractGoals : String, // some pricing object
         learningStructure : String,
         formalStructure : String
+    },
+    behaviors: {
+        timestamp: {
+            hasCreatedField: true,
+            createdFieldName: 'createdAt',
+            hasUpdatedField: true,
+            updatedFieldName: 'updatedAt'
+        }
     }
 });
 

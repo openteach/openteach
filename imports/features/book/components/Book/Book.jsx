@@ -42,7 +42,7 @@ class Book extends Component {
 
         return this.props.chapters.map((chapter, i) => {
             let href = FlowRouter.path("bookRoute", {
-                id : book.urlTitle,
+                id : book.slug,
                 chapterId : chapter.urlTitle
             });
             return (
@@ -87,8 +87,8 @@ Book.propTypes = {
 Book.defaultProps = {};
 
 const styles = {
-    'font-size': '3rem',
-    'font-weight': 'bold'
+    'fontSize': '3rem',
+    'fontWeight': 'bold'
 }
 
 export default Radium(Book)

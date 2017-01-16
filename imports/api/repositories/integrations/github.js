@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 
-import { Book, convertToUrlStr, Chapter } from '../../../collections/books/books.js';
+import { Book, Chapter } from '../../../collections/books/books.js';
 
 import Remarkable from 'remarkable';
 import Meta from 'remarkable-meta';
@@ -73,7 +73,6 @@ let fetchCourse = function(ghUser, ghRepo, base){
         title : book.title,
         index : new Chapter({
             meta :  book,
-            urlTitle : "",
             content : bookIndexRaw
         }),
         chapters : chapterObjects
@@ -81,7 +80,7 @@ let fetchCourse = function(ghUser, ghRepo, base){
     // Books.schema.validate(bookColObj);
 
     // Find old
-    let oldBook = Book.findOne({ urlTitle : convertToUrlStr(book.title) });
+    let oldBook = Book.findOne({ title : book.title });
 
     if(!oldBook){
         // Create
