@@ -34,11 +34,11 @@ class ApprDashboard extends Component {
     }
 
     render() {
-        const instructorName = this.props.instructor.name;
-        const studentName = this.props.student.name;
-
         if(this.props.loading)
             return (<div>Loading...</div>)
+
+        const instructorName = this.props.instructor.name;
+        const studentName = this.props.student.name;
 
         return (<div>
             <div className="row">
@@ -102,9 +102,12 @@ class ApprDashboard extends Component {
 ApprDashboard.propTypes = {
     instructor: React.PropTypes.object,
     student: React.PropTypes.object,
-    contract : React.PropTypes.object
+    contract : React.PropTypes.object,
+    loading: React.PropTypes.bool
 };
 
 ApprDashboard.defaultProps = {};
+
+const styles = {}
 
 export default Radium(ApprDashboard)
