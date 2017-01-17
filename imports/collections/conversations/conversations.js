@@ -11,7 +11,13 @@ export const Conversation = Class.create({
     fields: {
         title: String,
         agenda : String,
-        contractId : String
+        contractId : String,
+        time : String,
+        place : String,
+        tags : {
+            type : [String],
+            default : []
+        }
     },
     behaviors: {
         timestamp: {

@@ -108,17 +108,33 @@ export const newConversation = new ValidatedMethod({
         check(args, {
             title: String,
             agenda : String,
+            time : String,
+            place : String,
+            tags : [String],
             contractId : String
         });
     },
 
-    run({ title, agenda, contractId }) {
+    run({ title, agenda, time, place, tags, contractId }) {
         // Create new object
-        let c = new Conversation({
+        const c = new Conversation({
             title : title,
             agenda : agenda,
+            time : time,
+            place : place,
+            tags : tags,
             contractId : contractId
         });
+
+        // add tags we haevn't seen before for autocompletion
+        const contract = ApprContract.findOne({_id : contractId});
+
+        newTags = uniq(contract.tags.concat(tags));
+
+        if(newTags.length !== contract.tags.length){
+            contract.tags = newTags;
+            contract.save();
+        }
 
         // Save it
         c.save();
@@ -157,3 +173,11 @@ export const newContract = new ValidatedMethod({
         return contract;
     },
 });
+
+// Local helpers
+function uniq(a) {
+    var seen = {};
+    return a.filter(function(item) {
+        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+    });
+}

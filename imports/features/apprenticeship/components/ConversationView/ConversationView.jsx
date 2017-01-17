@@ -20,6 +20,7 @@ class ConversationView extends Component {
             linkify: true
         });
         let html = md.render(c.agenda);
+        const tags = c.tags.map((t, i) => (<a key={i}>{t}</a>))
 
         return (
             <div className="row">
@@ -32,7 +33,7 @@ class ConversationView extends Component {
                     </div>
                     <div className="action row">
                         <div className="large-8 small-8 columns">
-                            <a>Tag A</a>, <a>Tag B</a>
+                            {tags}
                         </div>
                         <div className="large-4 columns text-right pull-right">Anything?</div>
                     </div>

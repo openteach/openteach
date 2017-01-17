@@ -22,7 +22,11 @@ export const ApprContract = Class.create({
         title : String,
         contractGoals : String, // some pricing object
         learningStructure : String,
-        formalStructure : String
+        formalStructure : String,
+        tags : {
+            type : [String],
+            default: []
+        }
     },
     behaviors: {
         timestamp: {
