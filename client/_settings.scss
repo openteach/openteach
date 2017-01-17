@@ -1,6 +1,6 @@
 // EXTERNAL IMPORTS
-// Google font Quicksand
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
+// Google font Roboto
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,500');
 
 //  FOUNDATION FOR SITES SETTINGS
 //  -----------------------------
@@ -62,15 +62,15 @@ $foundation-palette: (
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #0a0a0a;
+$black: #34495e; // Changed this from black '#0a0a0a' - joachim
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Quicksand', sans-serif;
+$body-font-family: 'Roboto', sans-serif;;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
-$global-weight-normal: normal;
+$global-weight-normal: 300; // Changed this from 'normal' - joachim
 $global-weight-bold: bold;
 $global-radius: 0;
 $global-text-direction: ltr;
@@ -128,7 +128,7 @@ $header-sizes: (
     'h6': 16,
   ),
 );
-$header-color: inherit;
+$header-color: #34495e; // Changed this from 'inherit' - joachim
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
