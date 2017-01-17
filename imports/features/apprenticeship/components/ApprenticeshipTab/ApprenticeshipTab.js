@@ -14,4 +14,6 @@ ApprenticeshipTab.propTypes = { };
 
 ApprenticeshipTab.defaultProps = { };
 
+const styles = {}
+
 export default Radium(ApprenticeshipTab)
