@@ -44,6 +44,10 @@ export const Topic = Class.create({
                 }
             ]
         },
+        tags : {
+            type : [String],
+            default : []
+        },
         authorName : String,
         authorId : String,
         readBy : {

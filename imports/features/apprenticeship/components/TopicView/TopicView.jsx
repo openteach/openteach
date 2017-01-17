@@ -46,7 +46,7 @@ class TopicView extends Component {
                                 <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
                             </div>
                             <div className="action row">
-                                <div className="large-8 small-8 columns"><a>tag?</a></div>
+                                <div className="large-8 small-8 columns"></div>
                                 <div className="large-4 columns text-right pull-right">{m.authorName}</div>
                             </div>
                         </div>
@@ -84,6 +84,7 @@ class TopicView extends Component {
         });
         let html = md.render(t.description);
         this.findLinks(html);
+        const tags = t.tags.map((t, i) => (<a key={i}>{t}</a>))
         return (
             <div className="row">
                 <div className="card large-12 medium-12 small-12 columns large-centered medium-centered">
@@ -95,7 +96,7 @@ class TopicView extends Component {
                     </div>
                     <div className="action row">
                         <div className="large-8 small-8 columns">
-                            <a>Example Tag Bruna</a>, <a>Example tag Some sample</a>
+                            {tags}
                         </div>
                         <div className="large-4 columns text-right pull-right">{t.authorName}</div>
                     </div>

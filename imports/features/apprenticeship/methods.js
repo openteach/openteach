@@ -15,11 +15,12 @@ export const newTopic = new ValidatedMethod({
         check(args, {
             title: String,
             description : String,
-            contractId : String
+            tags : [String],
+            contractId : String,
         });
     },
 
-    run({ title, description, contractId }) {
+    run({ title, description, tags, contractId }) {
         //console.log('Executing on client?', this.isSimulation);
 
         // Current usre has authered
@@ -31,8 +32,19 @@ export const newTopic = new ValidatedMethod({
             description : description,
             authorName : authorName,
             contractId : contractId,
+            tags : tags,
             authorId : Meteor.userId()
         });
+
+        // add tags we haevn't seen before for autocompletion
+        const contract = ApprContract.findOne({_id : contractId});
+
+        newTags = uniq(contract.tags.concat(tags));
+
+        if(newTags.length !== contract.tags.length){
+            contract.tags = newTags;
+            contract.save();
+        }
 
         // Save it
         t.save();

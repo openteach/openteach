@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 import Remarkable from 'remarkable';
+import ReactTags from 'react-tag-autocomplete';
 
 class TopicNewForm extends Component {
 
@@ -8,16 +9,31 @@ class TopicNewForm extends Component {
         super(props);
         this.state = {
             title : "",
-            description : ""
+            description : "",
+            tags: [],
+            suggestions: this.props.contract.tags.map(function(t, i){return {id : i, name : t}})
         }
 
         this.changeTitle = this.changeTitle.bind(this);
         this.changeDescription = this.changeDescription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleAddition = this.handleAddition.bind(this);
     }
 
     changeTitle(event) {this.setState({title: event.target.value});}
     changeDescription(event) {this.setState({description: event.target.value});}
+
+    handleDelete(i) {
+        var tags = this.state.tags
+        tags.splice(i, 1)
+        this.setState({ tags: tags })
+    }
+    handleAddition(tag) {
+        var tags = this.state.tags
+        tags.push(tag)
+        this.setState({ tags: tags })
+    }
 
     onSubmit(event) {
         event.preventDefault();
@@ -25,6 +41,7 @@ class TopicNewForm extends Component {
         this.props.newTopic({
             title : this.state.title,
             description : this.state.description,
+            tags : this.state.tags.map((t) => t.name),
             contractId : this.props.contract._id
         }, (error, result) => {
             if(error){
@@ -43,6 +60,7 @@ class TopicNewForm extends Component {
     render() {
         let md = new Remarkable();
         let html = md.render(this.state.description);
+        const tags = this.state.tags.map((t, i) => (<a key={i}>{t.name}</a>))
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="row">
@@ -60,6 +78,14 @@ class TopicNewForm extends Component {
                                     value={this.state.description} className="input"
                                     style={styles.textarea}></textarea>
                             </div>
+                            <div className="large-12 columns">
+                                <ReactTags
+                                    tags={this.state.tags}
+                                    suggestions={this.state.suggestions}
+                                    handleDelete={this.handleDelete}
+                                    handleAddition={this.handleAddition}
+                                    allowNew={true} />
+                            </div>
                             <div className="large-12 columns large-centered">
                                 <input type="submit" value="Create" className="input button" />
                             </div>
@@ -76,7 +102,7 @@ class TopicNewForm extends Component {
                             </div>
                             <div className="action row">
                                 <div className="large-8 small-8 columns">
-                                    <a>tag1</a>
+                                    {tags}
                                 </div>
                                 <div className="large-4 columns text-right pull-right">{Meteor.user().profile.name}</div>
                             </div>
