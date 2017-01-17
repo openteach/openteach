@@ -53,10 +53,10 @@ class Apply extends Component {
   }
 }
 
-const styles = {}
-
 Apply.propTypes = {};
 
 Apply.defaultProps = {};
+
+const styles = {}
 
 export default Radium(Apply)
