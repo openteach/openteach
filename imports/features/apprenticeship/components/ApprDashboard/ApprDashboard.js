@@ -41,11 +41,11 @@ class ApprDashboard extends Component {
         const studentName = this.props.student.name;
 
         return (<div>
-            <div className="row">
-                <div className="large-8 columns">
+            <div className="expanded row text-center" style={styles.header}>
+                <div className="large-12 columns">
                     <h1>{instructorName} teaching {studentName}</h1>
                 </div>
-                <div className="large-4 columns"><button onClick={this.toggleContractModal} className="button">Contract</button></div>
+                <button onClick={this.toggleContractModal} className="button">Contract</button>
             </div>
             <div className="row">
                 <div className="large-6 small-12 columns">
@@ -108,6 +108,13 @@ ApprDashboard.propTypes = {
 
 ApprDashboard.defaultProps = {};
 
-const styles = {}
+const styles = {
+    header: {
+        'paddingTop': '3em',
+        'height': '12.5em',
+        'backgroundColor': '#3498db',
+        'marginBottom': '4em'
+    }
+}
 
 export default Radium(ApprDashboard)
