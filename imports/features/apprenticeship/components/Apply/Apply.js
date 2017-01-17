@@ -53,16 +53,7 @@ class Apply extends Component {
   }
 }
 
-// const styles = {
-//   root: {
-//     display: 'inline',
-//   },
-//   button: {
-//     background: '#eee',
-//     border: '1px solid #ddd',
-//     fontSize: 24,
-//   },
-// };
+const styles = {}
 
 Apply.propTypes = {};
 
