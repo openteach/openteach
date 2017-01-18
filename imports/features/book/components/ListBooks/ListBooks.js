@@ -34,9 +34,17 @@ class ListBooks extends React.Component {
 
     render() {
         return (
-         <div className="listOfCourses">
-            {this.renderBooks()}
-         </div>
+            <div>
+                <div className="expanded row text-center" style={styles.header}>
+                    <div className="large-12 columns">
+                        <h1>Teachers notes</h1>
+                        <p style={styles.tagline}>Teachers material for students</p>
+                    </div>
+                </div>
+                <div className="listOfCourses">
+                    {this.renderBooks()}
+                </div>
+            </div>
         )
     }
 }
@@ -44,6 +52,20 @@ class ListBooks extends React.Component {
 ListBooks.propTypes = {
     bookList: React.PropTypes.array,
     loading: React.PropTypes.bool,
-};
+}
+
+ListBooks.defaultProps = {};
+
+const styles = {
+    header: {
+        'paddingTop': '3em',
+        'height': '12.5em',
+        'backgroundColor': '#ecf0f1',
+        'marginBottom': '4em'
+    },
+    tagline: {
+        'fontSize': '1.2em'
+    }
+}
 
 export default Radium(ListBooks)
