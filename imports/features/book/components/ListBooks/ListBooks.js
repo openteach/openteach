@@ -20,7 +20,7 @@ const array_chunk = function chunks(arr, size) {
     return result;
 };
 
-class ListBooks extends React.Component {
+class ListBooks extends Component {
     renderBooks() {
         let books = this.props.bookList;
         const rows = array_chunk(books, 2);
