@@ -44,7 +44,7 @@ class Dashboard extends Component {
                                 {this.props.children}
                             </BookTab>
                         ),
-                        displayName: 'Books'
+                        displayName: 'Notes'
                     }, {
                         children: () => (
                             <LecturesTab>
