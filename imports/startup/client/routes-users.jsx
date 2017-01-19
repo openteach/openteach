@@ -7,6 +7,9 @@ import Instructor from '../../common-ui/pages/Instructor';
 
 import Dashboard from '../../features/dashboard/components/Dashboard';
 
+// Lectures
+import LecturesList    from '../../features/lectures/components/LecturesList';
+
 // Books
 import ListBooks    from '../../features/book/components/ListBooks';
 import Book from '../../features/book/components/Book/';
@@ -79,7 +82,11 @@ userGroup.route('/dashboard/lectures', {
     name: "dashboardLectures",
     action(params, queryParams) {
         mount(AppLayout, {
-            content: (<Dashboard selected={2} />)
+            content: (
+                <Dashboard selected={2}>
+                    <LecturesList />
+                </Dashboard>
+            )
         })
     }
 });

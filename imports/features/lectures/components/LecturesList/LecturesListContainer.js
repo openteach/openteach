@@ -1,17 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Topic } from '../../../../collections/topics/topics.js';
+import { Lecture } from '../../../../collections/lectures/lectures.js';
 import LecturesList from './LecturesList.jsx';
 
-export default createContainer(({contract}) => {
+export default createContainer((params) => {
 
-    const handle = Meteor.subscribe('lectures-contract', contract._id);
+    const handle = Meteor.subscribe('lectures');
 
     const loading = !handle.ready();
-    const topics = Topic.find({contractId : contract._id}).fetch()
+    const lectures = Lecture.find({}).fetch()
 
     return {
         loading : loading,
-        topics : topics
+        lectures : lectures
     };
 }, LecturesList)
