@@ -3,14 +3,11 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 import { Topic } from '../../collections/topics/topics.js';
 import { TopicMessage } from '../../collections/topic-messages/topic-messages.js';
-
 import { Conversation } from '../../collections/conversations/conversations.js';
-
 import { ApprContract } from '../../collections/appr-contracts/appr-contracts.js';
 
 export const newTopic = new ValidatedMethod({
     name: 'appr.newTopic',
-
     validate(args) {
         check(args, {
             title: String,
@@ -19,7 +16,6 @@ export const newTopic = new ValidatedMethod({
             contractId : String,
         });
     },
-
     run({ title, description, tags, contractId }) {
         //console.log('Executing on client?', this.isSimulation);
 
@@ -54,13 +50,11 @@ export const newTopic = new ValidatedMethod({
 
 export const markTopicSeen = new ValidatedMethod({
     name: 'appr.markTopicSeen',
-
     validate(args) {
         check(args, {
             topicId: String,
         });
     },
-
     run({ topicId }) {
         // Current usre has authered
         let userId = Meteor.userId();
@@ -79,14 +73,12 @@ export const markTopicSeen = new ValidatedMethod({
 
 export const newTopicMessage = new ValidatedMethod({
     name: 'appr.newTopicMessage',
-
     validate(args) {
         check(args, {
             topicId : String,
             message : String
         });
     },
-
     run({ topicId, message }) {
         let authorName = Meteor.user().profile.name;
         let userId = Meteor.userId();
@@ -115,7 +107,6 @@ export const newTopicMessage = new ValidatedMethod({
 
 export const newConversation = new ValidatedMethod({
     name: 'appr.newConversation',
-
     validate(args) {
         check(args, {
             title: String,
@@ -126,7 +117,6 @@ export const newConversation = new ValidatedMethod({
             contractId : String
         });
     },
-
     run({ title, agenda, time, place, tags, contractId }) {
         // Create new object
         const c = new Conversation({
@@ -158,7 +148,6 @@ export const newConversation = new ValidatedMethod({
 
 export const newContract = new ValidatedMethod({
     name: 'appr.newContract',
-
     validate(args) {
         check(args, {
             contractGoals: String,
@@ -169,9 +158,7 @@ export const newContract = new ValidatedMethod({
             title : String
         });
     },
-
     run({ contractGoals, learningStructure, formalStructure, studentId, instructorId, title }) {
-
         let contract = new ApprContract({
             studentIds : [studentId],
             instructorIds : [instructorId],
