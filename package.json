@@ -1,44 +1,45 @@
 {
-    "name": "openteach",
-    "private": true,
-    "scripts": {
-        "start": "meteor run"
-    },
-    "dependencies": {
-        "bcrypt": "^0.8.7",
-        "meteor-node-stubs": "~0.2.0",
-        "mocha-jsdom": "^1.1.0",
-        "radium": "^0.18.1",
-        "react": "^15.2.1",
-        "react-addons-create-fragment": "^15.2.1",
-        "react-addons-css-transition-group": "^15.2.1",
-        "react-addons-linked-state-mixin": "^15.2.1",
-        "react-addons-perf": "^15.2.1",
-        "react-addons-pure-render-mixin": "^15.2.1",
-        "react-addons-test-utils": "^15.2.1",
-        "react-addons-transition-group": "^15.2.1",
-        "react-addons-update": "^15.2.1",
-        "react-awesome-modal": "^0.3.3",
-        "react-dom": "^15.2.1",
-        "react-marked": "^0.3.1",
-        "react-modal": "^1.6.4",
-        "react-mounter": "^1.2.0",
-        "react-tabs-navigation": "^0.4.2",
-        "remarkable": "^1.6.2",
-        "remarkable-meta": "^1.0.1",
-        "to-markdown": "1.3.0",
-        "collapse-whitespace": "1.1.2",
-        "medium-editor": "5.x",
-        "rc-tabs": "5.8.x",
-        "parse5": "1.3.1"
-    },
-    "version": "1.0.0",
-    "main": "index.js",
-    "devDependencies": {
-        "enzyme": "^2.4.1",
-        "react": "^15.3.0"
-    },
-    "author": "",
-    "license": "ISC",
-    "description": ""
+  "name": "openteach",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "collapse-whitespace": "1.1.2",
+    "medium-editor": "5.x",
+    "meteor-node-stubs": "~0.2.0",
+    "mocha-jsdom": "^1.1.0",
+    "parse5": "1.3.1",
+    "radium": "^0.18.1",
+    "rc-tabs": "5.8.x",
+    "react": "^15.2.1",
+    "react-addons-create-fragment": "^15.2.1",
+    "react-addons-css-transition-group": "^15.2.1",
+    "react-addons-linked-state-mixin": "^15.2.1",
+    "react-addons-perf": "^15.2.1",
+    "react-addons-pure-render-mixin": "^15.2.1",
+    "react-addons-test-utils": "^15.2.1",
+    "react-addons-transition-group": "^15.2.1",
+    "react-addons-update": "^15.2.1",
+    "react-awesome-modal": "^0.3.3",
+    "react-dom": "^15.2.1",
+    "react-marked": "^0.3.1",
+    "react-modal": "^1.6.4",
+    "react-mounter": "^1.2.0",
+    "react-tabs-navigation": "^0.4.2",
+    "react-tag-autocomplete": "^5.1.0",
+    "remarkable": "^1.6.2",
+    "remarkable-meta": "^1.0.1",
+    "to-markdown": "1.3.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "enzyme": "^2.4.1",
+    "react": "^15.3.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

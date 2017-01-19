@@ -53,19 +53,10 @@ class Apply extends Component {
   }
 }
 
-// const styles = {
-//   root: {
-//     display: 'inline',
-//   },
-//   button: {
-//     background: '#eee',
-//     border: '1px solid #ddd',
-//     fontSize: 24,
-//   },
-// };
-
 Apply.propTypes = {};
 
 Apply.defaultProps = {};
+
+const styles = {}
 
 export default Radium(Apply)

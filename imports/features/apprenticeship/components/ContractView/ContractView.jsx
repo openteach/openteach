@@ -50,4 +50,6 @@ ContractView.propTypes = {
 
 ContractView.defaultProps = {};
 
+const styles = {}
+
 export default Radium(ContractView)

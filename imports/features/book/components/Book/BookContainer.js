@@ -9,7 +9,7 @@ export default createContainer((params) => {
     const booksHandle = Meteor.subscribe('books');
 
     const loading = !booksHandle.ready();
-    const book = BookClass.findOne({ urlTitle : id});
+    const book = BookClass.findOne({ slug : id});
 
     return {
         loading : loading,

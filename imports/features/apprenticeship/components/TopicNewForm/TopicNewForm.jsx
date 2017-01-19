@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
 import Remarkable from 'remarkable';
-import Meta from 'remarkable-meta';
+import ReactTags from 'react-tag-autocomplete';
 
 class TopicNewForm extends Component {
 
@@ -9,16 +9,31 @@ class TopicNewForm extends Component {
         super(props);
         this.state = {
             title : "",
-            description : ""
+            description : "",
+            tags: [],
+            suggestions: this.props.contract.tags.map(function(t, i){return {id : i, name : t}})
         }
 
         this.changeTitle = this.changeTitle.bind(this);
         this.changeDescription = this.changeDescription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleAddition = this.handleAddition.bind(this);
     }
 
     changeTitle(event) {this.setState({title: event.target.value});}
     changeDescription(event) {this.setState({description: event.target.value});}
+
+    handleDelete(i) {
+        var tags = this.state.tags
+        tags.splice(i, 1)
+        this.setState({ tags: tags })
+    }
+    handleAddition(tag) {
+        var tags = this.state.tags
+        tags.push(tag)
+        this.setState({ tags: tags })
+    }
 
     onSubmit(event) {
         event.preventDefault();
@@ -26,6 +41,7 @@ class TopicNewForm extends Component {
         this.props.newTopic({
             title : this.state.title,
             description : this.state.description,
+            tags : this.state.tags.map((t) => t.name),
             contractId : this.props.contract._id
         }, (error, result) => {
             if(error){
@@ -43,32 +59,53 @@ class TopicNewForm extends Component {
 
     render() {
         let md = new Remarkable();
-        md.use(Meta);
         let html = md.render(this.state.description);
+        const tags = this.state.tags.map((t, i) => (<a key={i}>{t.name}</a>))
         return (
-            <form onSubmit={this.onSubmit} action="">
+            <form onSubmit={this.onSubmit}>
                 <div className="row">
-                    <h1>New Topic: {this.state.title}</h1>
-                    <div className="large-12 columns large-centered">
-                        <input type="text" placeholder="Title" onChange={this.changeTitle} value={this.state.title} className="input" />
-                    </div>
+                    <h1>New Topic</h1>
                 </div>
                 <div className="row">
                     <div className="large-6 small-12 columns">
                         <div  className="row">
                             <div className="large-12 columns large-centered">
+                                <input type="text" placeholder="Title"
+                                    onChange={this.changeTitle} value={this.state.title} className="input" />
+                            </div>
+                            <div className="large-12 columns large-centered">
                                 <textarea placeholder="Topic Content" onChange={this.changeDescription}
                                     value={this.state.description} className="input"
                                     style={styles.textarea}></textarea>
+                            </div>
+                            <div className="large-12 columns">
+                                <ReactTags
+                                    tags={this.state.tags}
+                                    suggestions={this.state.suggestions}
+                                    handleDelete={this.handleDelete}
+                                    handleAddition={this.handleAddition}
+                                    allowNew={true} />
                             </div>
                             <div className="large-12 columns large-centered">
                                 <input type="submit" value="Create" className="input button" />
                             </div>
                         </div>
                     </div>
+
                     <div className="large-6 small-12 columns">
-                        <div  className="row">
-                            <div className="markdown-body" style={styles.preview} dangerouslySetInnerHTML={ {__html: html} } />
+                        <div className="card">
+                            <div className="content">
+                                <span className="title">
+                                    {this.state.title}
+                                </span>
+                                <div className="markdown-body" dangerouslySetInnerHTML={ {__html: html} } />
+                            </div>
+                            <div className="action row">
+                                <div className="large-8 small-8 columns">
+                                    {tags}
+                                </div>
+                                <div className="large-4 columns text-right pull-right">{Meteor.user().profile.name}</div>
+                            </div>
                         </div>
                     </div>
                 </div>

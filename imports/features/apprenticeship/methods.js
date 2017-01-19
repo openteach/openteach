@@ -3,23 +3,20 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 import { Topic } from '../../collections/topics/topics.js';
 import { TopicMessage } from '../../collections/topic-messages/topic-messages.js';
-
 import { Conversation } from '../../collections/conversations/conversations.js';
-
 import { ApprContract } from '../../collections/appr-contracts/appr-contracts.js';
 
 export const newTopic = new ValidatedMethod({
     name: 'appr.newTopic',
-
     validate(args) {
         check(args, {
             title: String,
             description : String,
-            contractId : String
+            tags : [String],
+            contractId : String,
         });
     },
-
-    run({ title, description, contractId }) {
+    run({ title, description, tags, contractId }) {
         //console.log('Executing on client?', this.isSimulation);
 
         // Current usre has authered
@@ -31,8 +28,19 @@ export const newTopic = new ValidatedMethod({
             description : description,
             authorName : authorName,
             contractId : contractId,
+            tags : tags,
             authorId : Meteor.userId()
         });
+
+        // add tags we haevn't seen before for autocompletion
+        const contract = ApprContract.findOne({_id : contractId});
+
+        newTags = uniq(contract.tags.concat(tags));
+
+        if(newTags.length !== contract.tags.length){
+            contract.tags = newTags;
+            contract.save();
+        }
 
         // Save it
         t.save();
@@ -42,13 +50,11 @@ export const newTopic = new ValidatedMethod({
 
 export const markTopicSeen = new ValidatedMethod({
     name: 'appr.markTopicSeen',
-
     validate(args) {
         check(args, {
             topicId: String,
         });
     },
-
     run({ topicId }) {
         // Current usre has authered
         let userId = Meteor.userId();
@@ -67,14 +73,12 @@ export const markTopicSeen = new ValidatedMethod({
 
 export const newTopicMessage = new ValidatedMethod({
     name: 'appr.newTopicMessage',
-
     validate(args) {
         check(args, {
             topicId : String,
             message : String
         });
     },
-
     run({ topicId, message }) {
         let authorName = Meteor.user().profile.name;
         let userId = Meteor.userId();
@@ -103,22 +107,36 @@ export const newTopicMessage = new ValidatedMethod({
 
 export const newConversation = new ValidatedMethod({
     name: 'appr.newConversation',
-
     validate(args) {
         check(args, {
             title: String,
             agenda : String,
+            time : String,
+            place : String,
+            tags : [String],
             contractId : String
         });
     },
-
-    run({ title, agenda, contractId }) {
+    run({ title, agenda, time, place, tags, contractId }) {
         // Create new object
-        let c = new Conversation({
+        const c = new Conversation({
             title : title,
             agenda : agenda,
+            time : time,
+            place : place,
+            tags : tags,
             contractId : contractId
         });
+
+        // add tags we haevn't seen before for autocompletion
+        const contract = ApprContract.findOne({_id : contractId});
+
+        newTags = uniq(contract.tags.concat(tags));
+
+        if(newTags.length !== contract.tags.length){
+            contract.tags = newTags;
+            contract.save();
+        }
 
         // Save it
         c.save();
@@ -130,7 +148,6 @@ export const newConversation = new ValidatedMethod({
 
 export const newContract = new ValidatedMethod({
     name: 'appr.newContract',
-
     validate(args) {
         check(args, {
             contractGoals: String,
@@ -141,9 +158,7 @@ export const newContract = new ValidatedMethod({
             title : String
         });
     },
-
     run({ contractGoals, learningStructure, formalStructure, studentId, instructorId, title }) {
-
         let contract = new ApprContract({
             studentIds : [studentId],
             instructorIds : [instructorId],
@@ -157,3 +172,11 @@ export const newContract = new ValidatedMethod({
         return contract;
     },
 });
+
+// Local helpers
+function uniq(a) {
+    var seen = {};
+    return a.filter(function(item) {
+        return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+    });
+}

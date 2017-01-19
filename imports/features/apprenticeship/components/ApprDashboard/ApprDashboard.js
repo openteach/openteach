@@ -34,18 +34,18 @@ class ApprDashboard extends Component {
     }
 
     render() {
-        const instructorName = this.props.instructor.name;
-        const studentName = this.props.student.name;
-
         if(this.props.loading)
             return (<div>Loading...</div>)
 
+        const instructorName = this.props.instructor.name;
+        const studentName = this.props.student.name;
+
         return (<div>
-            <div className="row">
-                <div className="large-8 columns">
+            <div className="expanded row text-center" style={styles.header}>
+                <div className="large-12 columns">
                     <h1>{instructorName} teaching {studentName}</h1>
                 </div>
-                <div className="large-4 columns"><button onClick={this.toggleContractModal} className="button">Contract</button></div>
+                <button onClick={this.toggleContractModal} className="button">Contract</button>
             </div>
             <div className="row">
                 <div className="large-6 small-12 columns">
@@ -102,9 +102,19 @@ class ApprDashboard extends Component {
 ApprDashboard.propTypes = {
     instructor: React.PropTypes.object,
     student: React.PropTypes.object,
-    contract : React.PropTypes.object
+    contract : React.PropTypes.object,
+    loading: React.PropTypes.bool
 };
 
 ApprDashboard.defaultProps = {};
+
+const styles = {
+    header: {
+        'paddingTop': '3em',
+        'height': '12.5em',
+        'backgroundColor': '#3498db',
+        'marginBottom': '4em'
+    }
+}
 
 export default Radium(ApprDashboard)

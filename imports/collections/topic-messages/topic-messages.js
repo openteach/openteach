@@ -13,6 +13,14 @@ export const TopicMessage = Class.create({
         topicId : String,
         authorName: String,
         authorId : String
+    },
+    behaviors: {
+        timestamp: {
+            hasCreatedField: true,
+            createdFieldName: 'createdAt',
+            hasUpdatedField: true,
+            updatedFieldName: 'updatedAt'
+        }
     }
 });
 

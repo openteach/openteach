@@ -15,9 +15,22 @@ we emphasize:
     - Feedback over assessment
     - Writing teaching material on demand (and develop it lean)
 
-## Deploying
+## Deploying (DigitalOcean)
+Start a virtual machine on digital ocean (using `docker-machine`):
+
+```
+docker-machine create \
+--driver=digitalocean \
+--digitalocean-access-token=[API KEY] \
+--digitalocean-size=512mb \
+--digitalocean-region=fra1 \
+--digitalocean-private-networking=true \
+--digitalocean-image=ubuntu-16-04-x64 \
+openteach
+```
+
 With docker use following docker compose template for a `docker-compose.yml`
-file
+file.
 
 ```
 openteach:
@@ -36,8 +49,13 @@ mongo:
   image: mongo:latest
 ```
 
-Hereafter one can log in using the mail from the `settings.json` file with the
-password _openteach_.
+Then setup by
+
+1. `eval $(docker-machine env openteach)`
+2. `docker-compose up -d`
+
+Lastly go to the site and log in using the mail from the `settings.json`
+file with the password _openteach_.
 
 ## Development
 

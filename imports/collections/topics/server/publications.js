@@ -7,6 +7,11 @@ import {Topic} from '../topics.js'
 Meteor.publish('topics-contract', function(contractId) {
     return Topic.find({
         contractId : contractId
+    },
+    {
+        sort : {
+            createdAt : -1
+        }
     });
 })
 

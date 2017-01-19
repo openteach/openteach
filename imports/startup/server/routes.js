@@ -5,6 +5,7 @@ if ( Meteor.isServer ) {
         try{
             importRepoData();
         } catch(e){
+            console.log(e);
             res.writeHead(500);
             res.end("Malformed data or integration endpoint (more information will come)");
         }

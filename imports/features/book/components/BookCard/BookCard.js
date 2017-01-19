@@ -15,7 +15,7 @@ class BookCard extends Component {
                         <p>Resume of the book here.</p>
                     </div>
                     <div className="action">
-                        <a href={FlowRouter.path("bookRoute", {"id" : book.urlTitle})}>Open</a>
+                        <a href={FlowRouter.path("bookRoute", {"id" : book.slug})}>Open</a>
                     </div>
                 </div>
             </div>);
