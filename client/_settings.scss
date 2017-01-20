@@ -72,7 +72,7 @@ $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: 300; // Changed this from 'normal' - joachim
 $global-weight-bold: bold;
-$global-radius: 0;
+$global-radius: 0px;
 $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
@@ -369,7 +369,7 @@ $input-cursor-disabled: not-allowed;
 $input-transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 $input-number-spinners: true;
 $input-radius: $global-radius;
-$button-radius: $global-radius;
+$button-radius: .1em; // Changed this '$global-radius;' to '.1em' - joachim
 
 // 19. Label
 // ---------
