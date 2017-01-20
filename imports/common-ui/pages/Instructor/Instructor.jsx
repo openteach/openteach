@@ -36,11 +36,14 @@ class Instructor extends React.Component {
     }
 
     renderUserList() {
-        let chapterId = this.props.currentChapter;
-        let book = this.props.book;
-
         return this.props.users.map((u, i) => {
             return (<UserRow key={i} user={u} modalFunction={this.openContractModal} />);
+        });
+    }
+
+    renderLecturesList() {
+        return this.props.lectures.map((l, i) => {
+            return (<tr key={i}><td>l.title</td><td></td></tr>);
         });
     }
 
@@ -94,6 +97,25 @@ class Instructor extends React.Component {
                     </div>
                 </div>
 
+                <div className="row">
+                    <div className="large-6 small-12 columns">
+                        <h2>Lectures</h2>
+                        <p>Administrate your lectures here.</p>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="200">title</th>
+                                    <th width="200">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {this.renderlecturesList()}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
 
                 <Modal isOpen={this.state.contractModalVisible} effect="fadeInDown"
                     portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
@@ -110,6 +132,7 @@ class Instructor extends React.Component {
 
 Instructor.propTypes = {
     users : React.PropTypes.array,
+    lectures : React.PropTypes.array,
     loading : React.PropTypes.bool,
     isInstructor : React.PropTypes.bool,
 };
