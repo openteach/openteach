@@ -2,12 +2,23 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 import MessageForm from '../MessageForm';
 import Remarkable from 'remarkable';
+import Modal from 'react-modal';
+
+import TopicEditForm from '../TopicEditForm'
 
 class TopicView extends Component {
 
     constructor(props) {
         super(props);
-        this.links = [];
+        this.state = {
+            editTopicModal : false,
+            links : []
+        }
+        this.toggleModalTopicForm = this.toggleModalTopicForm.bind(this);
+    }
+
+    toggleModalTopicForm(e) {
+        this.setState({editTopicModal : !this.state.editTopicModal});
     }
 
     findLinks(rawHTML){
@@ -25,7 +36,7 @@ class TopicView extends Component {
         for (var i=0; i<links.length; i++) {
             urls.push(links[i].getAttribute("href"));
         }
-        this.links = uniq(this.links.concat(urls));
+        this.state.links = uniq(this.state.links.concat(urls));
     }
 
     renderMessageList() {
@@ -105,7 +116,7 @@ class TopicView extends Component {
     }
 
     renderlinks(){
-        return this.links.map((l) => {
+        return this.state.links.map((l) => {
             return <li key={l}><a href={l}>{l}</a></li>
         });
     }
@@ -127,15 +138,25 @@ class TopicView extends Component {
                     <hr />
                     <h4>Actions</h4>
                     <ul>
-                        <li><a>Edit</a></li>
-                        <li><a>...</a></li>
+                        <li><a onClick={this.toggleModalTopicForm}>Edit</a></li>
                     </ul>
                 </div>
+                <Modal isOpen={this.state.editTopicModal}
+                    portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
+                    contentLabel="Example Modal">
+
+                    <TopicEditForm contract={this.props.contract} topic={this.props.topic} />
+
+                    <div className="text-center">
+                        <button className="button" onClick={this.toggleModalTopicForm}>Close</button>
+                    </div>
+                </Modal>
             </div>)
     }
 }
 
 TopicView.propTypes = {
+    contract : React.PropTypes.object,
     topic : React.PropTypes.object,
     messages : React.PropTypes.array,
     loadingTopic : React.PropTypes.bool,

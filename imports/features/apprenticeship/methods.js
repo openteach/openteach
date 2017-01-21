@@ -48,6 +48,44 @@ export const newTopic = new ValidatedMethod({
     },
 });
 
+export const updateTopic = new ValidatedMethod({
+    name: 'appr.updateTopic',
+    validate(args) {
+        check(args, {
+            title: String,
+            description : String,
+            tags : [String],
+            oldTopic : Topic
+        });
+    },
+    run({ title, description, tags, oldTopic }) {
+
+        // Create new object
+        let t = Topic.findOne({_id : oldTopic._id})
+
+        // TODO: Save history
+        t.set({
+            title : title,
+            description : description,
+            tags : tags
+        });
+
+        // add tags we haven't seen before for autocompletion
+        const contract = ApprContract.findOne({_id : t.contractId});
+
+        newTags = uniq(contract.tags.concat(tags));
+
+        if(newTags.length !== contract.tags.length){
+            contract.tags = newTags;
+            contract.save();
+        }
+
+        // Save it
+        t.save();
+        return t;
+    },
+});
+
 export const markTopicSeen = new ValidatedMethod({
     name: 'appr.markTopicSeen',
     validate(args) {

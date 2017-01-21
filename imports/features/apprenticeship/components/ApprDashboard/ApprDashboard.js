@@ -3,7 +3,7 @@ import Radium from 'radium';
 import Modal from 'react-modal';
 
 import TopicList from '../TopicList'
-import TopicNewForm from '../TopicNewForm'
+import TopicEditForm from '../TopicEditForm'
 import ConversationList from '../ConversationList'
 import ConversationNewForm from '../ConversationNewForm'
 import ContractView from '../ContractView'
@@ -67,7 +67,7 @@ class ApprDashboard extends Component {
                 portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
                 contentLabel="Example Modal">
 
-                <TopicNewForm contract={this.props.contract} />
+                <TopicEditForm contract={this.props.contract} />
 
                 <div className="text-center">
                     <button className="button" onClick={this.toggleModalTopicForm}>Close</button>
