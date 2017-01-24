@@ -1,7 +1,7 @@
 import { Mongo } from 'meteor/mongo';
 import { Class } from 'meteor/jagi:astronomy';
 
-import {mustBeLoggedIn, inContract} from '../common.js'
+import {mustBeLoggedIn, inContract, isOwner} from '../common.js'
 
 import { globalizeData } from '../../helpers';
 
@@ -48,7 +48,10 @@ export const Topic = Class.create({
     },
     events: {
         beforeInsert: [mustBeLoggedIn],
-        beforeUpdate: [mustBeLoggedIn, function(e){inContract(e.currentTarget.contractId)}]
+        beforeUpdate: [mustBeLoggedIn, function(e){
+            inContract(e.currentTarget.contractId);
+            //isOwner(e.currentTarget.authorId); // readBy should be writeable
+        }]
     },
     behaviors: {
         timestamp: {

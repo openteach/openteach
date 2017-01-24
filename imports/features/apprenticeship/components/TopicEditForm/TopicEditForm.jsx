@@ -55,13 +55,14 @@ class TopicEditForm extends Component {
                 tags : this.state.tags.map((t) => t.name),
                 oldTopic : this.props.topic
             }, (error, result) => {
-                if(that.props.callback)
-                    that.props.callback("update", error, result);
                 if(error){
                     that.state.error = error.reason;
                     console.log(error);
                     return;
                 }
+                // Perform aferUpdate callback
+                if(that.props.afterUpdate)
+                    that.props.afterUpdate(result);
                 FlowRouter.go("topicRoute", {"id" : result._id})
             });
         } else { // We create a new topic
@@ -153,7 +154,7 @@ class TopicEditForm extends Component {
 TopicEditForm.propTypes = {
     newTopic    : React.PropTypes.func,
     updateTopic : React.PropTypes.func,
-    callback    : React.PropTypes.func, // run everytime an action has been performed
+    afterUpdate : React.PropTypes.func, // Run after successful update
     contract    : React.PropTypes.object,
     topic       : React.PropTypes.object,
 };
