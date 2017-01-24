@@ -11,7 +11,7 @@ describe('Topic Collection', function () {
     })
 
     if(Meteor.isServer){
-        describe('Slug test 1', function () {
+        describe('Topic collection is well behaved', function () {
             beforeEach(function () {
                 resetDatabase();
             });

@@ -12,6 +12,7 @@ class TopicEditForm extends Component {
             title : "",
             description : "",
             tags: [],
+            submitText : this.props.topic ? "Update" : "Create",
             suggestions: this.props.contract.tags.map(function(t, i){return {id : i, name : t}})
         }
 
@@ -54,6 +55,8 @@ class TopicEditForm extends Component {
                 tags : this.state.tags.map((t) => t.name),
                 oldTopic : this.props.topic
             }, (error, result) => {
+                if(that.props.callback)
+                    that.props.callback("update", error, result);
                 if(error){
                     that.state.error = error.reason;
                     console.log(error);
@@ -73,12 +76,7 @@ class TopicEditForm extends Component {
                     console.log(error);
                     return;
                 }
-                // Reset the form
-                that.setState({
-                    title : "",
-                    description : ""
-                });
-                FlowRouter.go("topicRoute", {"id" : result._id})
+                FlowRouter.go("topicRoute", {"id" : result._id});
             });
         }
     }
@@ -126,7 +124,7 @@ class TopicEditForm extends Component {
                                     allowNew={true} />
                             </div>
                             <div className="large-12 columns large-centered">
-                                <input type="submit" value="Create" className="input button" />
+                                <input type="submit" value={this.state.submitText} className="input button" />
                             </div>
                         </div>
                     </div>
@@ -153,9 +151,11 @@ class TopicEditForm extends Component {
 }
 
 TopicEditForm.propTypes = {
-    newTopic : React.PropTypes.func,
-    contract : React.PropTypes.object,
-    topic    : React.PropTypes.object,
+    newTopic    : React.PropTypes.func,
+    updateTopic : React.PropTypes.func,
+    callback    : React.PropTypes.func, // run everytime an action has been performed
+    contract    : React.PropTypes.object,
+    topic       : React.PropTypes.object,
 };
 
 TopicEditForm.defaultProps = {};

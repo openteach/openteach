@@ -17,8 +17,6 @@ export const newTopic = new ValidatedMethod({
         });
     },
     run({ title, description, tags, contractId }) {
-        //console.log('Executing on client?', this.isSimulation);
-
         // Current usre has authered
         let authorName = Meteor.user().profile.name;
 
@@ -27,19 +25,22 @@ export const newTopic = new ValidatedMethod({
             title : title,
             description : description,
             authorName : authorName,
+            authorId : Meteor.userId(),
             contractId : contractId,
-            tags : tags,
-            authorId : Meteor.userId()
+            tags : tags
         });
 
-        // add tags we haevn't seen before for autocompletion
-        const contract = ApprContract.findOne({_id : contractId});
+        // We only do this on the serverside
+        if(!this.isSimulation){
+            // add tags we haevn't seen before for autocompletion
+            const contract = ApprContract.findOne({_id : contractId});
 
-        newTags = uniq(contract.tags.concat(tags));
+            newTags = uniq(contract.tags.concat(tags));
 
-        if(newTags.length !== contract.tags.length){
-            contract.tags = newTags;
-            contract.save();
+            if(newTags.length !== contract.tags.length){
+                contract.tags = newTags;
+                contract.save();
+            }
         }
 
         // Save it
@@ -64,11 +65,9 @@ export const updateTopic = new ValidatedMethod({
         let t = Topic.findOne({_id : oldTopic._id})
 
         // TODO: Save history
-        t.set({
-            title : title,
-            description : description,
-            tags : tags
-        });
+        t.title = title;
+        t.description = description;
+        t.tags = tags;
 
         // add tags we haven't seen before for autocompletion
         const contract = ApprContract.findOne({_id : t.contractId});

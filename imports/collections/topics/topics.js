@@ -1,23 +1,11 @@
 import { Mongo } from 'meteor/mongo';
 import { Class } from 'meteor/jagi:astronomy';
 
+import {mustBeLoggedIn, inContract} from '../common.js'
+
 import { globalizeData } from '../../helpers';
 
 const Topics = new Mongo.Collection('topics');
-
-const Resource = Class.create({
-    name : "Resource",
-    fields : {
-        url : String
-    }
-});
-
-const Tag = Class.create({
-    name : "Tag",
-    fields : {
-        title : String
-    }
-});
 
 export const Topic = Class.create({
     name: 'Topic',
@@ -57,6 +45,10 @@ export const Topic = Class.create({
         }
         //resources : [Resource],
         //tags : [Tag],
+    },
+    events: {
+        beforeInsert: [mustBeLoggedIn],
+        beforeUpdate: [mustBeLoggedIn, function(e){inContract(e.currentTarget.contractId)}]
     },
     behaviors: {
         timestamp: {

@@ -145,7 +145,7 @@ class TopicView extends Component {
                     portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
                     contentLabel="Example Modal">
 
-                    <TopicEditForm contract={this.props.contract} topic={this.props.topic} />
+                    <TopicEditForm contract={this.props.contract} topic={this.props.topic} callback={(function(that){return (t, e, r) => {if(t === "update" && !e) that.toggleModalTopicForm()}})(this)} />
 
                     <div className="text-center">
                         <button className="button" onClick={this.toggleModalTopicForm}>Close</button>

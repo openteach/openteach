@@ -1,10 +1,10 @@
 import { createContainer } from 'meteor/react-meteor-data';
-import { newTopic as _newTopic, updateTopic as _updateTopic } from '../../methods.js';
+import { newTopic, updateTopic } from '../../methods.js';
 import TopicEditForm from './TopicEditForm.jsx';
 
-export default createContainer(({topic}) => {
-    const newTopic = (args, callback) => _newTopic.call(args, callback);
-    const updateTopic = (args, callback) => _updateTopic.call(args, callback);
+export default createContainer((params) => {
+    const newTopicW = (args, callback) => newTopic.call(args, callback);
+    const updateTopicW = (args, callback) => updateTopic.call(args, callback);
 
     // Alight, we have two situationer:
     //
@@ -12,8 +12,7 @@ export default createContainer(({topic}) => {
     // 2. We create a new topic, this is if the topic property is false or not set.
 
     return {
-        newTopic : newTopic,
-        updateTopic : updateTopic,
-        topic : topic
+        newTopic : newTopicW,
+        updateTopic : updateTopicW
     };
 }, TopicEditForm)
