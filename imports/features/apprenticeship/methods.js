@@ -210,6 +210,20 @@ export const newContract = new ValidatedMethod({
     },
 });
 
+/******************* Create Aplication ****************/
+
+export const editApplication = new ValidatedMethod({
+    name: 'appr.editApplication',
+    validate(args) {
+        check(args, {
+            application: String
+        });
+    },
+    run({ application }) {
+        return Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.application": application}});;
+    },
+});
+
 // Local helpers
 function uniq(a) {
     var seen = {};

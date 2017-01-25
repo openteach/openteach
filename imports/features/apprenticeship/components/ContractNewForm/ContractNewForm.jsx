@@ -31,9 +31,6 @@ class ContractNewForm extends Component {
     onSubmit(event) {
         event.preventDefault();
 
-        console.log(this.props.student);
-        console.log(this.props.instructor);
-
         let that = this;
         this.props.newContract({
             contractGoals: this.state.contractGoals,
@@ -52,7 +49,6 @@ class ContractNewForm extends Component {
             });
 
             if(typeof error !== "undefined"){
-                console.log("An error happened:")
                 console.log(error);
                 return;
             }

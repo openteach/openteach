@@ -40,7 +40,13 @@ class Instructor extends React.Component {
         let book = this.props.book;
 
         return this.props.users.map((u, i) => {
-            return (<UserRow key={i} user={u} modalFunction={this.openContractModal} />);
+            //return (<UserRow key={i} user={u} modalFunction={this.openContractModal} />);
+            return (
+                <tr key={i}>
+                    <td>{u.profile.name}</td>
+                    <td><a href={FlowRouter.path("viewStudentRoute", {"id" : u._id})}>Administrate</a></td>
+                </tr>
+            );
         });
     }
 
@@ -80,7 +86,7 @@ class Instructor extends React.Component {
                         <h2>Users</h2>
                         <p>Administrate your users here.</p>
 
-                        <table>
+                        <table className="hover">
                             <thead>
                                 <tr>
                                     <th width="200">Name</th>
