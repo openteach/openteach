@@ -41,7 +41,7 @@ class ApprDashboard extends Component {
         const studentName = this.props.student.name;
 
         return (<div>
-            <div className="expanded row text-center" style={styles.header}>
+            <div className="expanded row text-center app-Header">
                 <div className="large-12 columns">
                     <h1>{instructorName} teaching {studentName}</h1>
                 </div>
@@ -108,13 +108,6 @@ ApprDashboard.propTypes = {
 
 ApprDashboard.defaultProps = {};
 
-const styles = {
-    header: {
-        'paddingTop': '3em',
-        'height': '12.5em',
-        'backgroundColor': '#3498db',
-        'marginBottom': '4em'
-    }
-}
+const styles = {}
 
 export default Radium(ApprDashboard)
