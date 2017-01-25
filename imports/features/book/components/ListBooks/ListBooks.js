@@ -35,10 +35,10 @@ class ListBooks extends Component {
     render() {
         return (
             <div>
-                <div className="expanded row text-center" style={styles.header}>
+                <div className="expanded row text-center app-header">
                     <div className="large-12 columns">
                         <h1>Teachers notes</h1>
-                        <p style={styles.tagline}>Teachers material for students</p>
+                        <p>Teachers material for students</p>
                     </div>
                 </div>
                 <div className="listOfCourses">
@@ -56,16 +56,6 @@ ListBooks.propTypes = {
 
 ListBooks.defaultProps = {};
 
-const styles = {
-    header: {
-        'paddingTop': '3em',
-        'height': '12.5em',
-        'backgroundColor': '#ecf0f1',
-        'marginBottom': '4em'
-    },
-    tagline: {
-        'fontSize': '1.2em'
-    }
-}
+const styles = {};
 
 export default Radium(ListBooks)
