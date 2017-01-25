@@ -16,11 +16,11 @@ describe('ConversationCard Component Tests', () => {
     if (Meteor.isClient) {
         describe('Client Test', () => {
             it('Can render', () => {
-                var component = TestUtils.renderIntoDocument(<ConversationCard conversation={{title : "bah", agenda : "buh"}} />);
+                var component = TestUtils.renderIntoDocument(<ConversationCard conversation={{title : "bah", agenda : "buh", tags : []}} />);
             });
 
             it('Can run container', () => {
-                var component = TestUtils.renderIntoDocument(<ConversationCardContainer conversation={{title : "bah", agenda : "buh"}} />);
+                var component = TestUtils.renderIntoDocument(<ConversationCardContainer conversation={{title : "bah", agenda : "buh", tags : []}} />);
             });
         });
     }

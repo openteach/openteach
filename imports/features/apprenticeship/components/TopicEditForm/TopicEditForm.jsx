@@ -98,6 +98,7 @@ class TopicEditForm extends Component {
         let md = new Remarkable();
         let html = md.render(this.state.description);
         const tags = this.state.tags.map((t, i) => (<a key={i}>{t.name}</a>))
+        const username = Meteor.user() ? Meteor.user().profile.name : ""
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="row">
@@ -142,7 +143,7 @@ class TopicEditForm extends Component {
                                 <div className="large-8 small-8 columns">
                                     {tags}
                                 </div>
-                                <div className="large-4 columns text-right pull-right">{Meteor.user().profile.name}</div>
+                                <div className="large-4 columns text-right pull-right">{username}</div>
                             </div>
                         </div>
                     </div>

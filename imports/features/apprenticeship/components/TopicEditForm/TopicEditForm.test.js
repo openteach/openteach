@@ -16,11 +16,11 @@ describe('TopicEditForm Component Tests', () => {
     if (Meteor.isClient) {
         describe('Client Test', () => {
             it('Can render', () => {
-                var component = TestUtils.renderIntoDocument(<TopicEditForm />);
+                var component = TestUtils.renderIntoDocument(<TopicEditForm contract={{tags : []}} />);
             });
 
             it('Can run container', () => {
-                var component = TestUtils.renderIntoDocument(<TopicEditFormContainer topicId="123" />);
+                var component = TestUtils.renderIntoDocument(<TopicEditFormContainer topicId="123" contract={{tags : []}} />);
             });
         });
     }

@@ -16,7 +16,6 @@ class Apply extends Component {
 
     onSubmit(e){
         e.preventDefault();
-        console.log(this.state.application);
         let that = this;
         this.props.editApplication({
             application: this.state.application

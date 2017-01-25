@@ -41,7 +41,7 @@ class ApprDashboard extends Component {
         const studentName = this.props.student.name;
 
         return (<div>
-            <div className="expanded row text-center app-Header">
+            <div className="expanded row text-center app-header">
                 <div className="large-12 columns">
                     <h1>{instructorName} teaching {studentName}</h1>
                 </div>
