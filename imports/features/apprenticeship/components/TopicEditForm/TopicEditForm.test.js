@@ -4,23 +4,23 @@ import React from 'react';
 import jsdom from 'mocha-jsdom';
 import TestUtils from 'react-addons-test-utils';
 
-import TopicNewForm from './TopicNewForm.jsx';
-import TopicNewFormContainer from './TopicNewFormContainer.js'
+import TopicEditForm from './TopicEditForm.jsx';
+import TopicEditFormContainer from './TopicEditFormContainer.js'
 
 /**
 This initial version of the test file merely makes sure all files are included
 to see that they are parsed properly
 **/
 
-describe('TopicNewForm Component Tests', () => {
+describe('TopicEditForm Component Tests', () => {
     if (Meteor.isClient) {
         describe('Client Test', () => {
             it('Can render', () => {
-                var component = TestUtils.renderIntoDocument(<TopicNewForm />);
+                var component = TestUtils.renderIntoDocument(<TopicEditForm contract={{tags : []}} />);
             });
 
             it('Can run container', () => {
-                var component = TestUtils.renderIntoDocument(<TopicNewFormContainer topicId="123" />);
+                var component = TestUtils.renderIntoDocument(<TopicEditFormContainer topicId="123" contract={{tags : []}} />);
             });
         });
     }

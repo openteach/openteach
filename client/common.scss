@@ -1,6 +1,7 @@
 /** IMPORTS **/
 @import 'settings';
 @import '{zurb:foundation-sites}/scss/foundation';
+
 @include foundation-global-styles;
 @include foundation-grid;
 @include foundation-typography;
@@ -30,7 +31,7 @@
 // @include foundation-sticky;
 // @include foundation-reveal;
 // @include foundation-switch;
-// @include foundation-table;
+@include foundation-table;
 // @include foundation-tabs;
 // @include foundation-thumbnail;
 // @include foundation-title-bar;

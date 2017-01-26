@@ -3,15 +3,24 @@ import Radium from 'radium';
 import Remarkable from 'remarkable';
 import ReactTags from 'react-tag-autocomplete';
 
-class TopicNewForm extends Component {
+class TopicEditForm extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            error : "",
             title : "",
             description : "",
             tags: [],
+            submitText : this.props.topic ? "Update" : "Create",
             suggestions: this.props.contract.tags.map(function(t, i){return {id : i, name : t}})
+        }
+
+        if(this.props.topic){
+            let t = this.props.topic;
+            this.state.title = t.title;
+            this.state.description = t.description;
+            this.state.tags = t.tags.map(function(t, i){return {id : i, name : t}});
         }
 
         this.changeTitle = this.changeTitle.bind(this);
@@ -38,29 +47,58 @@ class TopicNewForm extends Component {
     onSubmit(event) {
         event.preventDefault();
         let that = this;
-        this.props.newTopic({
-            title : this.state.title,
-            description : this.state.description,
-            tags : this.state.tags.map((t) => t.name),
-            contractId : this.props.contract._id
-        }, (error, result) => {
-            if(error){
-                console.log(error);
-                return;
-            }
-            // Reset the form
-            that.setState({
-                title : "",
-                description : ""
+
+        if(this.props.topic){ // We update existing
+            this.props.updateTopic({
+                title : this.state.title,
+                description : this.state.description,
+                tags : this.state.tags.map((t) => t.name),
+                oldTopic : this.props.topic
+            }, (error, result) => {
+                if(error){
+                    that.state.error = error.reason;
+                    console.log(error);
+                    return;
+                }
+                // Perform aferUpdate callback
+                if(that.props.afterUpdate)
+                    that.props.afterUpdate(result);
+                FlowRouter.go("topicRoute", {"id" : result._id})
             });
-            FlowRouter.go("topicRoute", {"id" : result._id})
-        });
+        } else { // We create a new topic
+            this.props.newTopic({
+                title : this.state.title,
+                description : this.state.description,
+                tags : this.state.tags.map((t) => t.name),
+                contractId : this.props.contract._id
+            }, (error, result) => {
+                if(error){
+                    that.state.error = error.reason;
+                    console.log(error);
+                    return;
+                }
+                FlowRouter.go("topicRoute", {"id" : result._id});
+            });
+        }
+    }
+
+    renderError() {
+        if(this.state.error !== ""){
+            return (
+                <div className="large-12 columns large-centered">
+                    <div className="callout alert">
+                        {this.state.error}
+                    </div>
+                </div>
+            )
+        }
     }
 
     render() {
         let md = new Remarkable();
         let html = md.render(this.state.description);
         const tags = this.state.tags.map((t, i) => (<a key={i}>{t.name}</a>))
+        const username = Meteor.user() ? Meteor.user().profile.name : ""
         return (
             <form onSubmit={this.onSubmit}>
                 <div className="row">
@@ -69,6 +107,7 @@ class TopicNewForm extends Component {
                 <div className="row">
                     <div className="large-6 small-12 columns">
                         <div  className="row">
+                            {this.renderError()}
                             <div className="large-12 columns large-centered">
                                 <input type="text" placeholder="Title"
                                     onChange={this.changeTitle} value={this.state.title} className="input" />
@@ -87,7 +126,7 @@ class TopicNewForm extends Component {
                                     allowNew={true} />
                             </div>
                             <div className="large-12 columns large-centered">
-                                <input type="submit" value="Create" className="input button" />
+                                <input type="submit" value={this.state.submitText} className="input button" />
                             </div>
                         </div>
                     </div>
@@ -104,7 +143,7 @@ class TopicNewForm extends Component {
                                 <div className="large-8 small-8 columns">
                                     {tags}
                                 </div>
-                                <div className="large-4 columns text-right pull-right">{Meteor.user().profile.name}</div>
+                                <div className="large-4 columns text-right pull-right">{username}</div>
                             </div>
                         </div>
                     </div>
@@ -113,12 +152,15 @@ class TopicNewForm extends Component {
     }
 }
 
-TopicNewForm.propTypes = {
-    newTopic : React.PropTypes.func,
-    contract : React.PropTypes.object
+TopicEditForm.propTypes = {
+    newTopic    : React.PropTypes.func,
+    updateTopic : React.PropTypes.func,
+    afterUpdate : React.PropTypes.func, // Run after successful update
+    contract    : React.PropTypes.object,
+    topic       : React.PropTypes.object,
 };
 
-TopicNewForm.defaultProps = {};
+TopicEditForm.defaultProps = {};
 
 const styles = {
     preview: {
@@ -131,4 +173,4 @@ const styles = {
     }
 };
 
-export default Radium(TopicNewForm)
+export default Radium(TopicEditForm)

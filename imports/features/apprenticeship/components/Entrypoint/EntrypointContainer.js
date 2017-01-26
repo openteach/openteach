@@ -8,6 +8,7 @@ import Apply from '../Apply';
 
 export default createContainer((params) => {
 
+    // If we have choosen a contract
     const currentContract = Session.get("appr-current-contract");
     if(typeof currentContract !== "undefined"){
         return {component : ApprDashboard}

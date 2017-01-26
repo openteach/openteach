@@ -15,11 +15,19 @@ const convertToUrlStr = function(str)
         .replace(/ +/g,'-');
 }
 
+export const Meta = Class.create({
+    name: 'Meta',
+    /* No collection attribute */
+    fields: {
+        title : String
+    }
+});
+
 export const Chapter = Class.create({
     name: 'Chapter',
     /* No collection attribute */
     fields: {
-        meta: Object,
+        meta: Meta,
         content: String,
         urlTitle : String,
     },

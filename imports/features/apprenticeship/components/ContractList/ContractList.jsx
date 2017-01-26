@@ -30,9 +30,18 @@ class ContractsList extends Component {
     }
     render() {
         return (
-            <div  className="row">
-                {this.renderElements()}
-            </div>)
+            <div>
+                <div className="expanded row text-center app-header">
+                    <div className="large-12 columns">
+                        <h1>Apprenticeship</h1>
+                        <p>Apprenticeship training</p>
+                    </div>
+                </div>
+                <div  className="row">
+                    {this.renderElements()}
+                </div>
+            </div>
+        )
     }
 }
 

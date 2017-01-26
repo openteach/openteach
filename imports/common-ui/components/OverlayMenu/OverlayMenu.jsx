@@ -1,7 +1,8 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import Radium from 'radium'
 
-export default class OverlayMenu extends React.Component {
+class OverlayMenu extends React.Component {
 
     constructor(props) {
         super(props);
@@ -63,7 +64,7 @@ export default class OverlayMenu extends React.Component {
                         <li><a href="" onClick={this.goSettings}>Settings</a></li>
                         <li><a href="" onClick={this.logout}>Log Out</a></li>
                     </ul>
-                    <a className="toggle-menu" ><i onClick={this.toggle} className="fi-widget"></i></a>
+                    <a className="toggle-menu" ><i onClick={this.toggle} className="fi-braille" style={styles.icon}></i></a>
                 </nav>);
     }
 }
@@ -72,3 +73,12 @@ OverlayMenu.propTypes = {
     isInstructor : React.PropTypes.bool,
     isStudent : React.PropTypes.bool
 };
+
+const styles= {
+    icon: {
+        'fontSize': '.5em',
+        'marginRight': '1em'
+    }
+}
+
+export default(OverlayMenu)

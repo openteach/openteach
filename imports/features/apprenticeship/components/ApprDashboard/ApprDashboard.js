@@ -3,7 +3,7 @@ import Radium from 'radium';
 import Modal from 'react-modal';
 
 import TopicList from '../TopicList'
-import TopicNewForm from '../TopicNewForm'
+import TopicEditForm from '../TopicEditForm'
 import ConversationList from '../ConversationList'
 import ConversationNewForm from '../ConversationNewForm'
 import ContractView from '../ContractView'
@@ -41,7 +41,7 @@ class ApprDashboard extends Component {
         const studentName = this.props.student.name;
 
         return (<div>
-            <div className="expanded row text-center" style={styles.header}>
+            <div className="expanded row text-center app-header">
                 <div className="large-12 columns">
                     <h1>{instructorName} teaching {studentName}</h1>
                 </div>
@@ -67,7 +67,7 @@ class ApprDashboard extends Component {
                 portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
                 contentLabel="Example Modal">
 
-                <TopicNewForm contract={this.props.contract} />
+                <TopicEditForm contract={this.props.contract} />
 
                 <div className="text-center">
                     <button className="button" onClick={this.toggleModalTopicForm}>Close</button>
@@ -108,13 +108,6 @@ ApprDashboard.propTypes = {
 
 ApprDashboard.defaultProps = {};
 
-const styles = {
-    header: {
-        'paddingTop': '3em',
-        'height': '12.5em',
-        'backgroundColor': '#3498db',
-        'marginBottom': '4em'
-    }
-}
+const styles = {}
 
 export default Radium(ApprDashboard)

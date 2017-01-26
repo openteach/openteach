@@ -37,16 +37,18 @@ openteach:
   image: kadirahq/meteord:base
   restart: always
   ports:
-   + "80:80"
+    - "80:80"
   links:
-   + mongo
+    - mongo
   environment:
-   + MONGO_URL=mongodb://mongo/meteor-db
-   + ROOT_URL=http://[YOUR DOMAIN]
-   + BUNDLE_URL=https://raw.githubusercontent.com/openteach/release/master/releases/[RELEASE].tar.gz
-   + METEOR_SETTINGS=[CONTENT OF SETTINGS.JSON]
+    - MONGO_URL=mongodb://mongo/meteor-db
+    - ROOT_URL=http://[YOUR DOMAIN]
+    - BUNDLE_URL=https://raw.githubusercontent.com/openteach/release/master/releases/[RELEASE].tar.gz
+    - METEOR_SETTINGS=[CONTENT OF SETTINGS.JSON]
 mongo:
-  image: mongo:latest
+  image: mongo:3.0
+  volumes:
+    - /data/db:/data/db
 ```
 
 Then setup by

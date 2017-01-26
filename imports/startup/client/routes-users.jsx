@@ -4,6 +4,8 @@ import {mount} from 'react-mounter';
 import AppLayout from '../../common-ui/layouts/AppLayout';
 import Settings from '../../common-ui/pages/Settings';
 import Instructor from '../../common-ui/pages/Instructor';
+import ViewStudent from '../../common-ui/pages/ViewStudent';
+
 
 import Dashboard from '../../features/dashboard/components/Dashboard';
 
@@ -36,7 +38,7 @@ var userGroup = FlowRouter.group({
  * User routes
  */
 
- userGroup.route('/settings', {
+userGroup.route('/settings', {
     name: "settingsRoute",
     action(params, queryParams) {
         mount(AppLayout, {
@@ -45,11 +47,19 @@ var userGroup = FlowRouter.group({
     }
 });
 
- userGroup.route('/instructor', {
+userGroup.route('/instructor', {
     name: "instructorRoute",
     action(params, queryParams) {
         mount(AppLayout, {
             content: (<Instructor />)
+        });
+    }
+});
+userGroup.route('/student/:id', {
+    name: "viewStudentRoute",
+    action(params, queryParams) {
+        mount(AppLayout, {
+            content: (<ViewStudent id={params.id} />)
         });
     }
 });

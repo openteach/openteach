@@ -1,15 +1,11 @@
 import { createContainer } from 'meteor/react-meteor-data';
-// import { someMethod as _someMethod } from '../../methods';
+import { editApplication as _editApplication } from '../../methods';
 
 import Apply from './Apply.js';
 export default createContainer(() => {
-  // Maybe write a higher-order function for this later
-  // const someMethod = (args, callback) => {
-  //   _someMethod.call(args, callback);
-  // };
+    const editApplication = (args, callback) => _editApplication.call(args, callback);
 
-  return {
-    meteorData: 'goes here'
-    // someMethod,
-  }
+    return {
+        editApplication : editApplication
+    }
 }, Apply)
