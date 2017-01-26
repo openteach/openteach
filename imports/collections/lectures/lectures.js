@@ -9,7 +9,6 @@ export const Lecture = Class.create({
     name: 'Lecture',
     collection: Lectures,
     fields: {
-        contractId : String, // Id of associated contract
         title: {
             type: String,
             validators : [

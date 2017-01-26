@@ -1,44 +1,32 @@
 import { check } from 'meteor/check';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
+import { Lecture } from '../../collections/lectures/lectures.js';
+
 export const newLecture = new ValidatedMethod({
-    name: 'appr.newTopic',
+    name: 'appr.newLecture',
     validate(args) {
         check(args, {
             title: String,
             description : String,
-            tags : [String],
-            contractId : String,
         });
     },
-    run({ title, description, tags, contractId }) {
+    run({ title, description }) {
         //console.log('Executing on client?', this.isSimulation);
 
         // Current usre has authered
         let authorName = Meteor.user().profile.name;
 
         // Create new object
-        let t = new Topic({
+        let l = new Lecture({
             title : title,
             description : description,
             authorName : authorName,
-            contractId : contractId,
-            tags : tags,
             authorId : Meteor.userId()
         });
 
-        // add tags we haevn't seen before for autocompletion
-        const contract = ApprContract.findOne({_id : contractId});
-
-        newTags = uniq(contract.tags.concat(tags));
-
-        if(newTags.length !== contract.tags.length){
-            contract.tags = newTags;
-            contract.save();
-        }
-
         // Save it
-        t.save();
-        return t;
+        l.save();
+        return l._id;
     },
 });
