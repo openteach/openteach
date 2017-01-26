@@ -2,9 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 import Modal from 'react-modal';
 
-import ContractNewForm from '../../../features/apprenticeship/components/ContractNewForm'
 import LectureNewForm from '../../../features/lectures/components/LectureNewForm';
-import UserRow from '../../components/UserRow';
 
 class Instructor extends React.Component {
 
@@ -12,40 +10,12 @@ class Instructor extends React.Component {
         super(props);
         this.state = {
             contractModalVisible : false,
-            userInView : {},
-            lectureModal : false
-        }
-
-        this.closeContractModal = this.closeContractModal.bind(this);
-        this.openContractModal = this.openContractModal.bind(this);
-        this.togglLecturesModal = this.togglLecturesModal.bind(this);
-    }
-
-    togglLecturesModal() {
-        this.setState({lectureModal : !this.state.lectureModal});
-    }
-
-
-    openContractModal(user) {
-        let that = this;
-        return function(e){
-            that.setState({
-                contractModalVisible : true,
-                userInView : user
-            });
         }
     }
 
-    closeContractModal(e){
-        this.setState({
-            contractModalVisible : false,
-            userInView : {}
-        });
-    }
 
     renderUserList() {
         return this.props.users.map((u, i) => {
-            //return (<UserRow key={i} user={u} modalFunction={this.openContractModal} />);
             return (
                 <tr key={i}>
                     <td>{u.profile.name}</td>
@@ -140,15 +110,6 @@ class Instructor extends React.Component {
                     </div>
                 </Modal>
 
-
-                <Modal isOpen={this.state.contractModalVisible} effect="fadeInDown"
-                    portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
-                    contentLabel="Example Modal">
-                    <ContractNewForm student={this.state.userInView} instructor={Meteor.user()} />
-                    <div className="text-center">
-                        <button className="button" onClick={this.closeContractModal}>Close</button>
-                    </div>
-                </Modal>
             </div>
         )
     }
