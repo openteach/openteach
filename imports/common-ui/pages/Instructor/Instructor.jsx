@@ -3,7 +3,6 @@ import Radium from 'radium';
 import Modal from 'react-modal';
 
 import ContractNewForm from '../../../features/apprenticeship/components/ContractNewForm'
-import UserRow from '../../components/UserRow';
 
 class Instructor extends React.Component {
 
@@ -11,36 +10,15 @@ class Instructor extends React.Component {
         super(props);
         this.state = {
             contractModalVisible : false,
-            userInView : {}
-        }
-
-        this.closeContractModal = this.closeContractModal.bind(this);
-        this.openContractModal = this.openContractModal.bind(this);
-    }
-
-    openContractModal(user) {
-        let that = this;
-        return function(e){
-            that.setState({
-                contractModalVisible : true,
-                userInView : user
-            });
         }
     }
 
-    closeContractModal(e){
-        this.setState({
-            contractModalVisible : false,
-            userInView : {}
-        });
-    }
 
     renderUserList() {
         let chapterId = this.props.currentChapter;
         let book = this.props.book;
 
         return this.props.users.map((u, i) => {
-            //return (<UserRow key={i} user={u} modalFunction={this.openContractModal} />);
             return (
                 <tr key={i}>
                     <td>{u.profile.name}</td>
@@ -99,16 +77,6 @@ class Instructor extends React.Component {
                         </table>
                     </div>
                 </div>
-
-
-                <Modal isOpen={this.state.contractModalVisible} effect="fadeInDown"
-                    portalClassName="large-4 medium-6 small-12 columns large-centered medium-centered"
-                    contentLabel="Example Modal">
-                    <ContractNewForm student={this.state.userInView} instructor={Meteor.user()} />
-                    <div className="text-center">
-                        <button className="button" onClick={this.closeContractModal}>Close</button>
-                    </div>
-                </Modal>
             </div>
         )
     }
