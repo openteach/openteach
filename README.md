@@ -1,7 +1,7 @@
 # Open Teach
 Platform for online teaching.
 
-Checkout the platform on Mads's instance [here](learn.madsbuch.com). Apply for
+Checkout the platform on Mads's instance [here](http://learn.madsbuch.com). Apply for
 apprenticeship for any requests.
 
 OpenTeach is an online open source platform for educators. With OpenTeach,
