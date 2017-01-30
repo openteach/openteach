@@ -19,7 +19,11 @@ export const Meta = Class.create({
     name: 'Meta',
     /* No collection attribute */
     fields: {
-        title : String
+        title : String,
+        price : { // How much does the book cost, 0 (or no value) means free
+            type: Number,
+            optional: true
+        },
     }
 });
 
