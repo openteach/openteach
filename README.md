@@ -1,14 +1,6 @@
-
 ![logo](https://github.com/openteach/openteach/raw/master/public/assets/images/ot.png)
 
-Platform for online teaching.
-
-Checkout the platform on Mads's instance [here](http://learn.madsbuch.com). Apply for
-apprenticeship for any requests.
-
-OpenTeach is an online open source platform for educators. With OpenTeach,
-educators will be able to hold their own private lessons, courses and lectures
-online.
+OpenTeach is an opensource teaching platform.
 
 we emphasize:
 
@@ -20,7 +12,11 @@ we emphasize:
     - Feedback over assessment
     - Writing teaching material on demand (and develop it lean)
 
-## Deploying (DigitalOcean)
+# Demo
+Checkout the platform on Mads's instance [here](http://learn.madsbuch.com).
+Apply for apprenticeship for any requests.
+
+# Deploying (DigitalOcean)
 Start a virtual machine on digital ocean (using `docker-machine`):
 
 ```
@@ -64,9 +60,9 @@ Then setup by
 Lastly go to the site and log in using the mail from the `settings.json`
 file with the password _openteach_.
 
-## Development
+# Development
 
-### Setup
+## Setup
 Four easy steps to get started from the terminal:
 
 1. Clone this repository:
@@ -103,7 +99,7 @@ __GitHub personal access token:__
 
 __Now__ run `meteor npm install` to install dependencies.
 
-### Running Locally
+## Running Locally
 This projects can be run in two modes: As the normal app and for testing.
 
 __Running as a normal app:__
@@ -121,14 +117,14 @@ meteor test --driver-package practicalmeteor:mocha --port 3100
 __Note:__ Tests are served on port `3100`. This is so that both an app and tests
 may be run at the same time.
 
-#### Endpoints
+### Endpoints
 For importing stuff from github, invoke following API endpoint:
 
 ```
 http://localhost:3000/api/v1/import/github
 ```
 
-## Create a release
+# Create a release
 If you adopt this project and which to create a deployment file, follow following
 steps.
 
@@ -138,10 +134,10 @@ steps.
 3. Update the docker compose file from the deployment section.
 4. Do a `compose up -d`.
 
-### Documentation
+## Documentation
 Documentation is available in the handbook folder
 
-### Collaboration
+## Collaboration
 This is an open source project, and as such we do not take any responsibility
 or are in any ways liable for the project. Everybody are more than welcome to
 use the software.
