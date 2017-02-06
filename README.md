@@ -1,4 +1,6 @@
-# Open Teach
+
+![logo](https://github.com/openteach/openteach/raw/master/public/assets/images/ot.png)
+
 Platform for online teaching.
 
 Checkout the platform on Mads's instance [here](http://learn.madsbuch.com). Apply for
