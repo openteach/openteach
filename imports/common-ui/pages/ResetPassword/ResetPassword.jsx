@@ -22,6 +22,8 @@ class ResetPassword extends React.Component {
         e.preventDefault();
         Accounts.resetPassword(this.props.token, this.state.pass, function(err){
             console.log(err);
+            if(!err)
+                FlowRouter.go("dashboardBooks");
         })
     }
 
