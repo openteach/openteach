@@ -19,11 +19,7 @@ export const Meta = Class.create({
     name: 'Meta',
     /* No collection attribute */
     fields: {
-        title : String,
-        price : { // How much does the book cost, 0 (or no value) means free
-            type: Number,
-            optional: true
-        },
+        title : String
     }
 });
 
@@ -48,7 +44,25 @@ export const Book = Class.create({
     name: 'Book',
     collection: Books,
     fields: {
+        // Fields are populated from the Book.md meta info
+
         title: String,
+        price : { // How much does the book cost, 0 (or no value) means free
+            type: Number,
+            optional: true,
+            default : 0
+        },
+        currencyCode : { // How much does the book cost, 0 (or no value) means free
+            type: String,
+            optional: true,
+            default : "EUR"
+        },
+        description : {
+            type : String,
+            optional : true,
+            default : "[No description provided]"
+
+        },
         slug : {
             type: String,
             optional: true
@@ -75,6 +89,13 @@ export const Book = Class.create({
     meteorMethods: {
         getBySlug(slug) {
             return this.findOne({slug : slug});
+        }
+    },
+    helpers : {
+        getPrice(){
+            if(this.price === 0)
+                return "FREE";
+            return this.currencyCode + " " + (this.price / 100.0).toFixed(2);
         }
     }
 });

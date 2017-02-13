@@ -15,6 +15,21 @@ export default class SignInInput extends React.Component {
         this.updateUser = this.updateUser.bind(this);
         this.updatePass = this.updatePass.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.forgotPassword = this.forgotPassword.bind(this);
+    }
+
+
+    forgotPassword(event){
+        event.preventDefault();
+        let that = this;
+        Accounts.forgotPassword({email : this.state.user}, function(err){
+            if(typeof err === 'undefined'){
+                console.log("mail sent.")
+            } else {
+                console.log(err);
+                that.setState({loginError : true});
+            }
+        });
     }
 
     onSubmit(event){
@@ -85,6 +100,9 @@ export default class SignInInput extends React.Component {
                             <input type="submit"
                                 className="button success signInButton"
                                 onClick={this.onSubmit} value="Sign in" />
+                        </div>
+                        <div className="text-center">
+                            <a onClick={this.forgotPassword}>Forgot Password</a>
                         </div>
                     </form>
                 </div>)

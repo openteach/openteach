@@ -4,6 +4,7 @@ import {mount} from 'react-mounter';
 import PublicLayout from '../../common-ui/layouts/PublicLayout.jsx';
 
 import Entrypage from '../../common-ui/pages/EntryPage/';
+import ResetPassword from '../../common-ui/pages/ResetPassword/';
 import NotFound from '../../common-ui/pages/notfound-404/components/NotFound/NotFound.js';
 
 
@@ -40,6 +41,15 @@ publicGroup.route('/', {
     action(params, queryParams){
         mount(PublicLayout, {
             content: (<Entrypage instructor={{name : Meteor.settings.public.instructorName}} />)
+        })
+    }
+});
+
+FlowRouter.route('/reset-password/:token', {
+    name: "resetPasswordRoute",
+    action(params, queryParams){
+        mount(PublicLayout, {
+            content: (<ResetPassword token={params.token} />)
         })
     }
 });
