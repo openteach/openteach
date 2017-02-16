@@ -57,15 +57,17 @@ class OverlayMenu extends React.Component {
     }
 
     render () {
-        return (<nav role="navigation">
-                    <ul id="menu" className={this.state.classes}>
-                        <li><a href="" onClick={this.goHome}>Home</a></li>
-                        {this.instructor()}
-                        <li><a href="" onClick={this.goSettings}>Settings</a></li>
-                        <li><a href="" onClick={this.logout}>Log Out</a></li>
-                    </ul>
-                    <a className="toggle-menu" ><i onClick={this.toggle} className="fi-braille" style={styles.icon}></i></a>
-                </nav>);
+        return (
+            <nav role="navigation">
+                <ul id="menu" className={this.state.classes}>
+                    <li><a href="" onClick={this.goHome}>Home</a></li>
+                    {this.instructor()}
+                    <li><a href="" onClick={this.goSettings}>Settings</a></li>
+                    <li><a href="" onClick={this.logout}>Log Out</a></li>
+                </ul>
+                <a className="toggle-menu"><i onClick={this.toggle} className="fi-align-justify" style={styles.icon}></i></a>
+            </nav>
+        );
     }
 }
 
