@@ -5,3 +5,4 @@ deploy.sh
 docker-compose.yml
 Dockerfile
 openteach.tar.gz
+.DS_Store
