@@ -78,8 +78,8 @@ class Book extends Component {
                 <div id="chapter-selector" className="row expanded">
                     <OffCanvas width={250} transitionDuration={250} isMenuOpened={this.state.isMenuOpened} position={"left"}>
                         <OffCanvasBody className={styles.bodyClass}>
+                            <a><i onClick={this.handleClick.bind(this)} className="fi-indent-more" style={styles.toggleIcon}></i></a>
                             <div className="small-12 large-12 columns">
-                                <a><i onClick={this.handleClick.bind(this)} className="fi-indent-more" style={styles.toggleIcon}></i></a>
                                 {this.renderChapterContent()}
                             </div>
                         </OffCanvasBody>
@@ -117,10 +117,11 @@ const styles = {
 
     },
     toggleIcon: {
-        'fontSize': '1.5em'
+        'fontSize': '1.5em',
+        'marginLeft': '1em'
     },
     menuClass: {
-        
+
     },
     menuLogo: {
         'paddingTop': '4em'
