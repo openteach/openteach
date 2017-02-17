@@ -59,14 +59,14 @@ class Book extends Component {
     }
 
     componentWillMount() {
-    // sets the initial state
+    // sets the initial state of the offcanvas menu
         this.setState({
             isMenuOpened: false
         })
     }
 
     handleClick() {
-      // toggles the menu opened state
+      // toggles the menu opened state for the offcanvas menu
       this.setState({ isMenuOpened: !this.state.isMenuOpened });
     }
 
