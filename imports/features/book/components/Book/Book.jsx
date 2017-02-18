@@ -79,13 +79,13 @@ class Book extends Component {
                     <OffCanvas width={250} transitionDuration={250} isMenuOpened={this.state.isMenuOpened} position={"left"}>
                         <OffCanvasBody className={styles.bodyClass}>
                             <a><i onClick={this.handleClick.bind(this)} className="fi-indent-more" style={styles.toggleIcon}></i></a>
-                            <div className="expanded row text-center app-header">
+                            <div className="expanded row text-center app-header" style={styles.header}>
                                 <div className="large-12 columns">
                                     <h1>Book Title goes here</h1>
-                                    <ul>
+                                    <ul style={styles.listHeader}>
                                         <li>One</li>
                                         <li>Two</li>
-                                        <li>Three</li>
+                                        <li className="lastItem">Three</li>
                                     </ul>
                                 </div>
                             </div>
@@ -130,6 +130,12 @@ const styles = {
         'fontSize': '1.5em',
         'marginLeft': '1.7em',
         'position': 'absolute'
+    },
+    header: {
+        'height': '15em'
+    },
+    listHeader: {
+        'listStyle': 'none'
     },
     menuClass: {
 
