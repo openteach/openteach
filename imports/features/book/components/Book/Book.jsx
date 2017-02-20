@@ -81,7 +81,7 @@ class Book extends Component {
                             <a><i onClick={this.handleClick.bind(this)} className="fi-indent-more" style={styles.toggleIcon}></i></a>
                             <div className="expanded row text-center app-header" style={styles.header}>
                                 <div className="large-12 columns">
-                                    <h1>Book Title goes here</h1>
+                                    <h1>{this.props.book.title}</h1>
                                     <ul style={styles.listHeader}>
                                         <li>One</li>
                                         <li>Two</li>
